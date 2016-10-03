@@ -1,26 +1,22 @@
 {
   currentUser: {
     id: 1,
-    username: "user1"
+    username: "user1",
+    email: "user1@user"
+    team_id: 1
   },
   forms: {
     signup: { errors },
-    login: { errors }.
-    createNore: { errors: ["body can't be blank"]}
+    login: { errors }
   },
-  projects: {
-    1: {
-      title: "Todo App",
-      description: "for workflow management",
-      author_id: 1,
-      members: { "user1": "email1", "user2": "email2" }
-    }
-  },
-  todo_lists: {
+  todoLists: {
     1: {
       title: "Development",
       description: null,
       author_id: 1,
+      team_id: 2,
+      archived: false,
+      completionCount: { totalTodos: 6, completedTodos: 2}
     }
   },
   todos {
@@ -34,11 +30,24 @@
       todo_list_id: 1
     }
   },
-  team {
+  myTodos {
     1: {
-      members: { "user1": "email1", "user2": "email2" },
-      manager: { "user1": "email1"}
+      title: "make wireframes",
+      description: null,
+      author_id: 2,
+      todoer_id: 1,
+      completion: false,
+      duedate: "10/03/2016",
+      todo_list_id: 1
     }
+  }
+  teamMembers {
+    1: {
+      id: 1,
+      username: "user1",
+      email: "user1@user"
+      team_id: 1
+    },
   },
   events {
     1: {
@@ -51,7 +60,8 @@
     1: {
       title: "the app will be great",
       body: null,
-      author: { "user1": "email1"}
+      author: { "user1": "email1"},
+      timestamp: "10/1/2016 3:45PM"
     }
   }
 
