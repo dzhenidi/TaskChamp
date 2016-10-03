@@ -4,19 +4,28 @@
 * AuthForm
 
 **HomeContainer**
-*
+* **NavigationContainer**
 
-**ProjectsIndexContainer**
-* ProjectIndexItem
-* ProjectForm
+* MyTodosPreviewContainer
+  * TodoIndexItem
+* AllTodosPreviewContainer  
+  * TodoListIndexItem
+* MessagesPreviewContainer
+  * MessagesIndexItem
+* EventsPreviewContainer  
+  * EventsIndexItem
+
+
 
 **TodoListsIndexContainer**
+* TodoListDetail
 * TodoListIndexItem
 * TodoListForm
 
-**TodoIndexContainer**
-* TodoIndexItem
-* TodoForm
+* **TodoIndexContainer**
+  * TodoIndexItem
+  * TodoForm
+  * TodoCompletionCounter
 
 **ScheduleContainer**
 * EventsIndexContainer
@@ -29,20 +38,20 @@
 ## Routes
 
 
-Path | Component
------|-----------
-"/signup" | "AuthFormContainer"
-"/signin" | "AuthFormContainer"
-"/home" | "HomeContainer"
-"home/projects" | "ProjectsIndexContainer"
-  | "ProjectForm"
-  | "ProjectIndexItem"
-"home/projects/todo-lists" | "TodoListsIndexContainer"
-  |"TodoListIndexItem"
-  |"TodoListForm"
-"home/projects/todo-lists/lists" | "TodosIndexContainer"
-  |"TodosIndexItem"
-  |"TodosForm"
+Path              | Component
+-----             |-----------
+"/signup"         | "AuthFormContainer"
+"/signin"         | "AuthFormContainer"
+"/home"           | "HomeContainer"
+"home/todo-lists" | "TodoListsIndexContainer"
+                  | "TodoListIndexItem"
+                  | "TodoListForm"
+                  | "TodoListDetail"
+                  | "TodoIndexItem"
+                  | "TodoForm"
+
+"home/todo-lists/:listId" | "TodoListsIndexItemContainer"
+                          | "TodosForm"
 "home/schedule" | "ScheduleContainer"
 "home/schedule/events" | "EventsIndexContainer"
 "home/message-board" | "MessagesIndexContainer"
