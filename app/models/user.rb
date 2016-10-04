@@ -24,6 +24,10 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  belongs_to :team,
+    foreign_key: id,
+    class_name: 'User'
+    
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     return nil if user.nil?
