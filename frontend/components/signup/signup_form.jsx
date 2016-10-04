@@ -10,16 +10,10 @@ class SignupForm extends React.Component {
           email: "",
           team_id: ""
       };
+      debugger
       this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  fetchTeamNames() {
-    
-  }
-
-  componentDidMount(){
-    fetchTeamNames();
-  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -43,15 +37,7 @@ class SignupForm extends React.Component {
     });
   }
 
-  redirectIfLoggedIn(){
-    if (this.props.loggedIn) {
-      hashHistory.push("/");
-    }
-  }
 
-  componentDidUpdate(){
-    this.redirectIfLoggedIn();
-  }
 
   render() {
     let buttonHeader;
@@ -68,7 +54,9 @@ class SignupForm extends React.Component {
       linkHeader="Log in";
     }
 
-    let options;
+    const options = this.props.teams.map( team => (
+      <option value={team.id}>{team.name}</option>
+    ));
 
     return (
       <section className="session-container">
@@ -86,7 +74,11 @@ class SignupForm extends React.Component {
             type="password"
             placeholder="password"
             onChange={this.update('password')}/>
-          <select onChange={this.update('team_id')}>
+          <input
+            type="email"
+            placeholder="email"
+            onChange={this.update('email')}/>
+          <select value={this.state.team_id} onChange={this.update('team_id')}>
             {options}
           </select>
           <input type="submit" value={buttonHeader}/>
@@ -96,4 +88,4 @@ class SignupForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default SignupForm;

@@ -4,6 +4,8 @@ import App from './app';
 import { Provider   }  from 'react-redux';
 import SessionFormContainer from './session/session_container';
 import { requestTeamNames } from '../actions/teams_action';
+import SignupFormContainer from './signup/signup_container';
+
 
 const Root = ({ store }) => {
 
@@ -23,10 +25,10 @@ const Root = ({ store }) => {
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
-        <Route path="/" component={ App } />
-        <IndexRoute path="/" component= {SignupFormContainer} onEnter={ requestTeamNamesOnEnter } />
-        <Route path="/login" component={ SessionFormContainer } onEnter = { _redirectIfLoggedIn }/>
-        <Route path="/signup" component={ SessionFormContainer } onEnter= { _redirectIfLoggedIn }/>
+        <Route path="/" component={ App }>
+          <Route path="/login" component={ SessionFormContainer } onEnter = { _redirectIfLoggedIn }/>
+          <Route path="/signup" component={ SignupFormContainer } onEnter= { _requestTeamNamesOnEnter }/>
+        </Route>
       </Router>
     </Provider>
   );
