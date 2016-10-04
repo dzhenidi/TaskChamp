@@ -4,15 +4,16 @@
 ## Heroku Link
 
 ## Minimum Viable Product
-BaseChamp is a web application inspired by BaseCamp using Ruby on Rails and React/Redux. By the end of week nine, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
+TaskChamp is a web application inspired by TaskCamp using Ruby on Rails and React/Redux. By the end of week nine, this app will, at a minimum, satisfy the following criteria with smooth, bug-free navigation, adequate seed data and sufficient CSS styling:
 
 * New account creation, login, and guest/demo login
 * A production README
 * Hosting on Heroku
-* To-do Lists
+* Todo Lists
 * Basecamp Home View
-* Message Board (post questions and allow comments/answers)
-* Schedule
+* Comments (post comments on todo lists  and allow responses)
+* Schedule view of todos
+* My assignments view
 
 
 ## Design Docs
@@ -61,19 +62,19 @@ BaseChamp is a web application inspired by BaseCamp using Ruby on Rails and Reac
 * Seed todos
 
 ### Phase 3: (2 days)
-**Objective**: Todos belong to Todo Lists that can be created, read, and destroyed through the app
+**Objective**: Todos belong to Projects that can be created, read, and destroyed through the app
 
-* TodoList model
+* Project model
 * Seed database with a small amount of test data
-* CRUD API for todo lists (TodoListsController)
+* CRUD API for todo lists (ProjectsController)
 * JBuilder views for todo lists
-* Adding todos requires a todo list
-* Viewing todos by todo list
+* Adding todos requires a project
+* Viewing todos by project
 * Displaying todos by due date & completion
 * Viewing My Todos
-* Style todo list components
-* Style todo list preview on homepage
-* Seed todo lists
+* Style project components
+* Style project preview on homepage
+* Seed projects
 
 ### Phase 4: (1 days)
 **Objective**: Todos appear as events in schedule by due_date.
@@ -87,18 +88,15 @@ BaseChamp is a web application inspired by BaseCamp using Ruby on Rails and Reac
 * Seed schedule
 
 ### Phase 5: (1 day)
-**Objective**: Messages can be posted to a message board.
+**Objective**: Comments can be made on a project.
 
-* Messages model
+* Comments model
 * Seed database with a small amount of test data
-* CRUD API for schedule (MessagesController)
+* CRUD API for comments (CommentsController)
 * JBuilder view for schedule
-* Messages components and respective Redux loops
-  * MessagesIndex, MessagesForm, MessagesIndexItem
-* Adding events requires a schedule   
-* Style schedule index page
-* Style schedule preview on homepage
-* Seed schedule
+* Comments components and respective Redux loops
+  * CommentsIndex, CommentsForm, CommentsIndexItem
+* Style comments view and new comment form
 
 ### Phase 6: (1 day)
 * add events feature with Event model and components

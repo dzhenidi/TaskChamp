@@ -25,21 +25,14 @@
 
 
 
-<!-- ### MessageBoard
-* GET /api/message_board -->
+### Projects
+* GET /api/projects
+* POST /api/projects
+* DELETE /api/project/:id
+* PATCH /api/project/:id
 
-### Messages
-* GET /api/messages
-* POST /api/messages
-* EDIT /api/messages/:id
-* DELETE /api/messages/:id
-
-
-### TodoLists
-* GET /api/todo_lists
-* POST /api/todo_lists
-* DELETE /api/:id
-* PATCH /api/:id
+### Comments
+* POST /api/project/:id/comments
 
 ### Todos
 * GET /api/todos
@@ -50,11 +43,6 @@
 ### Schedule
 * GET /api/schedule
 
-### Events
-* GET /api/events
-* POST /api/events
-* DELETE /api/events/:id
-* EDIT /api/events/:id
 
 ### Team
 * GET /api/team
