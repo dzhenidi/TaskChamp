@@ -17,19 +17,18 @@ team_id | integer | not null, foreign key, indexed
 column name | data type | details
 ------------|-----------|--------
 id | integer | not null, indexed, primary key
-manager_id | integer | not null, indexed, foreign key
 name | string |
 
 
-**todo_lists**
+**projects**
 
 column name | data type | details
 ------------|-----------|--------
 id | integer | not null, indexed, primary key
 title | string | not null
 description | string |
-archived | boolean | default: false
 author_id | integer| foreign key, not null, indexed
+team_id | integer | foreign key, not null, indexed
 
 **todos**
 
@@ -39,11 +38,31 @@ id | integer | not null, indexed, primary key
 title | string | not null
 description | string |
 completion | boolean | default: false
-duedate | datetime
+due_date | datetime
 author_id | integer | not null, foreign key, indexed
 todoer_id | integer | not null, foreign key, indexed
-todo_list_id | integer | not null, foreign key, indexed
+project_id | integer | not null, foreign key, indexed
 
+
+**comments**
+
+column name | data type | details
+------------|-----------|--------
+id | integer | not null, indexed, primary key
+title | string | not null
+body | text |
+author_id | integer | not null, foreign key, indexed
+parent_comment_id | integer | not null, foreign key, indexed
+team_id | integer | foreign key, not null, indexed
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////
+// I may have to leave the projects feature a later upgrade.
 
 **events**
 
@@ -55,35 +74,6 @@ description | string |
 event_date | datetime | not null, indexed
 author_id | integer | not null, foreign key, indexed
 
-
-**messages**
-
-column name | data type | details
-------------|-----------|--------
-id | integer | not null, indexed, primary key
-title | string | not null
-body | text |
-author_id | integer | not null, foreign key, indexed
-respond_to_id | integer | not null, foreign key, indexed
-
-
-
-
-
-
-
-////////////////////////////////////////////////////////////
-// I may have to leave the projects feature a later upgrade.
-
-
-**projects**
-
-column name | data type | details
-------------|-----------|--------
-id | integer | not null, indexed, primary key
-author_id | integer | not null, indexed, foreign key
-title | string | not null
-description | text
 
 
 **project_memberships**

@@ -13,6 +13,9 @@
 * GET /api/users
 * POST /api/users
 * PATCH /api/users
+* GET /api/users/homepage
+  * displays links to todo lists, my todos, message board, calendar
+  * may skip and redirect directly to projects page on login
 
 ### Session
 
@@ -21,34 +24,28 @@
 * GET /api/session
 
 
-### Homepage
 
-* GET /api/home
-  * displays links to todo lists, my todos, message board, calendar
-  * may skip and redirect directly to projects page on login
-
-
-### MessageBoard
-* GET /api/message_board
+<!-- ### MessageBoard
+* GET /api/message_board -->
 
 ### Messages
-* GET /api/message_board/messages
-* POST /api/message_board/messages
-* EDIT /api/message_board/:messageId
-* DELETE /api/message_board/:messageId
+* GET /api/messages
+* POST /api/messages
+* EDIT /api/messages/:id
+* DELETE /api/messages/:id
 
 
 ### TodoLists
 * GET /api/todo_lists
 * POST /api/todo_lists
-* DELETE /api/:todo_list_id
-* PATCH /api/:todo_list_id
+* DELETE /api/:id
+* PATCH /api/:id
 
 ### Todos
 * GET /api/todos
 * POST /api/todos
-* PATCH /api/todos/:todo_id
-* DELETE /api/todos/:todo_id
+* PATCH /api/todos/:id
+* DELETE /api/todos/:id
 
 ### Schedule
 * GET /api/schedule
@@ -56,8 +53,8 @@
 ### Events
 * GET /api/events
 * POST /api/events
-* DELETE /api/events/:event_id
-* EDIT /api/events/:event_id
+* DELETE /api/events/:id
+* EDIT /api/events/:id
 
 ### Team
 * GET /api/team

@@ -19,7 +19,7 @@ BaseChamp is a web application inspired by BaseCamp using Ruby on Rails and Reac
 
 * [View Wireframes](./wireframes)
 * [API endpoints](./api-endpoints.md)
-* [React Components](./component-heirarchy.md)
+* [React Components](./component-hierarchy.md)
 * [Redux Structure](./redux-structure.md)
 * [Sample State](./sample-state.md)
 * [DB Schema](./schema.md)
@@ -38,6 +38,7 @@ BaseChamp is a web application inspired by BaseCamp using Ruby on Rails and Reac
 * APIUtil to interact with the API
 * Redux cycle for frontend authentication
 * User signup/signin components
+* Users create or join an existing team on signup
 * Blank landing component after signup/signin
 * Style signup/signin components
 * Seed users
@@ -75,34 +76,17 @@ BaseChamp is a web application inspired by BaseCamp using Ruby on Rails and Reac
 * Seed todo lists
 
 ### Phase 4: (1 days)
-**Objective**: Events can be created, read, and destroyed through the API.
+**Objective**: Todos appear as events in schedule by due_date.
 
-* Event model
-* Seed database with a small amount of test data
-* CRUD API for events (EventsController)
-* JBuilder view for events
-* Event components and respective Redux loops
-  * EventsIndex
-  * EventsIndexItem
-  * EventsForm
-* Style events components
-* Seed events
-
-### Phase 5: (1 days)
-**Objective**: Events can be added to a schedule that can be viewed and previewed through the app.
-
-* Schedule model
-* Seed database with a small amount of test data
-* CRUD API for schedule (SchedulesController)
+* todos are added to the schedule as they are created
 * JBuilder view for schedule
 * Schedule components and respective Redux loops
   * SchedulesIndex
-* Adding events requires a schedule   
 * Style schedule index page
 * Style schedule preview on homepage
 * Seed schedule
 
-### Phase 6: (1 day)
+### Phase 5: (1 day)
 **Objective**: Messages can be posted to a message board.
 
 * Messages model
@@ -115,3 +99,6 @@ BaseChamp is a web application inspired by BaseCamp using Ruby on Rails and Reac
 * Style schedule index page
 * Style schedule preview on homepage
 * Seed schedule
+
+### Phase 6: (1 day)
+* add events feature with Event model and components
