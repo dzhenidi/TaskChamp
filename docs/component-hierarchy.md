@@ -6,24 +6,17 @@
 **HomeContainer**
 * **NavigationContainer**
 
-* MyTodosPreviewContainer
-  * TodoIndexItem
-* AllTodosPreviewContainer  
-  * TodoListIndexItem
-* MessagesPreviewContainer
-  * MessagesIndexItem
-* EventsPreviewContainer  
-  * EventsIndexItem
+* TodoListsIndexContainer
+* MessagesIndexContainer
 
-
-
-**TodoListsIndexContainer**
+**TodoListContainer**
 * TodoListDetail
-* TodoListIndexItem
+* TodoListItem
 * TodoListForm
 
-* **TodoIndexContainer**
-  * TodoIndexItem
+* **TodoContainer**
+// if I pass props from the TodoListsContainer to the TodoIndex and TodoIndexItem, I do not need a container for todo index
+  * TodoItem
   * TodoForm
   * TodoCompletionCounter
 
@@ -43,16 +36,16 @@ Path              | Component
 "/signup"         | "AuthFormContainer"
 "/signin"         | "AuthFormContainer"
 "/home"           | "HomeContainer"
-"home/todo-lists" | "TodoListsIndexContainer"
+"/todo-lists" | "TodoListsIndexContainer"
                   | "TodoListIndexItem"
                   | "TodoListForm"
                   | "TodoListDetail"
                   | "TodoIndexItem"
                   | "TodoForm"
 
-"home/todo-lists/:listId" | "TodoListsIndexItemContainer"
+"/todo-lists/:listId" | "TodoListsIndexItemContainer"
                           | "TodosForm"
-"home/schedule" | "ScheduleContainer"
-"home/schedule/events" | "EventsIndexContainer"
-"home/message-board" | "MessagesIndexContainer"
-"home/message-board/messages" | "MessageFormContainer"
+"/schedule" | "ScheduleContainer"
+"/schedule/events" | "EventsIndexContainer"
+"/messages" | "MessagesIndexContainer"
+"/messages/new" | "MessageFormContainer"
