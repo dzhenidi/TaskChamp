@@ -3,7 +3,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import { Provider   }  from 'react-redux';
 import SessionFormContainer from './session/session_container';
-import { requestTeamNames } from '../actions/session_action';
+import { requestTeamNames } from '../actions/teams_action';
 
 const Root = ({ store }) => {
 
