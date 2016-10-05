@@ -1,5 +1,5 @@
 import React from 'react';
-import { Router, Route, IndexRoute, hashHistory } from 'react-router';
+import { Router, Route, IndexRoute, IndexRedirect, hashHistory } from 'react-router';
 import App from './app';
 import { Provider   }  from 'react-redux';
 import SessionFormContainer from './session/session_container';
@@ -18,14 +18,15 @@ const Root = ({ store }) => {
     };
   }
 
-  const _requestTeamNamesOnEnter = () => {
-    store.dispatch(requestTeamNames());
-  }
+  const _requestTeamNamesOnEnter = (nextState, replace, asyncDoneCallback) => {
+      store.dispatch(requestTeamNames(asyncDoneCallback));
+  };
 
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path="/" component={ App }>
+          <IndexRedirect to="/signup" component={SignupFormContainer}/>
           <Route path="/login" component={ SessionFormContainer } onEnter = { _redirectIfLoggedIn }/>
           <Route path="/signup" component={ SignupFormContainer } onEnter= { _requestTeamNamesOnEnter }/>
         </Route>

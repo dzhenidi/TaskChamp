@@ -47,16 +47,19 @@ class SessionForm extends React.Component {
     let buttonHeader;
     let linkTo;
     let linkHeader;
-
-    if (this.props.formType === "login") {
-      buttonHeader = "Log in";
-      linkTo = "/signup";
-      linkHeader="Sign up";
-    } else {
-      buttonHeader = "Sign up";
-      linkTo = "/login";
-      linkHeader="Log in";
-    }
+    //
+    // if (this.props.formType === "login") {
+    //   buttonHeader = "Log in";
+    //   linkTo = "/signup";
+    //   linkHeader="Sign up";
+    // } else {
+    //   buttonHeader = "Sign up";
+    //   linkTo = "/login";
+    //   linkHeader="Log in";
+    // }
+    buttonHeader = "Next";
+    linkTo = "/signup";
+    linkHeader="Sign up";
 
     return (
       <section className="session-container">

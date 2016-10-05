@@ -1,0 +1,69 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+  * {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    font: inherit;
+    background: inherit;
+    color: inherit;
+    vertical-align: inherit;
+    text-align: inherit;
+    box-sizing: inherit;
+
+  }
+
+ body {
+   background-color: #f5f8fa;
+   font-family: 'Open Sans', sans-serif;
+ }
+
+ ul {
+   list-style: none;
+ }
+
+ input {
+    vertical-align: middle;
+    -webkit-appearance: textfield;
+
+ }
+
+ input, select {
+   vertical-align: middle;
+ }
+
+ input[type="submit"] {
+   align-items: flex-start;
+   text-align: center;
+   cursor: default;
+   white-space: pre;
+ }
+
+ .submit {
+   border-radius: 8px;
+   background: -webkit-gradient(linear, left top, left bottom, from(#8fc857), to(#5c9425));
+   border: 1px solid #5c9425;
+   color: #fff;
+   font-size: 16px;
+   font-weight: bold;
+   margin: 0;
+   padding: 10px 30px;
+   text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+
+ }
