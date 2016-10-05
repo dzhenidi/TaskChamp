@@ -4,7 +4,6 @@ import SignupFormContainer from './signup/signup_container';
 
 const App = ({ children }) => (
   <div>
-    <h1>Task Champ</h1>
     <GreetingContainer />
 
     {children}
