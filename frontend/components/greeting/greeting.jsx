@@ -19,11 +19,8 @@ class Greeting extends React.Component {
       );
     } else {
       return (
-        <ul>
-          <li><Link to="/signup">Sign Up</Link></li>
-          <li><Link to="/login">Log In</Link></li>
-
-        </ul>
+        // <li><Link to="/login">Log In</Link></li>
+        <div>returning from greeting</div>
       );
     }
   }

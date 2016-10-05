@@ -1,0 +1,39 @@
+.signup-form {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: left;
+}
+.signup-form input, select {
+    width: 264px;
+    margin-bottom: 10px;
+}
+
+.signup-form label, [type="submit"] {
+  cursor: inherit;
+  margin-bottom: 10px;
+}
+
+.signup-form label > p {
+  display: block;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+.signup-form input {
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #bfbfbf;
+  display: block;
+  font-size: 15px;
+  padding: 8px 10px;
+
+}
+
+.signup-form [type="submit"] {
+  padding: 10px 30px;
+  display: inline-block;
+}
+
+.signup-form select {
+  
+}

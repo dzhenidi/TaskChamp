@@ -2,11 +2,12 @@ import { connect } from 'react-redux';
 import SignupForm from './signup_form';
 import { signup } from '../../actions/session_action.js'
 
-const mapStateToProps = ({ teams }) => {
+const mapStateToProps = ({ teams, session }) => {
 
-  return(
-    {teams}
-  )
+  return({
+    teams,
+    errors: session.errors
+  })
 }
 
 const mapDispatchToProps = (dispatch) => ({
