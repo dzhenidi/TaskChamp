@@ -43,6 +43,8 @@ class SessionForm extends React.Component {
     this.redirectIfLoggedIn();
   }
 
+  //ComponentW
+
   render() {
     let buttonHeader;
     let linkTo;
@@ -57,29 +59,37 @@ class SessionForm extends React.Component {
     //   linkTo = "/login";
     //   linkHeader="Log in";
     // }
-    buttonHeader = "Next";
+    buttonHeader = "Log in";
     linkTo = "/signup";
     linkHeader="Sign up";
 
     return (
-      <section className="session-container">
+      <div className = "login">
         <ul>
           {this.errors()}
         </ul>
-        <Link to={linkTo}>{linkHeader}</Link>
-        <form className="session-form" onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            value={this.state.username}
-            placeholder="username"
-            onChange={this.update('username')}/>
-          <input
-            type="password"
-            placeholder="password"
-            onChange={this.update('password')}/>
-          <input type="submit" value={buttonHeader}/>
-        </form>
-      </section>
+        <section className="login-container">
+          <h1>Log in to TaskChamp</h1>
+          <form className="login-form" onSubmit={this.handleSubmit}>
+            <label>username
+              <input
+                type="text"
+                value={this.state.username}
+                placeholder="username"
+                onChange={this.update('username')}/>
+            </label>
+            <label>password
+              <input
+                type="password"
+                placeholder="password"
+                onChange={this.update('password')}/>
+              <input className="submit" type="submit" value={buttonHeader}/>
+            </label>
+          </form>
+          <Link to={linkTo}>{linkHeader}</Link>
+        </section>
+
+      </div>
     );
   }
 }

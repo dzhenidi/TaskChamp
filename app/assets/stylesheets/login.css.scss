@@ -1,0 +1,62 @@
+.login {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f5efe6;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.login-container {
+  display: block;
+  width: 380px;
+  margin: 0 auto;
+  padding: 30px;
+  background: rgb(255, 255, 255);
+}
+
+.login-container h1 {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 24px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.login-form {
+  display: block;
+  font-size: 17px;
+  line-height: 23.8px;
+  text-align: left;
+}
+
+.login-form label {
+  font-weight: 600;
+  margin: 5px 0;
+}
+
+.login-form input {
+  width: 380px;
+  border: 1px solid #bfbfbf;
+  border-radius: 4px;
+  padding: 10px;
+  transition: box-shadow 0.15s ease-in-out;
+  font-size: 16px;
+  color: #000;
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  margin: 2px 0 20px 0;
+}
+
+.login-form .submit {
+  padding: 10px 15px;
+
+}
+
+.login a {
+  font-size: 14px;
+  display: block;
+}

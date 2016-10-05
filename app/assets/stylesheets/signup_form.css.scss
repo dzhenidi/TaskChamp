@@ -1,8 +1,67 @@
+.welcome-nav {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.welcome-nav .logo {
+  float: left;
+  font-size: 24px;
+}
+
+.welcome-nav .button-signin {
+  float: right;
+  padding: 7px 14px;
+  background: #1b6ac9;
+  color: #fff;
+  font-size: 13px;
+  border-width: 0px;
+  border-bottom-width: 3px;
+  border-bottom-color: rgba(0,0,0,0.15);
+   border-radius: 4px;
+}
+
+.welcome-nav .button:visited {
+  color: #fff;
+}
+
+.intro-container {
+  margin-bottom: 50px;
+  display: block;
+  padding: 20px 0;
+}
+
+.intro-container h1, .intro-container h2 {
+  width: 640px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+
+
+
+
+.signup-container {
+  width: 900px;
+  margin: 0 auto;
+  display: box;
+}
+
+.signup-illustration img {
+  float: left;
+  width: 475px;
+  height: 500px;
+}
+
 .signup-form {
+  margin-left: 20px;
+  float: left;
   box-sizing: border-box;
   display: inline-block;
   text-align: left;
 }
+
 .signup-form input, select {
     width: 264px;
     margin-bottom: 10px;
@@ -32,8 +91,16 @@
 .signup-form [type="submit"] {
   padding: 10px 30px;
   display: inline-block;
+  font-weight: 600;
 }
 
 .signup-form select {
-  
+  background: transparent;
+  border: 1px solid #bfbfbf;
+  font-size: 13px;
+  height: 38px;
+  padding: 8px 10px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
 }

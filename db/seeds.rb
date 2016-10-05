@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 teams = Team.create([
-  { name: "team1"},
-  { name: "team2"},
-  { name: "team3"},
-  { name: "team4"},
+  { name: "Rolling Press, Inc"},
+  { name: "Gowanus Nursery"},
+  { name: "Coworkrs on Forth"},
+  { name: "Big Reuse Brooklyn"},
   ])
 
 users = User.create([

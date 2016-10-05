@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
   if (window.currentUser) {
     const initialState = {
       session: {
-        currentUser: window.currentUser
+        currentUser: window.currentUser,
+        errors: []
       }
     };
     store = configureStore(initialState);

@@ -6,7 +6,8 @@ const mapStateToProps = ({ teams, session }) => {
 
   return({
     teams,
-    errors: session.errors
+    errors: session.errors,
+    loggedIn: Boolean(session.currentUser)
   })
 }
 

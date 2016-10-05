@@ -26,8 +26,15 @@
     vertical-align: inherit;
     text-align: inherit;
     box-sizing: inherit;
+    text-decoration: inherit;
 
   }
+
+ .group {
+   content: "";
+   display: block;
+   clear: both;
+ }
 
  body {
    background-color: #f5f8fa;
@@ -36,6 +43,30 @@
 
  ul {
    list-style: none;
+ }
+
+ a {
+   text-decoration: none;
+   vertical-align: baseline;
+ }
+
+ h1 {
+   font-size: 29px;
+ }
+
+ h2 {
+
+ }
+
+ .button {
+   font-size: 16px;
+   font-weight: bold;
+   padding: 8px 16px;
+   text-align: center;
+   line-height: normal;
+   display: inline-block;
+   border-radius: 4px;
+   transition: 0.2s ease;
  }
 
  input {
