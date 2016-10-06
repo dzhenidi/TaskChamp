@@ -37,7 +37,7 @@ column name | data type | details
 id | integer | not null, indexed, primary key
 title | string | not null
 description | string |
-completion | boolean | default: false
+done | boolean | default: false
 due_date | datetime
 author_id | integer | not null, foreign key, indexed
 todoer_id | integer | not null, foreign key, indexed
