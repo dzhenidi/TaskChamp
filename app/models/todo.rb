@@ -26,4 +26,6 @@ class Todo < ActiveRecord::Base
     class_name: 'User',
     foreign_key: :todoer_id
 
+  belongs_to :project
+
 end

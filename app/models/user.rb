@@ -32,6 +32,14 @@ class User < ActiveRecord::Base
     class_name: 'Todo',
     foreign_key: :id
 
+  has_many :projects,
+    class_name: 'Project',
+    foreign_key: :id
+
+  belongs_to :team,
+    class_name: 'Team',
+    foreign_key: :team_id
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     return nil if user.nil?

@@ -33,5 +33,22 @@ todos = Todo.create([
     author_id: 1,
     todoer_id: 2,
     project_id: 1
+  },
+  { title: "format powerpoint presentation",
+    due_date: "10-10-16",
+    author_id: 1,
+    todoer_id: 2,
+    project_id: 1
   }
+  ])
+
+projects = Project.create([
+  { title: "Spring curriculum professional development session",
+    description: "Tentatively scheduled for mid-November. Expected number of participants: 30-50.",
+    team_id: 1,
+    author_id: 1},
+  { title: "New Product launch",
+    description: "super secret product will be launched new years eve",
+    team_id: 2,
+    author_id: 2}  
   ])
