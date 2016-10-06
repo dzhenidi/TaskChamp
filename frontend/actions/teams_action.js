@@ -11,8 +11,3 @@ export const receiveTeamNames = (teamNames) => ({
   type: RECEIVE_TEAM_NAMES,
   teamNames
 });
-
-export const receiveErrors = (errors) => ({
-  type: RECEIVE_ERRORS,
-  errors
-});

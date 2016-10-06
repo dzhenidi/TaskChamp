@@ -1,11 +1,17 @@
 import React from 'react';
-import { Link } from 'react-router';
-
+import { Link, hashHistory } from 'react-router';
 
 class Greeting extends React.Component {
 
   constructor(props) {
     super(props);
+  }
+
+  componentWillUpdate(nextProps){
+    const currentUser = nextProps.currentUser;
+    if (!currentUser) {
+      hashHistory.push("/signup");
+    }
   }
 
   render(){
@@ -18,10 +24,7 @@ class Greeting extends React.Component {
         </div>
       );
     } else {
-      return (
-        // <li><Link to="/login">Log In</Link></li>
-        <div>returning from greeting</div>
-      );
+      return (<p>Returning from greeting</p>);
     }
   }
 }

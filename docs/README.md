@@ -100,3 +100,4 @@ TaskChamp is a web application inspired by TaskCamp using Ruby on Rails and Reac
 
 ### Phase 6: (1 day)
 * add events feature with Event model and components
+* style error messages

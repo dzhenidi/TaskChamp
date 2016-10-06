@@ -37,14 +37,11 @@ class SignupForm extends React.Component {
     });
   }
 
-  redirectIfLoggedIn(){
+
+  componentWillUpdate(){
     if (this.props.loggedIn) {
       hashHistory.push("/");
     }
-  }
-
-  componentDidUpdate(){
-    this.redirectIfLoggedIn();
   }
 
   render() {
@@ -98,6 +95,7 @@ class SignupForm extends React.Component {
             </label>
             <label><p>Company or organization</p>
               <select value={this.state.team_id} onChange={this.update('team_id')}>
+                <option value="" className="option">select a team</option>
                 {options}
               </select>
             </label>
