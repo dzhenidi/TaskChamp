@@ -41,10 +41,11 @@
       description: null,
       author: username,
       todoer: username,
-      completion: false,
-      duedate: "10/03/2016",
-
-      project_id: 1
+      done: false,
+      completed_at: null,
+      dueDate: "10/03/2016",
+      timestamp :"10/1/2016 3:45PM",
+      project: "projectName"
     }
 
   },

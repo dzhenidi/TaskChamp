@@ -24,6 +24,13 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
+  has_many :todos,
+    class_name: 'Todo',
+    foreign_key: :id
+
+  has_many :todo_assignments,
+    class_name: 'Todo',
+    foreign_key: :id
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)

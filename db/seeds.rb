@@ -17,3 +17,21 @@ users = User.create([
   { username: "user2", password: "starwars", email: "user2@user2", team_id: 2},
   { username: "user3", password: "starwars", email: "user3@user3", team_id: 3},
   ])
+
+
+todos = Todo.create([
+  { title: "book space",
+    description: "seating over 40 people",
+    due_date: "10-08-16",
+    author_id: 1,
+    todoer_id: 2,
+    project_id: 1
+  },
+  { title: "order food",
+    description: "to arrive before 9am",
+    due_date: "10-09-16",
+    author_id: 1,
+    todoer_id: 2,
+    project_id: 1
+  }
+  ])
