@@ -2,6 +2,7 @@ class Api::ProjectsController < ApplicationController
 
   def index
     @projects = Project.where(team_id: current_user.team_id)
+    render 'api/projects/index'
   end
 
   def create

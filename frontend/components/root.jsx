@@ -5,6 +5,7 @@ import { Provider   }  from 'react-redux';
 import SessionFormContainer from './session/session_container';
 import { requestTeamNames } from '../actions/teams_action';
 import SignupFormContainer from './signup/signup_container';
+import ProjectsIndexContainer from './projects/project_index_container';
 
 
 const Root = ({ store }) => {
@@ -21,6 +22,7 @@ const Root = ({ store }) => {
       store.dispatch(requestTeamNames(asyncDoneCallback));
   };
 
+
   const _redirectUnlessLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
     if (!currentUser) {
@@ -34,6 +36,7 @@ const Root = ({ store }) => {
         <Route path="/" component={ App } onEnter={_redirectUnlessLoggedIn}/>
         <Route path="/login" component={ SessionFormContainer } onEnter = { _redirectIfLoggedIn }/>
         <Route path="/signup" component={ SignupFormContainer } onEnter= { _requestTeamNamesOnEnter }/>
+        <Route path="/projects" component={ ProjectsIndexContainer } />
       </Router>
     </Provider>
   );

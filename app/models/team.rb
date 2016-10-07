@@ -13,9 +13,9 @@ class Team < ActiveRecord::Base
 
   has_many :members,
     class_name: 'User',
-    foreign_key: :id
+    foreign_key: :team_id
 
   has_many :projects,
     class_name: 'Project',
-    foreign_key: :id
+    foreign_key: :team_id
 end
