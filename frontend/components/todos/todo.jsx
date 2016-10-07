@@ -4,17 +4,13 @@ class Todo extends React.Component {
 
 
   render() {
+    debugger
+    const { title, author, dueDate } = this.props;
 
     return (
-      <ul>
-        <li>
-          {this.props.title}
-        </li>
-        <li>
-          {this.props.todoer}
-        </li>
-      </ul>
-    );}
+      <li>{title}</li>
+    );
+  }
 }
 
 

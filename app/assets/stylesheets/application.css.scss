@@ -52,10 +52,21 @@
 
  h1 {
    font-size: 29px;
+   text-align: center;
+   display:block;
+   font-weight: bold;
  }
 
  h2 {
+   text-align: center;
+   display:block;
+ }
 
+ h3 {
+   line-height: 1.2;
+   display: block;
+   font-size: 18px;
+   font-weight: bold;
  }
 
  .button {
@@ -65,6 +76,7 @@
    text-align: center;
    line-height: normal;
    display: inline-block;
+   border-bottom-width: 2px;
    border-radius: 4px;
    transition: 0.2s ease;
  }

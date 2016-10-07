@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { requestProjects } from '../../actions/project_actions';
-import ProjectIndex from './project_index';
+import ProjectsIndex from './project_index';
 
 
 const mapStateToProps = ({projects, session}) => {
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ProjectIndex);
+)(ProjectsIndex);
