@@ -8,20 +8,18 @@ class ProjectItem extends React.Component {
   }
 
   render(){
-    const { id, title, description, todos } = this.props;
-    const todoIds = Object.keys(todos);
-    const todoItems = todoIds.map(id => {
-      const { title, author, dueDate} = todos[id];
-      return (
+    const { title, description, todos } = this.props.project;
+    const toggleTodo = this.props.toggleTodo;
+    const todoItems = todos.map( todo => {
 
+      return (
         <Todo
-          key={id}
-          title={title}
-          author={author}
-          dueDate={dueDate} />
+          key={todo.id}
+          todo={todo}
+          toggleTodo={toggleTodo} />
       );
     });
-    
+
     return (
       <li className="project-item">
         <header className="project-item-header">
@@ -39,3 +37,23 @@ class ProjectItem extends React.Component {
 }
 
 export default ProjectItem;
+
+// let todoItems;
+// if (todos) {
+//   const todoIds = Object.keys(todos);
+//
+//   const todoItems = todoIds.map(id => {
+//     const { title, author, dueDate, done } = todos[id];
+//     return (
+//
+//       <Todo
+//         key={id}
+//         title={title}
+//         author={author}
+//         dueDate={dueDate}
+//         done={done} />
+//     );
+//   });
+// } else {
+//   todoItems = "";
+// }
