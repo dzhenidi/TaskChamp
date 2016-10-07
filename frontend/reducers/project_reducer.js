@@ -4,6 +4,8 @@ import { RECEIVE_PROJECTS,
          PROJECT_ERROR
        } from '../actions/project_actions';
 
+// const _defaultState = 
+
 const ProjectsReducer = (state = {}, action) => {
   switch(action.type){
     case RECEIVE_PROJECTS:

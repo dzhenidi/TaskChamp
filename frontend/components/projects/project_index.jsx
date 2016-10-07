@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectItem from './project_item';
-
+import ProjectForm from './project_form';
 
 class ProjectsIndex extends React.Component {
 
@@ -11,6 +11,7 @@ class ProjectsIndex extends React.Component {
   render() {
 
     let projects = this.props.projects;
+    const toggleTodo = this.props.toggleTodo;
     let projectItems;
 
     if (projects) {
@@ -19,25 +20,25 @@ class ProjectsIndex extends React.Component {
         return (
           <ProjectItem
             key={id}
-            title={projects[id].title}
-            description={projects[id].description}
-            todos={projects[id].todos} />
+            project={projects[id]}
+            toggleTodo={toggleTodo} />
         );
       });
     } else {
       projectItems = "";
     }
-
     return (
-      <body className="projects-index-body">
+      <div className="projects-index-body">
         <section className="projects-index-container">
           <h1>To-dos:</h1>
-          <a href="" className="button">Make another list</a>
+          <a href="" className="button">Make another list
+            <ProjectForm createProject={this.props.createProject} />
+          </a>
           <ul className="projects-list">
             {projectItems}
           </ul>
         </section>
-      </body>
+      </div>
     );
   }
 

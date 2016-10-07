@@ -1,14 +1,27 @@
 import React from 'react';
 
 class Todo extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-
+  checkTodo(value) {
+    return (e) => {
+      console.log(value);
+      // debugger
+    };
+  }
   render() {
-    debugger
-    const { title, author, dueDate } = this.props;
+    const { title, author, dueDate, done, id } = this.props.todo;
+    const toggleTodo = this.props.toggleTodo;
 
     return (
-      <li>{title}</li>
+      <li className="todo-item">
+        <label>
+          <input type="checkbox" checked={done} onChange={toggleTodo(this.props.todo)} />
+          {title}
+        </label>
+      </li>
     );
   }
 }

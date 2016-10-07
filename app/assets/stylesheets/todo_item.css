@@ -1,0 +1,6 @@
+input[type="checkbox"] {
+    border: 1px solid black;
+    display: block;
+    box-sizing: border-box;
+    padding: 5px;
+}
