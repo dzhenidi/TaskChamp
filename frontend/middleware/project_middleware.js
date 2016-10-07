@@ -26,19 +26,19 @@ export default ({getState, dispatch}) => next => action => {
   switch(action.type) {
     case REQUEST_PROJECTS:
       fetchProjects(projectsSuccess);
-      next(action);
+      break;
     case REQUEST_PROJECT:
       fetchProject(projectsSuccess);
-      next(action);
+      break;
     case CREATE_PROJECT:
       createProject(action.project, projectsSuccess, projectErrored);
-      next(action);
+      break;
     case UPDATE_PROJECT:
       updateProject(action.project, projectSuccess)
-      next(action);
+      break;
     case DESTROY_PROJECT:
       destroyProject(action.project);
-      next(action);
+      break;
     default:
       next(action);
   }

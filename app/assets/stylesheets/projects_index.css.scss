@@ -1,0 +1,58 @@
+.projects-index-body {
+  background-color: #f5efe6;
+}
+
+.projects-index-body .button {
+  background: #3cb371;
+  border-color: #3cb371;
+  border-bottom-color: rgba(0,0,0,0.15);
+  color: #fff;
+  font-weight: 400;
+}
+
+.projects-index-container {
+  display: block;
+  box-sizing: border-box;
+  padding: 50px 60px;
+  width: 645px;
+  margin: 0 auto;
+  height: auto;
+  background: white;
+}
+
+.projects-index-container a {
+  text-align: center;
+  display: block;
+}
+
+.projects-index-container h1 {
+
+}
+
+.projects-index-container .button {
+  width: auto;
+  margin: 0 auto;
+}
+
+.project-item-header {
+  display: block;
+  position: relative;
+  padding: 6px 0;
+  width: 645px;
+}
+
+.projects-list {
+  padding: 20px;
+}
+
+.project-item {
+  padding: 10px 0;
+}
+
+.project-item-header a {
+}
+
+.project-item-header h3 {
+  text-decoration: underline;
+  color: #1b6ac9;
+}
