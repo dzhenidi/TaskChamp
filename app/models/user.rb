@@ -26,15 +26,15 @@ class User < ActiveRecord::Base
 
   has_many :todos,
     class_name: 'Todo',
-    foreign_key: :id
+    foreign_key: :todoer_id
 
   has_many :todo_assignments,
     class_name: 'Todo',
-    foreign_key: :id
+    foreign_key: :author_id
 
   has_many :projects,
     class_name: 'Project',
-    foreign_key: :id
+    foreign_key: :author_id
 
   belongs_to :team,
     class_name: 'Team',
