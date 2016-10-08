@@ -68,7 +68,7 @@ class SignupForm extends React.Component {
 
         <nav className="welcome-nav group">
           <p className="logo">TaskChamp 2</p>
-          <p><Link to={linkTo} className="button-signin">{linkHeader}</Link></p>
+          <p><Link to={linkTo} className="button">{linkHeader}</Link></p>
         </nav>
 
         <ul>

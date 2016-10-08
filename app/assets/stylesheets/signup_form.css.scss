@@ -1,6 +1,8 @@
 .welcome-nav {
   width: 900px;
   margin: 0 auto;
+  display: block;
+  padding: 10px;
 }
 
 .welcome-nav .logo {
@@ -8,16 +10,12 @@
   font-size: 24px;
 }
 
-.welcome-nav .button-signin {
+.welcome-nav .button {
   float: right;
-  padding: 7px 14px;
   background: #1b6ac9;
   color: #fff;
   font-size: 13px;
-  border-width: 0px;
-  border-bottom-width: 3px;
-  border-bottom-color: rgba(0,0,0,0.15);
-   border-radius: 4px;
+  border-bottom-color: rgba(0, 0, 0, 0.15);
 }
 
 .welcome-nav .button:visited {

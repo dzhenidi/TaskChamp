@@ -18,14 +18,27 @@ class Greeting extends React.Component {
     const currentUser = this.props.currentUser;
     if (currentUser) {
       return (
-        <div className='welcome'>
-          <h2>Welcome, {currentUser.username}</h2>
-          <button onClick={this.props.logout}>Logout</button>
-          <Link to='/projects'>Projects Page</Link>
+        <div className='top-nav wrapper'>
+          <nav className='top-nav'>
+            <div className='top-nav-ribbon'>
+
+              <ul className='top-nav-list group'>
+                <li>
+                  <a href="" className="user-thumbnail">{currentUser.username}</a>
+                </li>
+                <li>
+                  <Link to='/projects'>Projects Page</Link>
+                </li>
+              </ul>
+              <button onClick={this.props.logout} className="logout button">
+                Logout
+              </button>
+            </div>
+          </nav>
         </div>
       );
     } else {
-      return (<p>Returning from greeting</p>);
+      return (<div></div>);
     }
   }
 }
