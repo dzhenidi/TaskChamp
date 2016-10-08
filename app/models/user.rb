@@ -40,6 +40,10 @@ class User < ActiveRecord::Base
     class_name: 'Team',
     foreign_key: :team_id
 
+  has_many :teammates,
+    through: :team,
+    source: :members  
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     return nil if user.nil?

@@ -5,7 +5,7 @@ import { createTodo } from '../../actions/todo_actions';
 
 const mapStateToProps = ({session}) => {
   return({
-    currentUser: session.currentUser
+    teammates: session.currentUser.teammates
   })
 }
 

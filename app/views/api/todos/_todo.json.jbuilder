@@ -7,7 +7,7 @@ json.extract! todo,
   :project_id,
   :done
 
-json.dueDate todo.due_date.to_formatted_s(:short)
+json.dueDate todo.due_date ? todo.due_date.to_formatted_s(:short) : ""
 json.author todo.author.username
 json.todoer todo.todoer
 json.created_at todo.created_at.to_formatted_s(:short)
