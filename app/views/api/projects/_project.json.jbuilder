@@ -1,6 +1,5 @@
 json.extract! project,
   :id, :title, :description
-
 json.team project.team.name
 
 

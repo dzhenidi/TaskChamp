@@ -31,7 +31,7 @@ export default ({getState, dispatch}) => next => action => {
       fetchProject(action.id, projectSuccess);
       break;
     case CREATE_PROJECT:
-      createProject(action.project, projectsSuccess, projectErrored);
+      createProject(action.project, projectSuccess, projectErrored);
       break;
     case UPDATE_PROJECT:
       updateProject(action.project, projectSuccess)
