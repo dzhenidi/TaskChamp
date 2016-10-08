@@ -86,6 +86,7 @@
 
  input {
     vertical-align: middle;
+    display: block;
  }
 
  input, select {
@@ -93,10 +94,8 @@
  }
 
  input[type="submit"] {
-   align-items: flex-start;
    text-align: center;
    cursor: default;
-   white-space: pre;
  }
 
  .submit {

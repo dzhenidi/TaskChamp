@@ -1,9 +1,9 @@
 json.extract! user, :username
 
 if user.teammates
-  json.teamMates do
-    json.array! user.teammates.each do |mate|
-      mate, :id, :username
+  json.set! :teammates do
+      user.teammates.each do |mate|
+      json.set! mate.username, mate.id
     end
   end
 end

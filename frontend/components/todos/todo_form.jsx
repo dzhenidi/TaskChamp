@@ -1,17 +1,22 @@
 import React from 'react';
+// import 'react-date-picker/index.css';
+// import { DateField, Calendar } from 'react-date-picker';
 
 class TodoForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "",
-      description: "",
-      todoerId: "",
-      dueDate: "",
-      autocompleteVal: ""
+      title: '',
+      description: '',
+      todoerId: '',
+      dueDate: '',
+      autocompleteVal: '',
+      done: this.props.done,
     };
     this.selectName = this.selectName.bind(this);
     this.handleAutocomplete = this.handleAutocomplete.bind(this);
+    this.matches = this.matches.bind(this);
+    this.teammatesNames = Object.keys(this.props.teammates);
   }
 
   update(property) {
@@ -21,10 +26,10 @@ class TodoForm extends React.Component {
   matches(){
     const matches = [];
     if (this.state.autocompleteVal.length === 0) {
-      return this.props.teammates;
+      return this.teammatesNames;
     }
 
-    this.props.teamMates.forEach(name => {
+    this.teammatesNames.forEach(name => {
       let sub = name.slice(0, this.state.autocompleteVal.length);
       if (sub.toLowerCase() === this.state.autocompleteVal.toLowerCase()){
         matches.push(name);
@@ -36,17 +41,25 @@ class TodoForm extends React.Component {
 
   selectName(e) {
     let name = e.currentTarget.innerText;
-    this.setState({ autocompleteVal: name });
+    let id = this.props.teammates[name];
+    this.setState({ autocompleteVal: name, todoerId: id });
   }
 
   handleAutocomplete(e) {
-    this.setState({autocompleteVal: event.currentTarget.value});
+    this.setState({autocompleteVal: e.currentTarget.value});
   }
 
   handleSubmit(e) {
     return (e) => {
       e.preventDefault();
-      const todo = Object.assign({}, this.state);
+      const todo = {
+        'title': this.state.title,
+        'description': this.state.description,
+        'due_date': this.state.dueDate,
+        'todoer_id': this.state.todoerId,
+        'done': this.state.done,
+        'project_id': this.props.projectId,
+        };
       this.props.createTodo({todo});
       this.setState({title:"", description:"", todoerId:"", dueDate:""});
     };
