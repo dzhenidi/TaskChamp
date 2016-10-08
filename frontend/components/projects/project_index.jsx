@@ -1,6 +1,6 @@
 import React from 'react';
 import ProjectItem from './project_item';
-import ProjectForm from './project_form';
+
 
 class ProjectsIndex extends React.Component {
 
@@ -32,7 +32,6 @@ class ProjectsIndex extends React.Component {
         <section className="projects-index-container">
           <h1>To-dos:</h1>
           <a href="" className="button">Make another list
-            <ProjectForm createProject={this.props.createProject} />
           </a>
           <ul className="projects-list">
             {projectItems}

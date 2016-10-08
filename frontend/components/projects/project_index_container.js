@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => ({
   requestProjects: () => dispatch(requestProjects()),
   createProject: project => dispatch(createProject(project)),
   createTodo: todo => dispatch(createTodo(todo)),
-  toggleTodo: todo => () => {
+  toggleTodo: todo => {
     const toggledTodo = Object.assign({}, todo, {
       done: !todo.done
     });
@@ -31,3 +31,11 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ProjectsIndex);
+
+
+// toggleTodo: todo => () => {
+//   const toggledTodo = Object.assign({}, todo, {
+//     done: !todo.done
+//   });
+//   dispatch(updateTodo(toggledTodo));
+// }

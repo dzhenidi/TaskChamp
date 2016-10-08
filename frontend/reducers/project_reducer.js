@@ -4,7 +4,7 @@ import { RECEIVE_PROJECTS,
          PROJECT_ERROR
        } from '../actions/project_actions';
 
-// const _defaultState = 
+// const _defaultState =
 
 const ProjectsReducer = (state = {}, action) => {
   switch(action.type){
@@ -45,3 +45,8 @@ export default ProjectsReducer;
 //   }
 //
 // }
+// case RECEIVE_TODO:
+//   newTodo = {[action.todo.id]: action.todo};
+//   newProject = Object.assign({}, state[action.todo.project_id]);
+//   newProject.todos[action.todo.id] = newTodo;
+//   return Object.assign({}, state, {[action.todo.project_id]: newProject});

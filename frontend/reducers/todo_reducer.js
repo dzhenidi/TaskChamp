@@ -38,5 +38,6 @@ export default TodosReducer;
 //   completed_at: null,
 //   dueDate: "10/03/2016",
 //   timestamp :"10/1/2016 3:45PM",
-//   project: "projectName"
+//   project: "projectName",
+//   project_id: 1, 
 // }

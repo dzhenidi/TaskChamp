@@ -1,4 +1,4 @@
-import {  fetchProjects,
+import { fetchProjects,
          fetchProject,
          createProject,
          updateProject,
@@ -16,7 +16,7 @@ import { requestProjects,
         UPDATE_PROJECT,
         DESTROY_PROJECT
       } from '../actions/project_actions';
-
+import { RECEIVE_TODO } from '../actions/todo_actions'
 
 export default ({getState, dispatch}) => next => action => {
   const projectsSuccess = data => dispatch(receiveProjects(data));
@@ -28,7 +28,7 @@ export default ({getState, dispatch}) => next => action => {
       fetchProjects(projectsSuccess);
       break;
     case REQUEST_PROJECT:
-      fetchProject(projectsSuccess);
+      fetchProject(action.id, projectSuccess);
       break;
     case CREATE_PROJECT:
       createProject(action.project, projectsSuccess, projectErrored);
