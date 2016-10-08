@@ -72,8 +72,11 @@ class TodoForm extends React.Component {
       );
     });
 
-    return(
-      <form className="todo-form" onSubmit={this.handleSubmit()}>
+    if (this.props.hidden) {
+      return (<div></div>);
+    } else {
+      return(
+        <form className="todo-form" onSubmit={this.handleSubmit()}>
           <input
             className="input"
             value={this.state.title}
@@ -94,8 +97,9 @@ class TodoForm extends React.Component {
             onChange={this.update('description')}/>
 
           <button className="create-button">Add this to-do</button>
-      </form>
-    );
+        </form>
+      );
+    }
   }
 }
 
