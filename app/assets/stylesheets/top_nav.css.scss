@@ -1,0 +1,45 @@
+.top-nav-wrapper {
+  height: 40px;
+  position: relative;
+}
+
+.top-nav {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  background-color: rgba(251,248,245,0.98);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 6;
+  font-size: 14px;
+}
+
+.top-nav-ribbon {
+
+}
+
+.top-nav-list {
+  float: left;
+}
+
+.top-nav a {
+  padding: 9px 10px;
+  display: inline-block;
+}
+
+
+.top-nav li {
+  float: left;
+  padding: 0 3px;
+  border-right: 1px solid rgba(0,0,0,0.1);
+}
+
+
+.top-nav .user-thumbnail {
+
+}
+
+
+.top-nav .logout {
+  font-weight: 400;
+  float: right;
+}

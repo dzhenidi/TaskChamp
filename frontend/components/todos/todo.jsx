@@ -24,7 +24,7 @@ class Todo extends React.Component {
     return (
       <li className="todo-item">
         <label>
-          <input type="checkbox" checked={done} onChange={this.checkTodo()} />
+          <input type="checkbox" className="checkbox" checked={done} onChange={this.checkTodo()} />
           {title}
         </label>
       </li>
