@@ -1,6 +1,6 @@
 import React from 'react';
 import Todo from '../todos/todo';
-
+import TodoFormContainer from '../todos/todo_form_container';
 
 class ProjectItem extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class ProjectItem extends React.Component {
   }
 
   render(){
-    const { title, description, todos } = this.props.project;
+    const { id, title, description, todos } = this.props.project;
     const toggleTodo = this.props.toggleTodo;
     const todoItems = todos.map( todo => {
 
@@ -30,6 +30,7 @@ class ProjectItem extends React.Component {
           <ul className="todo-list">
             { todoItems }
           </ul>
+          <TodoFormContainer projectId={id}/>
         </header>
       </li>
     );

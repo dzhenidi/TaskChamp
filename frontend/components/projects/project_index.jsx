@@ -23,7 +23,7 @@ class ProjectsIndex extends React.Component {
           <ProjectItem
             key={id}
             project={projects[id]}
-            toggleTodo={toggleTodo} />
+            toggleTodo={toggleTodo}/>
         );
       });
     } else {
