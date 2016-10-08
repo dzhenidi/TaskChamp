@@ -20,9 +20,9 @@ export const receiveProjects = projects => ({
   projects
 });
 
-export const receiveProject = id => ({
+export const receiveProject = project => ({
   type: RECEIVE_PROJECT,
-  id
+  project
 });
 
 export const createProject = project => ({
