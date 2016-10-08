@@ -15,10 +15,16 @@ import { requestTodos,
          UPDATE_TODO,
          DESTROY_TODO
        } from '../actions/todo_actions';
+import { fetchProject} from '../util/project_api_util';
+
 
 export default ({ getState, dispatch }) => next => action => {
   const todosSuccess = data => dispatch(receiveTodos(data));
-  const todoSuccess = data => dispatch(receiveTodo(data));
+  const projectSuccess = data => dispatch(receiveProject(data));
+  const todoSuccess = data => {
+    dispatch(receiveTodo(data));
+    // dispatch(fetchProject(data.project_id, projectSuccess));
+  }
   const todoRemoved = data => dispatch(removeTodo(data));
   const todoErrored = data => dispatch(todoError(data.responseJSON));
 
