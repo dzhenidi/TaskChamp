@@ -26,7 +26,7 @@ class ProjectItem extends React.Component {
           <h3>{title}
             <a href=""></a>
           </h3>
-          <p>{description}</p>
+          <p className="project-item-description">{description}</p>
           <ul className="todo-list">
             { todoItems }
           </ul>
