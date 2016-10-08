@@ -17,7 +17,7 @@ const mapStateToProps = ({projects, session}) => {
 const mapDispatchToProps = (dispatch) => ({
   requestProjects: () => dispatch(requestProjects()),
   createProject: project => dispatch(createProject(project)),
-  createTodo: todo => dispatch(createTodo(todo)),
+  // createTodo: todo => dispatch(createTodo(todo)),
   toggleTodo: todo => {
     const toggledTodo = Object.assign({}, todo, {
       done: !todo.done
