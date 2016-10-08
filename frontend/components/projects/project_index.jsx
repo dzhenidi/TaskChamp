@@ -3,11 +3,21 @@ import ProjectItem from './project_item';
 import ProjectForm from './project_form';
 
 class ProjectsIndex extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hidden: true
+    };
+    this.toggleHidden = this.toggleHidden.bind(this);
+  }
 
   componentDidMount() {
     this.props.requestProjects();
   }
 
+  toggleHidden(e){
+    this.setState({hidden: !this.state.hidden});
+  }
   render() {
 
     let projects = this.props.projects;
@@ -33,8 +43,8 @@ class ProjectsIndex extends React.Component {
       <div className="projects-index-body">
         <section className="projects-index-container">
           <h1>To-dos:</h1>
-          <a href="" className="button">Make another list</a>
-          <ProjectForm createProject={createProject}/>
+          <button className="button" onClick={this.toggleHidden}>Make another list</button>
+          <ProjectForm createProject={createProject} hidden={this.state.hidden}/>
           <ul className="projects-list">
             {projectItems}
           </ul>

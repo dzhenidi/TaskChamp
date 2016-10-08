@@ -5,6 +5,14 @@ import TodoFormContainer from '../todos/todo_form_container';
 class ProjectItem extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      hidden: true
+    };
+    this.toggleHidden = this.toggleHidden.bind(this);
+  }
+
+  toggleHidden(e){
+    this.setState({hidden: !this.state.hidden});
   }
 
   render(){
@@ -27,10 +35,11 @@ class ProjectItem extends React.Component {
             <a href=""></a>
           </h3>
           <p className="project-item-description">{description}</p>
+          <button className="button" onClick={this.toggleHidden}>Add a to-do</button>
           <ul className="todo-list">
             { todoItems }
           </ul>
-          <TodoFormContainer projectId={id}/>
+          <TodoFormContainer projectId={id} hidden={this.state.hidden}/>
         </header>
       </li>
     );

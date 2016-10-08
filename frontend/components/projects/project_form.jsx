@@ -22,26 +22,31 @@ class ProjectForm extends React.Component {
     };
   }
   render(){
-    return(
-      <form className="project-form" onSubmit={this.handleSubmit()}>
-        <label>
-          <input
-            className="input"
-            value={this.state.title}
-            placeholder="Give this list a name:"
-            onChange={this.update('title')}
-            required/>
-        </label>
-        <label>
-          <input
-            className="input"
-            value={this.state.description}
-            placeholder="Add extra details"
-            onChange={this.update('description')}/>
-        </label>
-        <button className="create-button">Add this list</button>
-      </form>
-    );
+    if (this.props.hidden) {
+      return (<div></div>);
+    } else {
+
+      return(
+        <form className="project-form" onSubmit={this.handleSubmit()}>
+          <label>
+            <input
+              className="input"
+              value={this.state.title}
+              placeholder="Give this list a name:"
+              onChange={this.update('title')}
+              required/>
+          </label>
+          <label>
+            <input
+              className="input"
+              value={this.state.description}
+              placeholder="Add extra details"
+              onChange={this.update('description')}/>
+          </label>
+          <button className="create-button">Add this list</button>
+        </form>
+      );
+    }
   }
 
 }
