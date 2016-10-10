@@ -30,7 +30,7 @@ class Todo extends React.Component {
               <ul className="checkbox-content-list group">
                 <li><a href="">{title}</a></li>
                 <li><span className="todoer">{todoer.username}</span></li>
-                <li><span className="date short"></span></li>
+                <li><span className="date short">{dueDate}</span></li>
               </ul>
             </span>
           </label>
