@@ -27,10 +27,10 @@ class ProjectForm extends React.Component {
     } else {
 
       return(
-        <form className="project-form" onSubmit={this.handleSubmit()}>
+        <form className="expandable-form" onSubmit={this.handleSubmit()}>
           <label>
             <input
-              className="input"
+              className="input title"
               value={this.state.title}
               placeholder="Give this list a name:"
               onChange={this.update('title')}
@@ -38,12 +38,12 @@ class ProjectForm extends React.Component {
           </label>
           <label>
             <input
-              className="input"
+              className="input detail"
               value={this.state.description}
               placeholder="Add extra details"
               onChange={this.update('description')}/>
           </label>
-          <button className="create-button">Add this list</button>
+          <button className="small home-button">Add this list</button>
         </form>
       );
     }

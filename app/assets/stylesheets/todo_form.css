@@ -1,0 +1,78 @@
+/*.checkbox {
+  display: block;
+  padding: 4px 0 4px 32px;
+  position: relative;
+}*/
+
+.checkbox {
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  background-color: #fff;
+  vertical-align: top;
+  position: relative;
+}
+
+.checkbox:checked {
+  width: 16px;
+  height: 16px;
+
+}
+
+.checkbox-label {
+  position: absolute;
+  left: 0;
+  top: 5px;
+  cursor: pointer;
+}
+
+.checkbox-input {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  /*border: 1px solid rgba(0, 0, 0, 0.25);*/
+  background-color: #fff;
+  /*border-radius: 2px;*/
+  vertical-align: top;
+  margin-top: 3px;
+}
+
+.todo-item.checkbox-input {
+
+}
+
+.todo-form {
+  padding: 10px 15px 15px 37px;
+  margin-left: -37px;
+}
+
+.expandable-todo-form input {
+
+}
+
+.expandable-todo-form .autocomplete {
+
+}
+
+.todo-item {
+  padding: 9px 0;
+}
+li .todo-form {
+
+}
+
+.autocomplete {
+  position: relative;
+  cursor: text;
+  color: #303030;
+}
+
+.autocomplete::after {
+  content: '';
+  display: block;
+  clear: left;
+}
+
+.autocomplete li {
+
+}

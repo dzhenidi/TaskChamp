@@ -3,19 +3,31 @@
   margin: 0 auto;
   display: block;
   padding: 10px;
+  height: 40px;
+}
+
+.welcome-nav img {
+  float: left;
+  height: 40px;
+  width: auto;
 }
 
 .welcome-nav .logo {
   float: left;
-  font-size: 24px;
+  font-size: 28px;
+  font-weight: 700;
+  margin-left: 10px
 }
 
 .welcome-nav .button {
   float: right;
+  padding: 8px 16px;
   background: #1b6ac9;
   color: #fff;
-  font-size: 13px;
+  font-size: 14px;
+  border-bottom-width: 3px;
   border-bottom-color: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
 }
 
 .welcome-nav .button:visited {
@@ -28,14 +40,17 @@
   padding: 20px 0;
 }
 
-.intro-container h1, .intro-container h2 {
-  width: 640px;
+.intro-container h1, .intro-container p {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
 }
 
-
+.intro-container p {
+  width: 840px;
+  line-height: 1.3;
+}
 
 
 
@@ -90,6 +105,7 @@
   padding: 10px 30px;
   display: inline-block;
   font-weight: 600;
+  background: -webkit-gradient(linear, left top, left bottom, from(#8fc857), to(#5c9425));
 }
 
 .signup-form select {

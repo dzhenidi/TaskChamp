@@ -41,12 +41,24 @@
    font-family: 'Raleway', sans-serif;
  }
 
+ .body-home {
+   background-color: #f5efe6;
+    font-family: 'Raleway', sans-serif;
+    font-size: 20px;
+ }
+
+ .landing-home {
+   background-color: #f5f8fa;
+   font-family: 'Raleway', sans-serif;
+ }
+
  div {
    display: block;
  }
 
  ul {
    list-style: none;
+   display: block;
  }
 
  a {
@@ -73,15 +85,45 @@
    font-weight: bold;
  }
 
- .button {
+ button {
    font-size: 16px;
    font-weight: bold;
    padding: 8px 16px;
    text-align: center;
+   vertical-align: middle;
    line-height: normal;
-   display: inline-block;
+   display: block;
+   border: solid;
    border-bottom-width: 2px;
    border-radius: 4px;
+ }
+
+ .home-button {
+   background: #3cb371;
+   border-color: #3cb371;
+   border-bottom-color: rgba(0,0,0,0.15);
+   color: #fff;
+   font-weight: 400;
+ }
+
+ .home-button:active {
+   background: #2f8d59;
+   border-color: #2f8d59;
+   border-shadow: 0 0 8px rgba(0,0,0,0.25);
+   color: #fff;
+   font-weight: 400;
+ }
+
+ .small.home-button {
+   padding: 6px 10px;
+   width: auto;
+   height: auto;
+   margin-top: 17px;
+ }
+
+ .big.home-button {
+   width: 165px;
+   margin: 0 auto;
  }
 
  input {

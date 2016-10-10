@@ -76,28 +76,38 @@ class TodoForm extends React.Component {
       return (<div></div>);
     } else {
       return(
-        <form className="todo-form" onSubmit={this.handleSubmit()}>
-          <input
-            className="input"
-            value={this.state.title}
-            placeholder="Add a new to-do..."
-            onChange={this.update('title')}
-            required/>
-          <input
-            onChange={this.handleAutocomplete}
-            value={this.state.autocompleteVal}
-            placeholder='Assign to...'/>
-          <ul>
-            {autocompleteResults}
-          </ul>
-          <input
-            className="input"
-            value={this.state.description}
-            placeholder="Add extra details"
-            onChange={this.update('description')}/>
+        <li className="todo-form">
+          <div className="expandable-todo-form checkbox">
+            <label className="checkbox-label">
+              <input type="checkbox" className="checkbox-input"/>
+            </label>
+              <form className="expandable-form" onSubmit={this.handleSubmit()}>
+                <input
+                  className="input"
+                  value={this.state.title}
+                  placeholder="Add a new to-do..."
+                  onChange={this.update('title')}
+                  required/>
+                <input
+                  onChange={this.handleAutocomplete}
+                  value={this.state.autocompleteVal}
+                  placeholder='Assign to...'/>
+                <ul>
+                  <div className="autocomplete">
+                    {autocompleteResults}
+                  </div>
+                </ul>
+                <input
+                  className="input"
+                  value={this.state.description}
+                  placeholder="Add extra details"
+                  onChange={this.update('description')}/>
 
-          <button className="create-button">Add this to-do</button>
-        </form>
+                <button className="small home-button">Add this to-do</button>
+              </form>
+
+          </div>
+        </li>
       );
     }
   }

@@ -9,12 +9,27 @@
   line-height: 1.4;
 }
 
+.logo-banner {
+  height: 100px;
+  width: 100%;
+  padding: 50px 0 10px 0;
+}
+
+.logo-banner img {
+  display: block;
+  width: 95px;
+  height: auto;
+  margin: 0 auto;
+}
+
 .login-container {
   display: block;
   width: 380px;
   margin: 0 auto;
   padding: 30px;
   background: rgb(255, 255, 255);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
 }
 
 .login-container h1 {
@@ -39,12 +54,12 @@
 
 .login-form input {
   width: 380px;
-  border: 1px solid #bfbfbf;
+  border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   padding: 10px;
-  transition: box-shadow 0.15s ease-in-out;
   font-size: 16px;
   color: #000;
+  background-color: inherit;
   display: inline-block;
   vertical-align: middle;
   box-sizing: border-box;
