@@ -1,6 +1,5 @@
 import React from 'react';
-// import 'react-date-picker/index.css';
-// import { DateField, Calendar } from 'react-date-picker';
+import { DateField, Calendar, MonthView } from 'react-date-picker';
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -102,6 +101,20 @@ class TodoForm extends React.Component {
                   value={this.state.description}
                   placeholder="Add extra details"
                   onChange={this.update('description')}/>
+                <label className="radio-label">No due date
+                  <input
+                    type="radio"
+                    name="date"
+                    value=""/>
+                </label>
+                <label className="radio-label">
+                  <input
+                    type="radio"
+                    name="date"
+                    value="due"/>
+                  <a href="">Due on</a>
+                  <input type="text" placeholder="date field"/>
+                </label>
 
                 <button className="small home-button">Add this to-do</button>
               </form>
