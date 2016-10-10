@@ -57,8 +57,22 @@
 .todo-item {
   padding: 9px 0;
 }
-li .todo-form {
 
+span.checkbox-content {
+  display: inline-block;
+}
+
+.checkbox-content-list li {
+  float: left;
+  padding-right: 5px;
+}
+
+.todoer {
+  color: #aa9c84;
+  white-space: nowrap;
+}
+
+li .todo-form {
 }
 
 .autocomplete {
