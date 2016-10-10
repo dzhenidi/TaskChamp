@@ -72,6 +72,29 @@ span.checkbox-content {
   white-space: nowrap;
 }
 
+span.date.short {
+  border-color: #ff7043;
+}
+
+.date {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.2;
+  overflow: hidden;
+}
+
+.date-header {
+  background: #ff7043;
+  color: #fff;
+}
+
 li .todo-form {
 }
 
