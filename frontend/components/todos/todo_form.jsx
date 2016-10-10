@@ -1,5 +1,6 @@
 import React from 'react';
 import { DateField, Calendar, MonthView } from 'react-date-picker';
+import 'react-date-picker/index.css';
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -11,15 +12,23 @@ class TodoForm extends React.Component {
       dueDate: '',
       autocompleteVal: '',
       done: this.props.done,
+      date: false,
     };
     this.selectName = this.selectName.bind(this);
     this.handleAutocomplete = this.handleAutocomplete.bind(this);
     this.matches = this.matches.bind(this);
     this.teammatesNames = Object.keys(this.props.teammates);
+    this.setDate = this.setDate.bind(this);
   }
 
   update(property) {
     return e => this.setState({[property]: e.target.value});
+  }
+
+  setDate() {
+     return (dateString) => {
+      this.setState({['dueDate']: dateString});
+    };
   }
 
   matches(){
@@ -105,16 +114,19 @@ class TodoForm extends React.Component {
                   <input
                     type="radio"
                     name="date"
-                    value=""/>
+                    defaultChecked
+                    onChange={this.update('date')}
+                    value='false'/>
                 </label>
                 <label className="radio-label">
                   <input
                     type="radio"
                     name="date"
-                    value="due"/>
-                  <a href="">Due on</a>
-                  <input type="text" placeholder="date field"/>
+                    onChange={this.update('date')}
+                    value='true'/>
+                  <input type="text" placeholder="Add a due date..."/>
                 </label>
+                <DateField dateFormat="YYYY-MM-DD" onChange={this.setDate()}/>
 
                 <button className="small home-button">Add this to-do</button>
               </form>
