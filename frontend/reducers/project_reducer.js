@@ -4,7 +4,7 @@ import { RECEIVE_PROJECTS,
          PROJECT_ERROR
        } from '../actions/project_actions';
 
-// const _defaultState =
+import { RECEIVE_TODO } from '../actions/todo_actions';
 
 const ProjectsReducer = (state = {}, action) => {
   switch(action.type){
@@ -13,18 +13,32 @@ const ProjectsReducer = (state = {}, action) => {
       action.projects.forEach(project => newState[project.id] = project);
       return newState;
     case RECEIVE_PROJECT:
-      const newProject = {[action.project.id]: action.project};
+      let newProject = {[action.project.id]: action.project};
       return Object.assign({}, state, newProject);
     case REMOVE_PROJECT:
       newState = Object.assign({}, state);
       delete newState[action.project.id];
       return newState;
+    case RECEIVE_TODO:
+      // let newTodo = {[action.todo.id]: action.todo};
+      newProject = Object.assign({}, state[action.todo.project_id]);
+      newProject.todos[action.todo.id] = action.todo;
+      return Object.assign({}, state, {[action.todo.project_id]: newProject});
     case PROJECT_ERROR:
       alert(action.error);
+      break;
     default:
       return state;
   }
 };
+
+// export default function completedTodos(state, projectId) {
+//
+// }
+//
+// export default function pendingTodos(state, projectId) {
+//
+// }
 
 export default ProjectsReducer;
 
@@ -38,8 +52,7 @@ export default ProjectsReducer;
 //     author_id: 1,
 //     completionCount: { totalTodos: 6, completedTodos: 2}
 //
-//     pending_todos: [],
-//     completed_todos: [],
+//     todos: { 1: {}, 2:{}}
 //     comments: []
 //
 //   }

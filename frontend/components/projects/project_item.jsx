@@ -9,24 +9,30 @@ class ProjectItem extends React.Component {
       hidden: true
     };
     this.toggleHidden = this.toggleHidden.bind(this);
+    this.todoItems = this.todoItems.bind(this);
   }
 
   toggleHidden(e){
     this.setState({hidden: !this.state.hidden});
   }
 
-  render(){
-    const { id, title, description, todos } = this.props.project;
+  todoItems() {
     const toggleTodo = this.props.toggleTodo;
-    const todoItems = todos.map( todo => {
-
+    const { todos } = this.props.project;
+    const todoKeys = Object.keys(todos);
+    return todoKeys.map( idx => {
+      let todo = todos[idx];
       return (
         <Todo
-          key={todo.id}
+          key={idx}
           todo={todo}
           toggleTodo={toggleTodo} />
       );
     });
+  }
+
+  render(){
+    const { id, title, description } = this.props.project;
 
     return (
       <li className="project-item">
@@ -37,7 +43,7 @@ class ProjectItem extends React.Component {
           <p className="project-item-description">{description}</p>
           <button className="small home-button" onClick={this.toggleHidden}>Add a to-do</button>
           <ul className="todos remaining">
-            { todoItems }
+            { this.todoItems() }
           </ul>
           <ul className="todos add">
             <TodoFormContainer projectId={id} hidden={this.state.hidden}/>
