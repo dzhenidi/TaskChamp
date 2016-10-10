@@ -67,6 +67,14 @@ span.checkbox-content {
   padding-right: 5px;
 }
 
+.todo-form.buttons-container {
+
+}
+
+.todo-form button {
+  display: inline-block;
+}
+
 .todoer {
   color: #aa9c84;
   white-space: nowrap;

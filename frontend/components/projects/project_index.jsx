@@ -10,6 +10,7 @@ class ProjectsIndex extends React.Component {
       hidden: true
     };
     this.toggleHidden = this.toggleHidden.bind(this);
+    this.hideForm = this.hideForm.bind(this);
   }
 
   componentDidMount() {
@@ -19,6 +20,11 @@ class ProjectsIndex extends React.Component {
   toggleHidden(e){
     this.setState({hidden: !this.state.hidden});
   }
+
+  hideForm(){
+    this.setState({hidden: true});
+  }
+
   render() {
 
     let projects = this.props.projects;
@@ -53,7 +59,10 @@ class ProjectsIndex extends React.Component {
 
           <div className="expandable-project-form">
 
-            <ProjectForm createProject={createProject} hidden={this.state.hidden}/>
+            <ProjectForm
+              createProject={createProject}
+              hidden={this.state.hidden}
+              hideForm={this.hideForm}/>
           </div>
           <ul className="projects-list">
             {projectItems}

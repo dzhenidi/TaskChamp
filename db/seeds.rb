@@ -13,10 +13,10 @@ teams = Team.create([
   ])
 
 users = User.create([
-  { username: "user1", password: "starwars", email: "user1@user1", team_id: 1},
-  { username: "user2", password: "starwars", email: "user2@user2", team_id: 2},
-  { username: "user3", password: "starwars", email: "user3@user3", team_id: 3},
-  { username: "user4", password: "starwars", email: "user4@user4", team_id: 1},
+  { username: "Kristen M.", password: "starwars", email: "kristen@rollingpress.com", team_id: 1},
+  { username: "Eugene M", password: "starwars", email: "eugene@rollingpress.com", team_id: 1},
+  { username: "Jon B.", password: "starwars", email: "jonb@rollingpress.com", team_id: 1},
+  { username: "J. Roberts", password: "starwars", email: "jroberts@rollingpress.com", team_id: 1},
   ])
 
 
@@ -38,9 +38,27 @@ todos = Todo.create([
   { title: "format powerpoint presentation",
     due_date: "10-10-16",
     author_id: 1,
-    todoer_id: 2,
+    todoer_id: 4,
     project_id: 1
-  }
+  },
+  { title: "update contact info",
+    due_date: "11-10-16",
+    author_id: 1,
+    todoer_id: 3,
+    project_id: 2
+  },
+  { title: "draft newsletter",
+    due_date: "10-20-16",
+    author_id: 1,
+    todoer_id: 4,
+    project_id: 2
+  },
+  { title: "book photo session",
+    due_date: "10-23-16",
+    author_id: 1,
+    todoer_id: 1,
+    project_id: 2
+  },
   ])
 
 projects = Project.create([

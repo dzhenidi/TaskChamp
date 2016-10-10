@@ -31,3 +31,7 @@
   margin: 11px -10px;
 
 }
+
+.expandable-project-form button {
+  display: inline-block;
+}

@@ -6,7 +6,7 @@ import SessionFormContainer from './session/session_container';
 import { requestTeamNames } from '../actions/teams_action';
 import SignupFormContainer from './signup/signup_container';
 import ProjectsIndexContainer from './projects/project_index_container';
-
+import GreetingContainer from './greeting/greeting_container';
 
 const Root = ({ store }) => {
 
@@ -33,10 +33,11 @@ const Root = ({ store }) => {
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
-        <Route path="/" component={ App } onEnter={_redirectUnlessLoggedIn}/>
+        <Route path="/" component={ App } onEnter={_redirectUnlessLoggedIn}>
+          <Route path="/projects" component={ ProjectsIndexContainer } />
+        </Route>
         <Route path="/login" component={ SessionFormContainer } onEnter = { _redirectIfLoggedIn }/>
         <Route path="/signup" component={ SignupFormContainer } onEnter= { _requestTeamNamesOnEnter }/>
-        <Route path="/projects" component={ ProjectsIndexContainer } />
       </Router>
     </Provider>
   );

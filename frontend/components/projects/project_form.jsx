@@ -7,19 +7,25 @@ class ProjectForm extends React.Component {
       title: "",
       description: ""
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   update(property) {
     return e => this.setState({[property]: e.target.value});
   }
 
-  handleSubmit(){
-    return (e) => {
-      e.preventDefault();
-      const project = Object.assign({}, this.state);
-      this.props.createProject({project});
-      this.setState({title:"", description:""});
-    };
+  handleSubmit(e){
+    e.preventDefault();
+    const project = Object.assign({}, this.state);
+    this.props.createProject({project});
+    this.setState({title:"", description:""});
+    this.props.hideForm();
+  }
+
+  handleCancel(e){
+    e.preventDefault();
+    this.props.hideForm();
   }
   render(){
     if (this.props.hidden) {
@@ -27,7 +33,7 @@ class ProjectForm extends React.Component {
     } else {
 
       return(
-        <form className="expandable-form" onSubmit={this.handleSubmit()}>
+        <form className="expandable-form">
           <label>
             <input
               className="input title"
@@ -43,7 +49,16 @@ class ProjectForm extends React.Component {
               placeholder="Add extra details"
               onChange={this.update('description')}/>
           </label>
-          <button className="small home-button">Add this list</button>
+          <div className="buttons-container">
+            <button
+              className="small home-button"
+              onClick={this.handleSubmit}>Add this list
+            </button>
+            <button
+              className="cancel small home-button"
+              onClick={this.handleCancel}>Cancel
+            </button>
+          </div>
         </form>
       );
     }

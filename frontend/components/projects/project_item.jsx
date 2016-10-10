@@ -10,10 +10,15 @@ class ProjectItem extends React.Component {
     };
     this.toggleHidden = this.toggleHidden.bind(this);
     this.todoItems = this.todoItems.bind(this);
+    this.hideForm = this.hideForm.bind(this);
   }
 
   toggleHidden(e){
     this.setState({hidden: !this.state.hidden});
+  }
+
+  hideForm(){
+    this.setState({hidden: true});
   }
 
   todoItems() {
@@ -41,12 +46,18 @@ class ProjectItem extends React.Component {
             <a href=""></a>
           </h3>
           <p className="project-item-description">{description}</p>
-          <button className="small home-button" onClick={this.toggleHidden}>Add a to-do</button>
+          <button
+            className="small home-button"
+            onClick={this.toggleHidden}>Add a to-do
+          </button>
+          <ul className="todos add">
+            <TodoFormContainer
+              projectId={id}
+              hidden={this.state.hidden}
+              hideForm={this.hideForm}/>
+          </ul>
           <ul className="todos remaining">
             { this.todoItems() }
-          </ul>
-          <ul className="todos add">
-            <TodoFormContainer projectId={id} hidden={this.state.hidden}/>
           </ul>
           <ul className="todos completed">
           </ul>
