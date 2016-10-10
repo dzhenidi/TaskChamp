@@ -1,26 +1,19 @@
-.projects-index-body {
-  background-color: #f5efe6;
-  display: block;
-  border-radius: 10px;
-  box-shadow: 0 1px 3px 0 #bfbfbf;
-  padding-top: 20px;
-}
-
-.projects-index-body .button {
-  background: #3cb371;
-  border-color: #3cb371;
-  border-bottom-color: rgba(0,0,0,0.15);
-  color: #fff;
-  font-weight: 400;
-}
-
-.projects-index-body .button:active {
-  background: #2f8d59;
-  border-color: #2f8d59;
-  border-shadow: 0 0 8px rgba(0,0,0,0.25);
-  color: #fff;
-  font-weight: 400;
-}
+// .projects-index-container .button {
+//   width: 72px;
+//   background: #3cb371;
+//   border-color: #3cb371;
+//   border-bottom-color: rgba(0,0,0,0.15);
+//   color: #fff;
+//   font-weight: 400;
+// }
+//
+// .projects-index-container .button:active {
+//   background: #2f8d59;
+//   border-color: #2f8d59;
+//   border-shadow: 0 0 8px rgba(0,0,0,0.25);
+//   color: #fff;
+//   font-weight: 400;
+// }
 
 .projects-index-container {
   display: block;
@@ -40,16 +33,26 @@
 }
 
 .projects-index-container h1 {
+  margin: 30px auto;
 
 }
 
-.projects-index-container .button {
-  width: 162px;
+.projects-index-container .big.home-button {
   margin: 0 auto;
 }
 
 .project-item {
   display: block;
+}
+
+ul.todos {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+ul.todos.remaining {
+  min-height: 30px;
 }
 .project-item-header {
   display: block;
@@ -60,7 +63,7 @@
 
 .project-item-description {
   overflow-wrap: normal;
-
+  margin-bottom: 9px;
 }
 
 .projects-list {
@@ -71,10 +74,17 @@
   padding: 10px 0;
 }
 
-.project-item-header a {
+.project-item-header > button.small.home-button {
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+  border-bottom-width: 2px;
+  border-color: rgba(0,0,0,0.15);
+  color: #000;
+  margin: 9px 0;
 }
 
 .project-item-header h3 {
   text-decoration: underline;
   color: #1b6ac9;
+  margin-bottom: 20px;
 }

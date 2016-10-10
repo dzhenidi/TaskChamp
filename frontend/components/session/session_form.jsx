@@ -65,6 +65,9 @@ class SessionForm extends React.Component {
 
     return (
       <div className = "login">
+        <div className="logo-banner">
+          <img src={window.taskChampAssets.taskChampLogo}></img>
+        </div>
         <ul>
           {this.errors()}
         </ul>

@@ -1,6 +1,7 @@
 import React from 'react';
 import ProjectItem from './project_item';
 import ProjectForm from './project_form';
+import BodyClassName from 'react-body-classname';
 
 class ProjectsIndex extends React.Component {
   constructor(props) {
@@ -40,16 +41,25 @@ class ProjectsIndex extends React.Component {
       projectItems = "";
     }
     return (
-      <div className="projects-index-body">
+      <BodyClassName className='body-home'>
         <section className="projects-index-container">
-          <h1>To-dos:</h1>
-          <button className="button" onClick={this.toggleHidden}>Make another list</button>
-          <ProjectForm createProject={createProject} hidden={this.state.hidden}/>
+          <header class="section-header">
+            <h1>To-dos:</h1>
+            <button
+              className="big home-button"
+              onClick={this.toggleHidden}>Make another list
+            </button>
+          </header>
+
+          <div className="expandable-project-form">
+
+            <ProjectForm createProject={createProject} hidden={this.state.hidden}/>
+          </div>
           <ul className="projects-list">
             {projectItems}
           </ul>
         </section>
-      </div>
+      </BodyClassName>
     );
   }
 

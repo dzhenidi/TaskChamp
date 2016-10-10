@@ -35,11 +35,15 @@ class ProjectItem extends React.Component {
             <a href=""></a>
           </h3>
           <p className="project-item-description">{description}</p>
-          <button className="button" onClick={this.toggleHidden}>Add a to-do</button>
-          <ul className="todo-list">
+          <button className="small home-button" onClick={this.toggleHidden}>Add a to-do</button>
+          <ul className="todos remaining">
             { todoItems }
           </ul>
-          <TodoFormContainer projectId={id} hidden={this.state.hidden}/>
+          <ul className="todos add">
+            <TodoFormContainer projectId={id} hidden={this.state.hidden}/>
+          </ul>
+          <ul className="todos completed">
+          </ul>
         </header>
       </li>
     );

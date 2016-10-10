@@ -23,10 +23,12 @@ class Todo extends React.Component {
     const toggleTodo = this.props.toggleTodo;
     return (
       <li className="todo-item">
-        <label>
-          <input type="checkbox" className="checkbox" checked={done} onChange={this.checkTodo()} />
-          {title}
-        </label>
+        <div className="checkbox">
+          <label className="checkbox-label">
+            <input type="checkbox" className="checkbox-input" checked={done} onChange={this.checkTodo()} />
+            {title}
+          </label>
+        </div>
       </li>
     );
   }
