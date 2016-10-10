@@ -14,11 +14,13 @@ class TodoForm extends React.Component {
       done: this.props.done,
       date: false,
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.selectName = this.selectName.bind(this);
     this.handleAutocomplete = this.handleAutocomplete.bind(this);
     this.matches = this.matches.bind(this);
     this.teammatesNames = Object.keys(this.props.teammates);
     this.setDate = this.setDate.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
   }
 
   update(property) {
@@ -58,19 +60,24 @@ class TodoForm extends React.Component {
   }
 
   handleSubmit(e) {
-    return (e) => {
-      e.preventDefault();
-      const todo = {
-        'title': this.state.title,
-        'description': this.state.description,
-        'due_date': this.state.dueDate,
-        'todoer_id': this.state.todoerId,
-        'done': this.state.done,
-        'project_id': this.props.projectId,
-        };
-      this.props.createTodo({todo});
-      this.setState({title:"", description:"", todoerId:"", dueDate:""});
-    };
+    e.preventDefault();
+    const todo = {
+      'title': this.state.title,
+      'description': this.state.description,
+      'due_date': this.state.dueDate,
+      'todoer_id': this.state.todoerId,
+      'done': this.state.done,
+      'project_id': this.props.projectId,
+      };
+    this.props.createTodo({todo});
+    this.setState({title:"", description:"", todoerId:"", dueDate:""});
+    this.props.hideForm();
+  }
+
+  handleCancel(e) {
+    e.preventDefault();
+    // this.setState({title:"", description:"", todoerId:"", dueDate:""});
+    this.props.hideForm();
   }
 
   render(){
@@ -89,7 +96,7 @@ class TodoForm extends React.Component {
             <label className="checkbox-label">
               <input type="checkbox" className="checkbox-input"/>
             </label>
-              <form className="expandable-form" onSubmit={this.handleSubmit()}>
+              <form className="expandable-form" onSubmit={this.handleSubmit}>
                 <input
                   className="input"
                   value={this.state.title}
@@ -127,8 +134,18 @@ class TodoForm extends React.Component {
                   <input type="text" placeholder="Add a due date..."/>
                 </label>
                 <DateField dateFormat="YYYY-MM-DD" onChange={this.setDate()}/>
+                <div className="buttons-container group">
+                  <button
+                    className="small home-button"
+                    >Add this to-do
+                  </button>
+                  <button
+                    className="small cancel home-button"
+                    onClick={this.handleCancel}>Cancel
+                  </button>
 
-                <button className="small home-button">Add this to-do</button>
+                </div>
+
               </form>
 
           </div>
