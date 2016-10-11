@@ -1,5 +1,4 @@
-.top-nav-wrapper {
-  height: 40px;
+.top-nav.wrapper {
   position: relative;
 }
 
@@ -10,6 +9,7 @@
   width: 100%;
   top: 0;
   z-index: 6;
+  padding: 3px 0;
   font-size: 14px;
 }
 
@@ -21,8 +21,17 @@
   float: left;
 }
 
-.top-nav a {
-  padding: 9px 10px;
+.small-logo img {
+  height: 35px;
+  width: auto;
+  border-right: none;
+  padding: 0 10px;
+  padding-right: 50px;
+}
+
+
+.top-nav a, button {
+  padding: 10px;
   display: inline-block;
 }
 
@@ -33,6 +42,10 @@
   border-right: 1px solid rgba(0,0,0,0.1);
 }
 
+.top-nav li:first-child {
+  border: none;
+}
+
 
 .top-nav .user-thumbnail {
 
@@ -40,6 +53,11 @@
 
 
 .top-nav .logout {
+  padding: 9px;
+  font-size: inherit;
   font-weight: 400;
   float: right;
+  border: 0;
+  border: 1px solid rgba(0,0,0,0.1);
+
 }
