@@ -121,3 +121,32 @@ li .todo-form {
 .autocomplete li {
 
 }
+.radio-label {
+  position: relative;
+  display: block;
+  padding-left: 30px;
+}
+input.radio-input {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  cursor: pointer;
+  border-radius: 100%;
+  border: 1px solid #7f7f7f;
+  background-color: #fff;
+}
+
+
+input.radio-input:checked {
+  border: 2px solid #3cb371;
+}
+.react-date-field {
+  position: absolute;
+  bottom: 53px;
+  left: 120px;
+}
+
+.react-flex.react-date-field.my-date-picker.react-date-field--theme-default.react-date-field--picker-position-bottom.react-date-field--invalid.react-flex-v2--align-items-center.react-flex-v2--row.react-flex-v2--display-inline-flex {
+  border-bottom: 1px solid red;
+
+}

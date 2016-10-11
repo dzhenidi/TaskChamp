@@ -117,23 +117,26 @@ class TodoForm extends React.Component {
                   value={this.state.description}
                   placeholder="Add extra details"
                   onChange={this.update('description')}/>
-                <label className="radio-label">No due date
+                <label className="radio-label">
                   <input
                     type="radio"
+                    className="radio-input"
                     name="date"
                     defaultChecked
                     onChange={this.update('date')}
                     value='false'/>
+                  No due date
                 </label>
                 <label className="radio-label">
                   <input
                     type="radio"
+                    className="radio-input"
                     name="date"
                     onChange={this.update('date')}
                     value='true'/>
-                  <input type="text" placeholder="Add a due date..."/>
+                  Due on
                 </label>
-                <DateField dateFormat="YYYY-MM-DD" onChange={this.setDate()}/>
+                <DateField className="my-date-picker" dateFormat="YYYY-MM-DD" onChange={this.setDate()}/>
                 <div className="buttons-container group">
                   <button
                     className="small home-button"

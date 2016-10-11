@@ -24,6 +24,11 @@ class Greeting extends React.Component {
 
               <ul className='top-nav-list group'>
                 <li>
+                  <div className="small-logo">
+                    <img src={window.taskChampAssets.taskChampLogo}></img>
+                  </div>
+                </li>
+                <li>
                   <a href="" className="user-thumbnail">{currentUser.username}</a>
                 </li>
                 <li>
