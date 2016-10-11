@@ -13,6 +13,7 @@ class TodoForm extends React.Component {
       autocompleteVal: '',
       done: this.props.done,
       date: false,
+      displayAutocomplete: false,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.selectName = this.selectName.bind(this);
@@ -21,6 +22,7 @@ class TodoForm extends React.Component {
     this.teammatesNames = Object.keys(this.props.teammates);
     this.setDate = this.setDate.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+    this.handleDisplay = this.handleDisplay.bind(this);
   }
 
   update(property) {
@@ -52,11 +54,24 @@ class TodoForm extends React.Component {
   selectName(e) {
     let name = e.currentTarget.innerText;
     let id = this.props.teammates[name];
-    this.setState({ autocompleteVal: name, todoerId: id });
+    this.setState({
+      autocompleteVal: name,
+      todoerId: id,
+      displayAutocomplete: false
+    });
   }
 
   handleAutocomplete(e) {
-    this.setState({autocompleteVal: e.currentTarget.value});
+    this.setState({
+      autocompleteVal: e.currentTarget.value,
+      // displayAutocomplete: true
+    });
+  }
+
+  handleDisplay() {
+    this.setState({
+      displayAutocomplete: true
+    });
   }
 
   handleSubmit(e) {
@@ -81,11 +96,16 @@ class TodoForm extends React.Component {
   }
 
   render(){
-    let autocompleteResults = this.matches().map((result, i) => {
-      return (
-        <li key={i} onClick={this.selectName}>{result}</li>
-      );
-    });
+    let autocompleteResults;
+    if (this.state.displayAutocomplete) {
+      autocompleteResults = this.matches().map((result, i) => {
+        return (
+          <li key={i} onClick={this.selectName}>{result}</li>
+        );
+      });
+    } else {
+      autocompleteResults = '';
+    }
 
     if (this.props.hidden) {
       return (<div></div>);
@@ -104,6 +124,7 @@ class TodoForm extends React.Component {
                   onChange={this.update('title')}
                   required/>
                 <input
+                  onClick={this.handleDisplay}
                   onChange={this.handleAutocomplete}
                   value={this.state.autocompleteVal}
                   placeholder='Assign to...'/>

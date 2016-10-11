@@ -140,13 +140,17 @@ input.radio-input {
 input.radio-input:checked {
   border: 2px solid #3cb371;
 }
-.react-date-field {
-  position: absolute;
-  bottom: 53px;
-  left: 120px;
+
+input.react-date-field__input {
+  border: none;
 }
 
 .react-flex.react-date-field.my-date-picker.react-date-field--theme-default.react-date-field--picker-position-bottom.react-date-field--invalid.react-flex-v2--align-items-center.react-flex-v2--row.react-flex-v2--display-inline-flex {
-  border-bottom: 1px solid red;
+  position: absolute;
+  bottom: 67px;
+  left: 120px;
+  border: none;
+  background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 
 }
