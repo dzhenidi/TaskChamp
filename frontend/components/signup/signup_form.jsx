@@ -38,8 +38,7 @@ class SignupForm extends React.Component {
     });
   }
 
-
-  componentWillUpdate(){
+  componentDidUpdate(){
     if (this.props.loggedIn) {
       hashHistory.push("/");
     }

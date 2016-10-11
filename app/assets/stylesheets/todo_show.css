@@ -1,0 +1,62 @@
+.todo-show-container {
+  position: fixed;
+  top: 90px;
+  padding: 10px;
+  width: 90%;
+  margin: 0 auto;
+  background: #fff;
+}
+.buttons-list-group {
+
+}
+.buttons-list li {
+  float: left;
+  padding: 20px 0;
+}
+
+.nav-history {
+  padding: 10px;
+}
+
+.nav-history a {
+  text-decoration: underline;
+}
+
+.todo-title-container {
+
+}
+
+.todo-title-container li {
+  float: left;
+}
+
+.todo-details-container {
+
+}
+
+.todo-table {
+  padding: 10px;
+  border-collapse: collapse;
+}
+
+.todo-table tr {
+}
+
+.todo-table td, th {
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.todo-table th {
+  width: 300px;
+  text-align: right;
+  font-weight: bold;
+}
+.todo-table tr {
+  width: 600px;
+  text-align: left;
+}
+
+button.mark-done.button {
+  margin: 0 0 0 auto;
+}

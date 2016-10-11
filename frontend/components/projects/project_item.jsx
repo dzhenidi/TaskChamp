@@ -24,6 +24,10 @@ class ProjectItem extends React.Component {
   todoItems() {
     const toggleTodo = this.props.toggleTodo;
     const { todos } = this.props.project;
+    // // this.props.todos
+    // const todoIds = this.props.project.todoIds;
+    // todoIds.map( (todoId) => this.props.todos[todoId] );
+
     const todoKeys = Object.keys(todos);
     return todoKeys.map( idx => {
       let todo = todos[idx];
