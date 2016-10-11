@@ -31,5 +31,6 @@ module.exports = {
 
     ]
   },
-  devtool: 'source-maps'
+  devtool: 'source-maps',
+  noParse: /node_modules\/quill\/dist/
 };

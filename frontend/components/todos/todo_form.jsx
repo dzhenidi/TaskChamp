@@ -1,6 +1,8 @@
 import React from 'react';
 import { DateField, Calendar, MonthView } from 'react-date-picker';
 import 'react-date-picker/index.css';
+import ReactQuill from 'react-quill';
+import 'react-quill/node_modules/quill/dist/quill.snow.css';
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -8,6 +10,7 @@ class TodoForm extends React.Component {
     this.state = {
       title: '',
       description: '',
+      text: '',
       todoerId: '',
       dueDate: '',
       autocompleteVal: '',
@@ -78,7 +81,7 @@ class TodoForm extends React.Component {
     e.preventDefault();
     const todo = {
       'title': this.state.title,
-      'description': this.state.description,
+      'description': this.state.text,
       'due_date': this.state.dueDate,
       'todoer_id': this.state.todoerId,
       'done': this.state.done,
@@ -93,6 +96,30 @@ class TodoForm extends React.Component {
     e.preventDefault();
     // this.setState({title:"", description:"", todoerId:"", dueDate:""});
     this.props.hideForm();
+  }
+
+  quillChange(){
+    return (value) => {
+      this.setState({text: value});
+    };
+  }
+
+
+
+  quill(){
+    return(
+      <ReactQuill
+        theme="snow"
+        value={this.state.text}
+        onChange={this.quillChange()}>
+        <ReactQuill.Toolbar key="toolbar"
+                    ref="toolbar"
+                    items={ReactQuill.Toolbar.defaultItems} />
+        <div key="editor"
+             ref="editor"
+             className="quill-contents"/>
+      </ReactQuill>
+    );
   }
 
   render(){
@@ -116,7 +143,9 @@ class TodoForm extends React.Component {
             <label className="checkbox-label">
               <input type="checkbox" className="checkbox-input"/>
             </label>
-              <form className="expandable-form" onSubmit={this.handleSubmit}>
+              <form
+                className="expandable-form"
+                onSubmit={this.handleSubmit}>
                 <input
                   className="input"
                   value={this.state.title}
@@ -138,6 +167,7 @@ class TodoForm extends React.Component {
                   value={this.state.description}
                   placeholder="Add extra details"
                   onChange={this.update('description')}/>
+                {this.quill()}
                 <label className="radio-label">
                   <input
                     type="radio"
@@ -157,7 +187,10 @@ class TodoForm extends React.Component {
                     value='true'/>
                   Due on
                 </label>
-                <DateField className="my-date-picker" dateFormat="YYYY-MM-DD" onChange={this.setDate()}/>
+                <DateField
+                  className="my-date-picker"
+                  dateFormat="YYYY-MM-DD"
+                  onChange={this.setDate()}/>
                 <div className="buttons-container group">
                   <button
                     className="small home-button"

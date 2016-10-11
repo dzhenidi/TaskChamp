@@ -20,10 +20,13 @@ const ProjectsReducer = (state = {}, action) => {
       delete newState[action.project.id];
       return newState;
     case RECEIVE_TODO:
-      // let newTodo = {[action.todo.id]: action.todo};
-      newProject = Object.assign({}, state[action.todo.project_id]);
-      newProject.todos[action.todo.id] = action.todo;
-      return Object.assign({}, state, {[action.todo.project_id]: newProject});
+      if (state[action.todo.project_id]) {
+        newProject = Object.assign({}, state[action.todo.project_id]);
+        newProject.todos[action.todo.id] = action.todo;
+        return Object.assign({}, state, {[action.todo.project_id]: newProject});
+      } else {
+        return state;
+      }
     case PROJECT_ERROR:
       alert(action.error);
       break;
