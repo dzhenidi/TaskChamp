@@ -1,21 +1,46 @@
 .todo-show-container {
-  position: fixed;
-  top: 90px;
-  padding: 10px;
-  width: 90%;
-  margin: 0 auto;
+  padding: 0 0 30px 10px;
+  width: 80%;
+  margin: 80px auto;
   background: #fff;
+  border-radius: 8px;
+  border: 1px solid #bfbfbf;
+  border-bottom-width: 2px;
+  border-color: rgba(0,0,0,0.15);
+  overflow: hidden;
 }
 .buttons-list-group {
 
 }
 .buttons-list li {
   float: left;
-  padding: 20px 0;
+}
+
+.buttons-list button {
+
+}
+.buttons-list button.small.home-button {
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+  border-bottom-width: 2px;
+  border-color: rgba(0,0,0,0.15);
+  color: #000;
+  margin: 9px 0;
 }
 
 .nav-history {
   padding: 10px;
+}
+
+.nav-history, .author-info {
+  font-size: 13px;
+  color: #aa9c84;
+  margin-top: 15px;
+
+}
+
+td.todo-header {
+
 }
 
 .nav-history a {
@@ -39,7 +64,7 @@
   border-collapse: collapse;
 }
 
-.todo-table tr {
+.todo-table td {
 }
 
 .todo-table td, th {
@@ -47,8 +72,17 @@
   border-bottom: 1px solid #e5e5e5;
 }
 
+.todo-title {
+  padding: 30px 0;
+}
+
+.todo-detail {
+  color: #7f7f7f;
+  font-size: 18px;
+}
+
 .todo-table th {
-  width: 300px;
+  width: 200px;
   text-align: right;
   font-weight: bold;
 }
@@ -57,6 +91,20 @@
   text-align: left;
 }
 
+.todo-table td:first-child {
+  padding-bottom: 20px;
+}
+
 button.mark-done.button {
+  font-size:13px;
   margin: 0 0 0 auto;
+  height: 40px;
+  width: 40px;
+  border-color: rgba(0,0,0,0.15);
+  border-width: 2px;
+  box-shadow: inset 3px 5px rgba(0,0,0,0.05);
+  border-radius: 15px;
+  color: #a6a6a6;
+  line-height: 1;
+  text-align: center;
 }

@@ -18,27 +18,33 @@ class Greeting extends React.Component {
     const currentUser = this.props.currentUser;
     if (currentUser) {
       return (
-        <div className='top-nav wrapper'>
-          <nav className='top-nav'>
-            <div className='top-nav-ribbon'>
+        <div>
 
-              <ul className='top-nav-list group'>
-                <li>
-                  <div className="small-logo">
-                    <img src={window.taskChampAssets.taskChampLogo}></img>
-                  </div>
-                </li>
-                <li>
-                  <a href="" className="user-thumbnail">{currentUser.username}</a>
-                </li>
-                <li>
-                  <Link to='/projects'>Projects Page</Link>
-                </li>
-              </ul>
-              <button onClick={this.props.logout} className="logout button">
-                Logout
-              </button>
-            </div>
+          <div className='top-nav wrapper'>
+            <nav className='top-nav'>
+              <div className='top-nav-ribbon'>
+
+                <ul className='top-nav-list group'>
+                  <li>
+                    <div className="small-logo">
+                      <img src={window.taskChampAssets.taskChampLogo}></img>
+                    </div>
+                  </li>
+                  <li>
+                    <a href="" className="user-thumbnail">{currentUser.username}</a>
+                  </li>
+                  <li>
+                    <Link to='/projects'>Projects Page</Link>
+                  </li>
+                </ul>
+                <button onClick={this.props.logout} className="logout button">
+                  Logout
+                </button>
+              </div>
+            </nav>
+          </div>
+          <nav className='team-nav'>
+            <a href="">{currentUser.teamName}</a>
           </nav>
         </div>
       );
