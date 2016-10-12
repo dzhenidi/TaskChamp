@@ -24,9 +24,6 @@ class ProjectItem extends React.Component {
   todoItems() {
     const toggleTodo = this.props.toggleTodo;
     const { todos } = this.props.project;
-    // // this.props.todos
-    // const todoIds = this.props.project.todoIds;
-    // todoIds.map( (todoId) => this.props.todos[todoId] );
 
     const todoKeys = Object.keys(todos);
     return todoKeys.map( idx => {
@@ -73,23 +70,3 @@ class ProjectItem extends React.Component {
 }
 
 export default ProjectItem;
-
-// let todoItems;
-// if (todos) {
-//   const todoIds = Object.keys(todos);
-//
-//   const todoItems = todoIds.map(id => {
-//     const { title, author, dueDate, done } = todos[id];
-//     return (
-//
-//       <Todo
-//         key={id}
-//         title={title}
-//         author={author}
-//         dueDate={dueDate}
-//         done={done} />
-//     );
-//   });
-// } else {
-//   todoItems = "";
-// }

@@ -12,10 +12,10 @@ class TodoForm extends React.Component {
   constructor(props) {
     super(props);
 
-    if (this.props.todo) {
-      let { author, author_id, completedAt, createdAt, description, done,
-        dueDate, project_id, title, todoer, todoer_id, due_date} = this.props.todo;
-    }
+    // if (this.props.todo) {
+    //   let { id, author, author_id, completedAt, createdAt, description, done,
+    //     dueDate, project_id, title, todoer, todoer_id, due_date} = this.props.todo;
+    // }
     const todo = this.props.todo || {};
 
     this.state = {
@@ -26,7 +26,7 @@ class TodoForm extends React.Component {
       dueDate: todo.due_date || null,
       todoer: todo.todoer || null,
       autocompleteVal: '',
-      done: this.props.done,
+      done: this.props.done || false,
       date: false,
       displayAutocomplete: false,
     };
@@ -92,15 +92,17 @@ class TodoForm extends React.Component {
     const todo = {
       'title': this.state.title,
       'description': this.state.text,
-      'due_date': this.state.dueDate,
+      'due_date': this.state.dueDate.format("YYYY-MM-DD"),
       'todoer_id': this.state.todoerId,
       'done': this.state.done,
       'project_id': this.props.projectId,
       };
+
     if (this.props.action === "create")  {
-      this.props.createTodo({todo});
+      this.props.createTodo(todo);
     } else {
-      this.props.updateTodo({todo});
+      todo.id = this.props.todo.id;
+      this.props.updateTodo(todo);
     }
     this.setState({title:"", description:"", todoerId:"", dueDate:""});
     this.props.hideForm();
@@ -137,7 +139,7 @@ class TodoForm extends React.Component {
   }
 
   datePicker(){
-    let selected = this.state.dueDate ? moment(this.state.dueDate) : "";
+    let selected = this.state.dueDate ? moment(this.state.dueDate) : null;
     return(
       <DatePicker
         selected={selected}
@@ -164,7 +166,8 @@ class TodoForm extends React.Component {
     }
 
     const assignPlaceholder = this.state.todoer ? this.state.todoer : "Assign to...";
-
+    const submitLabel = (this.props.action === "create") ? "Add this to-do" : "Save changes";
+    const cancelLabel = (this.props.action === "create") ? "Cancel" : "Discard changes";
 
     if (this.props.hidden) {
       return (<div></div>);
@@ -223,11 +226,11 @@ class TodoForm extends React.Component {
                 <div className="buttons-container group">
                   <button
                     className="small home-button"
-                    >Add this to-do
+                    >{submitLabel}
                   </button>
                   <button
                     className="small cancel home-button"
-                    onClick={this.handleCancel}>Cancel
+                    onClick={this.handleCancel}>{cancelLabel}
                   </button>
 
                 </div>
