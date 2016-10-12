@@ -20,6 +20,7 @@
 }
 
 .checkbox-label {
+  background: transparent;
   position: absolute;
   left: 0;
   top: 5px;
@@ -153,4 +154,19 @@ input.react-date-field__input {
   background: transparent;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 
+}
+
+.quill-toolbar {
+  background: #fff;
+  font-family: inherit;
+  border-top: 1px solid #7f7f7f;
+  border-left: 1px solid #7f7f7f;
+  border-right: 1px solid #7f7f7f;
+}
+
+.ql-container {
+  border: 1px solid #7f7f7f;
+  border-top: none;
+  font-family: inherit;
+  background: #fff;
 }

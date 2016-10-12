@@ -53,13 +53,13 @@ class TodoShow extends React.Component {
                     <th className="todo-title">
                       <button
                         className="mark-done button"
-                        onClick={this.markDone}>Mark Done
+                        onClick={this.markDone}>Mark this done!
                       </button>
                     </th>
                     <td className="todo-title">
                       <div>
                         <ul>
-                          <li>
+                          <li className="todo-header">
                             {todo.title}
                           </li>
                           <li className="author-info">
@@ -79,7 +79,9 @@ class TodoShow extends React.Component {
                   </tr>
                   <tr>
                     <th>Notes</th>
-                    <td className="todo-detail">{todo.description}</td>
+                    <td className="todo-detail">
+                      <div dangerouslySetInnerHTML={{__html:todo.description}}/>
+                    </td>
                   </tr>
                 </tbody>
               </table>

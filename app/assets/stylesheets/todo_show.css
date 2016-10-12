@@ -39,8 +39,8 @@
 
 }
 
-td.todo-header {
-
+.todo-header {
+  font-size: 30px
 }
 
 .nav-history a {
@@ -96,7 +96,9 @@ td.todo-header {
 }
 
 button.mark-done.button {
-  font-size:13px;
+  font-size:12px;
+  font-weight: normal;
+  padding: 10px 11px;
   margin: 0 0 0 auto;
   height: 40px;
   width: 40px;

@@ -33,7 +33,6 @@ class Todo extends React.Component {
                   <DueDate dueDate={dueDate}/>
                 </li>
               </ul>
-              <div>{description}</div>
             </span>
           </label>
         </div>
