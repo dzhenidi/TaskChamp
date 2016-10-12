@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import DueDate from './due_date';
+import BodyClassName from 'react-body-classname';
 
 
 class TodoShow extends React.Component {
@@ -30,59 +31,62 @@ class TodoShow extends React.Component {
       );
     } else {
       return(
-        <div className="todo-show-container">
-          <ul className="buttons-list group">
-            <li>
-              <button
-                className="small home-button"
-                onClick={this.displayEditForm}>Edit
-              </button>
-            </li>
-          </ul>
+        <BodyClassName className='body-home'>
+          <div className="todo-show-container">
+            <ul className="buttons-list group">
+              <li>
+                <button
+                  className="small home-button"
+                  onClick={this.displayEditForm}>Edit
+                </button>
+              </li>
+            </ul>
 
-          <div className="nav-history">
-            From: <Link to='/projects'>Projects</Link>{todo.poject_id} > <a href="">{todo.projectName}</a>
+            <div className="nav-history">
+              From: <Link to='/projects'>Projects</Link>{todo.poject_id} > <a href="">{todo.projectName}</a>
+            </div>
+
+            <section className="todo-details-container">
+              <table className="todo-table">
+                <tbody>
+                  <tr>
+                    <th className="todo-title">
+                      <button
+                        className="mark-done button"
+                        onClick={this.markDone}>Mark Done
+                      </button>
+                    </th>
+                    <td className="todo-title">
+                      <div>
+                        <ul>
+                          <li>
+                            {todo.title}
+                          </li>
+                          <li className="author-info">
+                            user {todo.author} added this on {todo.createdAt}
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th>Due on</th>
+                    <td><DueDate dueDate={todo.dueDate}/></td>
+                  </tr>
+                  <tr>
+                    <th>Assigned to</th>
+                    <td className="todo-detail">{todo.todoer.username}</td>
+                  </tr>
+                  <tr>
+                    <th>Notes</th>
+                    <td className="todo-detail">{todo.description}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
           </div>
+        </BodyClassName>
 
-          <section className="todo-details-container">
-            <table className="todo-table">
-              <tbody>
-                <tr>
-                  <th>
-                    <button
-                      className="mark-done button"
-                      onClick={this.markDone}>Mark Done
-                    </button>
-                  </th>
-                  <td>
-                    <div>
-                      <ul>
-                        <li>
-                          {todo.title}
-                        </li>
-                        <li>
-                          user {todo.author} added this on {todo.createdAt}
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th>Due on</th>
-                  <td><DueDate dueDate={todo.dueDate}/></td>
-                </tr>
-                <tr>
-                  <th>Assigned to</th>
-                  <td>{todo.todoer.username}</td>
-                </tr>
-                <tr>
-                  <th>Notes</th>
-                  <td>{todo.description}</td>
-                </tr>
-              </tbody>
-            </table>
-          </section>
-        </div>
       );
     }
   }

@@ -11,7 +11,7 @@ json.extract! todo,
 json.author todo.author.username
 json.todoer todo.todoer
 json.projectName todo.project.title
-json.createdAt todo.created_at.to_formatted_s(:short)
+json.createdAt todo.created_at.strftime("%b %d")
 
 json.completedAt todo.completed_at ? todo.completed_at.to_s(:short) : ""
 
