@@ -20,6 +20,7 @@ class Todo extends React.Component {
   render() {
     const { title, author, done, id, todoer, description, dueDate } = this.props.todo;
     const toggleTodo = this.props.toggleTodo;
+
     return (
       <li className="todo-item">
         <div className="checkbox">
