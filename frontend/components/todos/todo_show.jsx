@@ -8,8 +8,11 @@ class TodoShow extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      hidden: false
+      hidden: true
     };
+    this.hideForm = this.hideForm.bind(this);
+    this.markDone = this.markDone.bind(this);
+    this.toggleHidden = this.toggleHidden.bind(this);
     this.hideForm = this.hideForm.bind(this);
   }
 
@@ -17,17 +20,44 @@ class TodoShow extends React.Component {
     this.props.requestTodo(this.props.id);
   }
 
-  displayEditForm(){
 
-  }
-
-  markDone(){
-
+  toggleHidden(e){
+    this.setState({hidden: !this.state.hidden});
   }
 
   hideForm(){
     this.setState({hidden: true});
   }
+
+  markDone(){
+    let todo = this.props.todo[this.props.id];
+    todo.done = 'true';
+    this.props.updateTodo(todo);
+  }
+
+  checkTodo() {
+    return e => {
+      this.setState({done: !this.props.todo.done});
+      this.props.toggleTodo(this.props.todo);
+    };
+  }
+
+  doneButton(){
+    let done = this.props.todo[this.props.id].done;
+    if (!done) {
+      return (
+        <button
+          className="mark-done button"
+          onClick={this.markDone}>Mark this done!
+        </button>
+      );
+    } else {
+      return (
+        <span className="mark-done button">✓</span>
+      );
+    }
+  }
+
 
 
   render() {
@@ -46,7 +76,7 @@ class TodoShow extends React.Component {
               <li>
                 <button
                   className="small home-button"
-                  onClick={this.displayEditForm}>Edit
+                  onClick={this.toggleHidden}>Edit
                 </button>
               </li>
             </ul>
@@ -60,10 +90,7 @@ class TodoShow extends React.Component {
                 <tbody>
                   <tr>
                     <th className="todo-title">
-                      <button
-                        className="mark-done button"
-                        onClick={this.markDone}>Mark this done!
-                      </button>
+                      {this.doneButton()}
                     </th>
                     <td className="todo-title">
                       <div>

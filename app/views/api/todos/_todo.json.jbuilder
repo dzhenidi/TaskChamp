@@ -8,7 +8,6 @@ json.extract! todo,
   :done,
   :due_date
 
-
 json.author todo.author.username
 json.todoer todo.todoer.username
 json.projectName todo.project.title
