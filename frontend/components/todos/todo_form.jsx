@@ -94,7 +94,6 @@ class TodoForm extends React.Component {
 
   handleCancel(e) {
     e.preventDefault();
-    // this.setState({title:"", description:"", todoerId:"", dueDate:""});
     this.props.hideForm();
   }
 
@@ -114,10 +113,11 @@ class TodoForm extends React.Component {
         onChange={this.quillChange()}>
         <ReactQuill.Toolbar key="toolbar"
                     ref="toolbar"
-                    items={ReactQuill.Toolbar.defaultItems} />
+                    items={ReactQuill.Toolbar.defaultItems.slice(0, 3)} />
         <div key="editor"
              ref="editor"
-             className="quill-contents"/>
+             className="quill-contents"
+             dangerouslySetInnerHTML={{__html:this.state.text}}/>
       </ReactQuill>
     );
   }
