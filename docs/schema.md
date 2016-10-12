@@ -49,11 +49,11 @@ project_id | integer | not null, foreign key, indexed
 column name | data type | details
 ------------|-----------|--------
 id | integer | not null, indexed, primary key
-title | string | not null
 body | text |
 author_id | integer | not null, foreign key, indexed
-parent_comment_id | integer | not null, foreign key, indexed
 team_id | integer | foreign key, not null, indexed
+commentable_id | integer | foreign key, not null, indexed
+commentable_type | string |
 
 
 

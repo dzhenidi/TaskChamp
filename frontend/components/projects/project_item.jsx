@@ -56,6 +56,7 @@ class ProjectItem extends React.Component {
           </button>
           <ul className="todos add">
             <TodoFormContainer
+              action="create"
               projectId={id}
               hidden={this.state.hidden}
               hideForm={this.hideForm}/>

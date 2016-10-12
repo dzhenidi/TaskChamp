@@ -84,7 +84,7 @@ class TodoShow extends React.Component {
                   </tr>
                   <tr>
                     <th>Assigned to</th>
-                    <td className="todo-detail">{todo.todoer.username}</td>
+                    <td className="todo-detail">{todo.todoer}</td>
                   </tr>
                   <tr>
                     <th>Notes</th>
@@ -97,6 +97,7 @@ class TodoShow extends React.Component {
             </section>
             <TodoFormContainer
               todo={todo}
+              action="update"
               hidden={this.state.hidden}
               hideForm={this.hideForm}/>
           </div>

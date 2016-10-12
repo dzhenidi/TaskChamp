@@ -10,7 +10,7 @@ json.extract! todo,
 
 
 json.author todo.author.username
-json.todoer todo.todoer
+json.todoer todo.todoer.username
 json.projectName todo.project.title
 json.createdAt todo.created_at.strftime("%b %d")
 
