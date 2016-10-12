@@ -1,25 +1,36 @@
 import React from 'react';
-import { DateField, Calendar, MonthView } from 'react-date-picker';
+// import { DateField, Calendar, MonthView } from 'react-date-picker';
 import 'react-date-picker/index.css';
 import ReactQuill from 'react-quill';
+import DatePicker from 'react-datepicker';
 import 'react-quill/node_modules/quill/dist/quill.snow.css';
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
+
 
 class TodoForm extends React.Component {
   constructor(props) {
     super(props);
-    let { author, author_id, completedAt, createdAt, description, done,
-          dueDate, project_id, title, todoer, todoer_id, due_date} = this.props.todo;
+
+    if (this.props.todo) {
+      let { author, author_id, completedAt, createdAt, description, done,
+        dueDate, project_id, title, todoer, todoer_id, due_date} = this.props.todo;
+    }
+    const todo = this.props.todo || {};
+
     this.state = {
-      title: title || '',
-      description: description || '',
-      text: description || '',
-      todoerId: todoer_id || '',
-      dueDate: due_date || '',
+      title: todo.title || '',
+      description: todo.description || '',
+      text: todo.description || '',
+      todoerId: todo.todoer_id || '',
+      dueDate: todo.due_date || null,
+      todoer: todo.todoer || null,
       autocompleteVal: '',
       done: this.props.done,
       date: false,
       displayAutocomplete: false,
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.selectName = this.selectName.bind(this);
     this.handleAutocomplete = this.handleAutocomplete.bind(this);
@@ -35,11 +46,7 @@ class TodoForm extends React.Component {
     return e => this.setState({[property]: e.target.value});
   }
 
-  setDate() {
-     return (dateString) => {
-      this.setState({['dueDate']: dateString});
-    };
-  }
+
 
   matches(){
     const matches = [];
@@ -90,7 +97,11 @@ class TodoForm extends React.Component {
       'done': this.state.done,
       'project_id': this.props.projectId,
       };
-    this.props.createTodo({todo});
+    if (this.props.action === "create")  {
+      this.props.createTodo({todo});
+    } else {
+      this.props.updateTodo({todo});
+    }
     this.setState({title:"", description:"", todoerId:"", dueDate:""});
     this.props.hideForm();
   }
@@ -125,6 +136,21 @@ class TodoForm extends React.Component {
     );
   }
 
+  datePicker(){
+    let selected = this.state.dueDate ? moment(this.state.dueDate) : "";
+    return(
+      <DatePicker
+        selected={selected}
+        onChange={this.setDate}
+        placeholderTest="due on" />
+    );
+  }
+
+  setDate(d) {
+    this.setState({['dueDate']: d});
+  }
+
+
   render(){
     let autocompleteResults;
     if (this.state.displayAutocomplete) {
@@ -136,6 +162,9 @@ class TodoForm extends React.Component {
     } else {
       autocompleteResults = '';
     }
+
+    const assignPlaceholder = this.state.todoer ? this.state.todoer : "Assign to...";
+
 
     if (this.props.hidden) {
       return (<div></div>);
@@ -159,7 +188,7 @@ class TodoForm extends React.Component {
                   onClick={this.handleDisplay}
                   onChange={this.handleAutocomplete}
                   value={this.state.autocompleteVal}
-                  placeholder='Assign to...'/>
+                  placeholder={assignPlaceholder}/>
                 <ul>
                   <div className="autocomplete">
                     {autocompleteResults}
@@ -190,11 +219,7 @@ class TodoForm extends React.Component {
                     value='true'/>
                   Due on
                 </label>
-                <DateField
-                  value={this.state.dueDate}
-                  className="my-date-picker"
-                  dateFormat="YYYY-MM-DD"
-                  onChange={this.setDate()}/>
+                {this.datePicker()}
                 <div className="buttons-container group">
                   <button
                     className="small home-button"

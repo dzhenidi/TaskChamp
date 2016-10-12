@@ -24,7 +24,11 @@ class Todo extends React.Component {
       <li className="todo-item">
         <div className="checkbox">
           <label className="checkbox-label">
-            <input type="checkbox" className="checkbox-input" checked={done} onChange={this.checkTodo()} />
+            <input
+              type="checkbox"
+              className="checkbox-input"
+              checked={done}
+              onChange={this.checkTodo()} />
             <span className="checkbox-content">
               <ul className="checkbox-content-list group">
                 <li><Link to={`/todos/${id}`} >{title}</Link></li>
