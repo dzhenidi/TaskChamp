@@ -5,7 +5,8 @@ json.extract! todo,
   :author_id,
   :todoer_id,
   :project_id,
-  :done
+  :done,
+  :due_date
 
 
 json.author todo.author.username

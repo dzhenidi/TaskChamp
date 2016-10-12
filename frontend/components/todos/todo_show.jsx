@@ -2,11 +2,15 @@ import React from 'react';
 import { Link } from 'react-router';
 import DueDate from './due_date';
 import BodyClassName from 'react-body-classname';
-
+import TodoFormContainer from './todo_form_container';
 
 class TodoShow extends React.Component {
   constructor(props){
     super(props);
+    this.state = {
+      hidden: false
+    };
+    this.hideForm = this.hideForm.bind(this);
   }
 
   componentDidMount() {
@@ -20,6 +24,11 @@ class TodoShow extends React.Component {
   markDone(){
 
   }
+
+  hideForm(){
+    this.setState({hidden: true});
+  }
+
 
   render() {
     let todo = this.props.todo[this.props.id];
@@ -86,6 +95,10 @@ class TodoShow extends React.Component {
                 </tbody>
               </table>
             </section>
+            <TodoFormContainer
+              todo={todo}
+              hidden={this.state.hidden}
+              hideForm={this.hideForm}/>
           </div>
         </BodyClassName>
 
