@@ -7,12 +7,14 @@ import 'react-quill/node_modules/quill/dist/quill.snow.css';
 class TodoForm extends React.Component {
   constructor(props) {
     super(props);
+    let { author, author_id, completedAt, createdAt, description, done,
+          dueDate, project_id, title, todoer, todoer_id, due_date} = this.props.todo;
     this.state = {
-      title: '',
-      description: '',
-      text: '',
-      todoerId: '',
-      dueDate: '',
+      title: title || '',
+      description: description || '',
+      text: description || '',
+      todoerId: todoer_id || '',
+      dueDate: due_date || '',
       autocompleteVal: '',
       done: this.props.done,
       date: false,
@@ -26,6 +28,7 @@ class TodoForm extends React.Component {
     this.setDate = this.setDate.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.handleDisplay = this.handleDisplay.bind(this);
+    // debugger
   }
 
   update(property) {
@@ -188,6 +191,7 @@ class TodoForm extends React.Component {
                   Due on
                 </label>
                 <DateField
+                  value={this.state.dueDate}
                   className="my-date-picker"
                   dateFormat="YYYY-MM-DD"
                   onChange={this.setDate()}/>
