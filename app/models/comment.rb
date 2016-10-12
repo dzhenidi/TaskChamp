@@ -13,7 +13,7 @@
 #
 
 class Comment < ActiveRecord::Base
-  validates :author, presence: true
+  validates :author, :body, presence: true
 
   belongs_to :commentable,
     polymorphic: true

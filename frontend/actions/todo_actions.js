@@ -22,9 +22,10 @@ export const receiveTodos = todos => ({
   todos
 });
 
-export const receiveTodo = todo => ({
+export const receiveTodo = data => ({
   type: RECEIVE_TODO,
-  todo
+  todo: data.todo,
+  comments: data.comments
 });
 
 export const removeTodo = todo => ({
