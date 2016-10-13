@@ -81,3 +81,17 @@ projects = Project.create([
     team_id: 2,
     author_id: 2}
   ])
+
+
+comments = Comment.create([
+  { body: "comment1",
+    team_id: 1,
+    author_id: 1,
+    commentable_id: 1,
+    commentable_type: 'Todo'},
+    { body: "comment2",
+      team_id: 1,
+      author_id: 1,
+      commentable_id: 1,
+      commentable_type: 'Todo'}
+  ])
