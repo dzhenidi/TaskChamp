@@ -35,7 +35,7 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path="/" component={ App } onEnter={_redirectUnlessLoggedIn}>
-          <IndexRoute component={ ProjectsIndexContainer }/>
+
           <Route path="/projects" component={ ProjectsIndexContainer } />
           <Route path="/todos/:id" component={TodoShowContainer} />
         </Route>
@@ -46,6 +46,6 @@ const Root = ({ store }) => {
   );
 
 };
-
+          // <IndexRoute component={ ProjectsIndexContainer }/>
 
 export default Root;
