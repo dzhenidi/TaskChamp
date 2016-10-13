@@ -47,7 +47,7 @@ class SignupForm extends React.Component {
   demoLogin(e){
     e.preventDefault();
     let user = {
-        username: "Kristen M",
+        username: "Kristen M.",
         password: "starwars",
         email: "kristen@rollingpress.com",
         team_id: 1
