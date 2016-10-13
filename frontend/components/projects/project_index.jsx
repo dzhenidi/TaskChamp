@@ -13,6 +13,13 @@ class ProjectsIndex extends React.Component {
     this.hideForm = this.hideForm.bind(this);
   }
 
+  // componentWillUpdate(nextProps){
+  //   const currentUser = nextProps.currentUser;
+  //   if (!currentUser) {
+  //     hashHistory.push('/signup');
+  //   }
+  // }
+
   componentDidMount() {
     this.props.requestProjects();
   }

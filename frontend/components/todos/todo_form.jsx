@@ -42,6 +42,12 @@ class TodoForm extends React.Component {
     return e => this.setState({[property]: e.target.value});
   }
 
+  // componentWillUpdate(nextProps){
+  //   const currentUser = nextProps.currentUser;
+  //   if (!currentUser) {
+  //     hashHistory.push('/signup');
+  //   }
+  // }
 
 
   matches(){
@@ -150,6 +156,7 @@ class TodoForm extends React.Component {
 
 
   render(){
+
     let autocompleteResults;
     if (this.state.displayAutocomplete) {
       autocompleteResults = this.matches().map((result, i) => {

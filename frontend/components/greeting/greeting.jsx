@@ -10,14 +10,13 @@ class Greeting extends React.Component {
   componentWillUpdate(nextProps){
     const currentUser = nextProps.currentUser;
     if (!currentUser) {
-      hashHistory.push("/signup");
+      hashHistory.push('/signup');
     }
   }
 
   render(){
     const currentUser = this.props.currentUser;
     if (currentUser) {
-      debugger
       return (
         <div>
 
