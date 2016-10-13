@@ -1,5 +1,5 @@
-import { createComment, receiveComment } from '../util/comments_api_util';
-import { CREATE_COMMENT, commentError } from '../actions/comments_actions';
+import { createComment } from '../util/comments_api_util';
+import { CREATE_COMMENT, commentError, receiveComment  } from '../actions/comments_actions';
 
 export default ({getState, dispatch}) => next => action => {
   const commentSuccess = data => dispatch(receiveComment(data));

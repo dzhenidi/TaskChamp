@@ -1,5 +1,4 @@
 import React from 'react';
-// import { DateField, Calendar, MonthView } from 'react-date-picker';
 import 'react-date-picker/index.css';
 import ReactQuill from 'react-quill';
 import DatePicker from 'react-datepicker';
@@ -12,10 +11,7 @@ class TodoForm extends React.Component {
   constructor(props) {
     super(props);
 
-    // if (this.props.todo) {
-    //   let { id, author, author_id, completedAt, createdAt, description, done,
-    //     dueDate, project_id, title, todoer, todoer_id, due_date} = this.props.todo;
-    // }
+
     const todo = this.props.todo || {};
 
     this.state = {
