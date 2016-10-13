@@ -20,7 +20,7 @@ class Todo extends React.Component {
   render() {
     const { title, author, done, id, todoer, description, dueDate } = this.props.todo;
     const toggleTodo = this.props.toggleTodo;
-
+    debugger
     return (
       <li className="todo-item">
         <div className="checkbox">
@@ -33,7 +33,7 @@ class Todo extends React.Component {
             <span className="checkbox-content">
               <ul className="checkbox-content-list group">
                 <li><Link to={`/todos/${id}`} >{title}</Link></li>
-                <li><span className="todoer">{todoer.username}</span></li>
+                <li><span className="todoer">{todoer}</span></li>
                 <li>
                   <DueDate dueDate={dueDate}/>
                 </li>

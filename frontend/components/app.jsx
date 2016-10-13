@@ -22,7 +22,7 @@ class App extends React.Component {
   }
 
 render() {
-  debugger
+
   return (
     <div>
       <GreetingContainer />
