@@ -19,6 +19,7 @@ const TodosReducer = (state = {}, action) => {
       return newState;
     case TODO_ERROR:
       alert(action.error);
+      break;
     default:
       return state;
   }
@@ -39,5 +40,5 @@ export default TodosReducer;
 //   dueDate: "10/03/2016",
 //   timestamp :"10/1/2016 3:45PM",
 //   project: "projectName",
-//   project_id: 1, 
+//   project_id: 1,
 // }

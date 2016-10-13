@@ -3,6 +3,8 @@ import { Link } from 'react-router';
 import DueDate from './due_date';
 import BodyClassName from 'react-body-classname';
 import TodoFormContainer from './todo_form_container';
+import CommentsIndexContainer from '../comments/comments_index_container';
+
 
 class TodoShow extends React.Component {
   constructor(props){
@@ -127,6 +129,9 @@ class TodoShow extends React.Component {
               action="update"
               hidden={this.state.hidden}
               hideForm={this.hideForm}/>
+            <div className="comments-container">
+              <CommentsIndexContainer commentIds={todo.commentIds}/>
+            </div>
           </div>
         </BodyClassName>
 
