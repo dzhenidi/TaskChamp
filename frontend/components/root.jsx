@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router, Route, IndexRoute, IndexRedirect, hashHistory } from 'react-router';
-import App from './app';
+import AppContainer from './app';
 import { Provider   }  from 'react-redux';
 import SessionFormContainer from './session/session_container';
 import { requestTeamNames } from '../actions/teams_action';
@@ -26,6 +26,7 @@ const Root = ({ store }) => {
 
   const _redirectUnlessLoggedIn = (nextState, replace) => {
     const currentUser = store.getState().session.currentUser;
+    debugger
     if (!currentUser) {
       replace("/signup")
     };
@@ -34,8 +35,7 @@ const Root = ({ store }) => {
   return (
     <Provider store={ store }>
       <Router history={ hashHistory }>
-        <Route path="/" component={ App } onEnter={_redirectUnlessLoggedIn}>
-
+        <Route path="/" component={ AppContainer } onEnter={_redirectUnlessLoggedIn}>
           <Route path="/projects" component={ ProjectsIndexContainer } />
           <Route path="/todos/:id" component={TodoShowContainer} />
         </Route>
@@ -46,6 +46,5 @@ const Root = ({ store }) => {
   );
 
 };
-          // <IndexRoute component={ ProjectsIndexContainer }/>
 
 export default Root;

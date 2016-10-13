@@ -7,8 +7,7 @@ import ProjectsIndex from './project_index';
 const mapStateToProps = ({projects, session}) => {
 
   return ({
-    projects,
-    currentUser: session.currentUser
+    projects
   });
 }
 

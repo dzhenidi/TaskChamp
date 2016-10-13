@@ -4,9 +4,16 @@ import { createTodo, updateTodo } from '../../actions/todo_actions';
 
 
 const mapStateToProps = ({session}) => {
-  return({
-    teammates: session.currentUser.teammates
-  })
+  if (session.currentUser) {
+    return({
+      teammates: session.currentUser.teammates
+    })
+  } else {
+    return {
+      teammates: {}
+    }
+  }
+
 }
 
 const mapDispatchToProps = (dispatch) => ({
