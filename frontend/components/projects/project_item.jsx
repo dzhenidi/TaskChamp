@@ -9,7 +9,8 @@ class ProjectItem extends React.Component {
       hidden: true
     };
     this.toggleHidden = this.toggleHidden.bind(this);
-    this.todoItems = this.todoItems.bind(this);
+    this.completedTodos = this.completedTodos.bind(this);
+    this.remainingTodos = this.remainingTodos.bind(this);
     this.hideForm = this.hideForm.bind(this);
   }
 
@@ -21,19 +22,42 @@ class ProjectItem extends React.Component {
     this.setState({hidden: true});
   }
 
-  todoItems() {
+
+  completedTodos() {
     const toggleTodo = this.props.toggleTodo;
     const { todos } = this.props.project;
 
     const todoKeys = Object.keys(todos);
     return todoKeys.map( idx => {
       let todo = todos[idx];
-      return (
-        <Todo
-          key={idx}
-          todo={todo}
-          toggleTodo={toggleTodo} />
-      );
+      if (todo.done) {
+        return (
+          <Todo
+            key={idx}
+            todo={todo}
+            toggleTodo={toggleTodo} />
+        );
+
+      }
+    });
+  }
+
+  remainingTodos() {
+    const toggleTodo = this.props.toggleTodo;
+    const { todos } = this.props.project;
+
+    const todoKeys = Object.keys(todos);
+    return todoKeys.map( idx => {
+      let todo = todos[idx];
+      if (!todo.done) {
+        return (
+          <Todo
+            key={idx}
+            todo={todo}
+            toggleTodo={toggleTodo} />
+        );
+
+      }
     });
   }
 
@@ -47,6 +71,9 @@ class ProjectItem extends React.Component {
             <a href=""></a>
           </h3>
           <p className="project-item-description">{description}</p>
+          <ul className="todos remaining">
+            { this.remainingTodos() }
+          </ul>
           <button
             className="small home-button"
             onClick={this.toggleHidden}>Add a to-do
@@ -58,10 +85,8 @@ class ProjectItem extends React.Component {
               hidden={this.state.hidden}
               hideForm={this.hideForm}/>
           </ul>
-          <ul className="todos remaining">
-            { this.todoItems() }
-          </ul>
           <ul className="todos completed">
+            { this.completedTodos() }
           </ul>
         </header>
       </li>
