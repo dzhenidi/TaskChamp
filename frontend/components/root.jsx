@@ -9,6 +9,7 @@ import ProjectsIndexContainer from './projects/project_index_container';
 import GreetingContainer from './greeting/greeting_container';
 import TodoShowContainer from './todos/todo_show_container';
 import ProjectItemContainer from './projects/project_item_container';
+import ScheduleContainer from './schedule/schedule_container';
 
 const Root = ({ store }) => {
 
@@ -37,6 +38,7 @@ const Root = ({ store }) => {
       <Router history={ hashHistory }>
         <Route path="/" component={ AppContainer } onEnter={_redirectUnlessLoggedIn}>
           <Route path="/projects" component={ ProjectsIndexContainer } />
+          <Route path="/schedule" component={ ScheduleContainer } />
           <Route path="/todos/:id" component={ TodoShowContainer } />
           <Route path="/projects/:id" component={ ProjectItemContainer } />
         </Route>
