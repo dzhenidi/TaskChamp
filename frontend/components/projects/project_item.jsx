@@ -1,6 +1,8 @@
 import React from 'react';
 import Todo from '../todos/todo';
 import TodoFormContainer from '../todos/todo_form_container';
+import { Link } from 'react-router';
+
 
 class ProjectItem extends React.Component {
   constructor(props) {
@@ -67,8 +69,8 @@ class ProjectItem extends React.Component {
     return (
       <li className="project-item">
         <header className="project-item-header">
-          <h3>{title}
-            <a href=""></a>
+          <h3>
+            <Link to={`/projects/${id}`} >{title}</Link>
           </h3>
           <p className="project-item-description">{description}</p>
           <ul className="todos remaining">
