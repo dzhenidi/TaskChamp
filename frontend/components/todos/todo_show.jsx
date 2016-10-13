@@ -73,6 +73,8 @@ class TodoShow extends React.Component {
     } else {
       return(
         <BodyClassName className='body-home'>
+          <div>
+
           <div className="todo-show-container">
             <ul className="buttons-list group">
               <li>
@@ -129,10 +131,14 @@ class TodoShow extends React.Component {
               action="update"
               hidden={this.state.hidden}
               hideForm={this.hideForm}/>
-            <div className="comments-container">
-              <CommentsIndexContainer commentIds={todo.commentIds}/>
-            </div>
           </div>
+          <div className="comments-container">
+            <CommentsIndexContainer
+              commentIds={todo.commentIds}
+              commentableId={todo.id}
+              commentableType='Todo'/>
+          </div>
+        </div>
         </BodyClassName>
 
       );
