@@ -2,7 +2,7 @@ class Api::TodosController < ApplicationController
 
   def index
     @todos = Todo
-      .where(todoer_id: current_user.id)
+      .where(todoer_id: current_user.id, done: false)
       .order(due_date: :desc)
     render 'api/todos/index'
   end

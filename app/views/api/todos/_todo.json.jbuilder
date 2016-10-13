@@ -21,6 +21,7 @@ if todo.due_date
   json.dueDate do
     json.array! formatted_date
   end
+  json.dueMonth date.strftime("%_m")
 else
   json.set! :dueDate, []
 end

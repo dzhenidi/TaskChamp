@@ -36,6 +36,9 @@ class Greeting extends React.Component {
                   <li>
                     <Link to='/projects'>Projects Page</Link>
                   </li>
+                  <li>
+                    <Link to='/schedule'>My Schedule</Link>
+                  </li>
                 </ul>
                 <button onClick={this.props.logout} className="logout button">
                   Logout
