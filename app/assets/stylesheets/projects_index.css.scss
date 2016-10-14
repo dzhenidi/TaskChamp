@@ -74,7 +74,7 @@ ul.todos.remaining {
   padding: 10px 0;
 }
 
-.project-item-header > button.small.home-button {
+.project-item-header button.small.home-button {
   background-color: #fff;
   border: 1px solid #bfbfbf;
   border-bottom-width: 2px;
@@ -87,4 +87,8 @@ ul.todos.remaining {
   text-decoration: underline;
   color: #1b6ac9;
   margin-bottom: 20px;
+}
+
+.project-item-header h3 a {
+  text-align: left;
 }

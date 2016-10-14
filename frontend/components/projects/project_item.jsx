@@ -73,23 +73,27 @@ class ProjectItem extends React.Component {
             <Link to={`/projects/${id}`} >{title}</Link>
           </h3>
           <p className="project-item-description">{description}</p>
-          <ul className="todos remaining">
-            { this.remainingTodos() }
-          </ul>
-          <button
-            className="small home-button"
-            onClick={this.toggleHidden}>Add a to-do
-          </button>
-          <ul className="todos add">
-            <TodoFormContainer
-              action="create"
-              projectId={id}
-              hidden={this.state.hidden}
-              hideForm={this.hideForm}/>
-          </ul>
-          <ul className="todos completed">
-            { this.completedTodos() }
-          </ul>
+
+          <div className="todos-lists">
+            <ul className="todos remaining">
+              { this.remainingTodos() }
+            </ul>
+            <button
+              className="small home-button"
+              onClick={this.toggleHidden}>Add a to-do
+            </button>
+            <ul className="todos add">
+              <TodoFormContainer
+                action="create"
+                projectId={id}
+                hidden={this.state.hidden}
+                hideForm={this.hideForm}/>
+            </ul>
+            <ul className="todos completed">
+              { this.completedTodos() }
+            </ul>
+
+          </div>
         </header>
       </li>
     );
