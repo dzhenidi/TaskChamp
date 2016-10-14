@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router';
+import DueDate from './due_date';
 
 class Todo extends React.Component {
   constructor(props) {
@@ -15,38 +17,25 @@ class Todo extends React.Component {
     };
   }
 
-  dueDate(){
-    const {dueDate} = this.props.todo;
-    if (dueDate.length === 0) {
-      return (<div></div>);
-    } else {
-
-      let month = dueDate[0];
-      let day = dueDate[1];
-
-      return (
-        <span className="date short">
-          <div className="date-header">{month}</div>
-          <div className="date-day">{day}</div>
-        </span>
-      );
-    }
-  }
-  
   render() {
-    const { title, author, done, id, todoer } = this.props.todo;
+    const { title, author, done, id, todoer, description, dueDate } = this.props.todo;
     const toggleTodo = this.props.toggleTodo;
+
     return (
       <li className="todo-item">
         <div className="checkbox">
           <label className="checkbox-label">
-            <input type="checkbox" className="checkbox-input" checked={done} onChange={this.checkTodo()} />
+            <input
+              type="checkbox"
+              className="checkbox-input"
+              checked={done}
+              onChange={this.checkTodo()} />
             <span className="checkbox-content">
               <ul className="checkbox-content-list group">
-                <li><a href="">{title}</a></li>
-                <li><span className="todoer">{todoer.username}</span></li>
+                <li><Link to={`/todos/${id}`} >{title}</Link></li>
+                <li><span className="todoer">{todoer}</span></li>
                 <li>
-                  {this.dueDate()}
+                  <DueDate dueDate={dueDate}/>
                 </li>
               </ul>
             </span>

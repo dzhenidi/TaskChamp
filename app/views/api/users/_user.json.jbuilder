@@ -1,4 +1,5 @@
 json.extract! user, :username
+json.teamName user.team.name
 
 if user.teammates
   json.set! :teammates do

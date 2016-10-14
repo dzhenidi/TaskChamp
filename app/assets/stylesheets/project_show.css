@@ -1,0 +1,21 @@
+.project-show-container h3 > a {
+  color: black;
+  text-decoration: none;
+
+}
+
+.project-show-container {
+  padding: 0 0 30px 10px;
+  width: 80%;
+  margin: 80px auto;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #bfbfbf;
+  border-bottom-width: 2px;
+  border-color: rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+.project-show-container .todos-lists {
+  margin-left: 30px;
+}

@@ -1,20 +1,32 @@
 import React from 'react';
-import { DateField, Calendar, MonthView } from 'react-date-picker';
 import 'react-date-picker/index.css';
+import ReactQuill from 'react-quill';
+import DatePicker from 'react-datepicker';
+import 'react-quill/node_modules/quill/dist/quill.snow.css';
+import moment from 'moment';
+import 'react-datepicker/dist/react-datepicker.css';
+
 
 class TodoForm extends React.Component {
   constructor(props) {
     super(props);
+
+
+    const todo = this.props.todo || {};
+
     this.state = {
-      title: '',
-      description: '',
-      todoerId: '',
-      dueDate: '',
+      title: todo.title || '',
+      description: todo.description || '',
+      text: todo.description || '',
+      todoerId: todo.todoer_id || '',
+      dueDate: todo.due_date || null,
+      todoer: todo.todoer || null,
       autocompleteVal: '',
-      done: this.props.done,
+      done: this.props.done || false,
       date: false,
       displayAutocomplete: false,
     };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.selectName = this.selectName.bind(this);
     this.handleAutocomplete = this.handleAutocomplete.bind(this);
@@ -23,17 +35,20 @@ class TodoForm extends React.Component {
     this.setDate = this.setDate.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.handleDisplay = this.handleDisplay.bind(this);
+    // debugger
   }
 
   update(property) {
     return e => this.setState({[property]: e.target.value});
   }
 
-  setDate() {
-     return (dateString) => {
-      this.setState({['dueDate']: dateString});
-    };
-  }
+  // componentWillUpdate(nextProps){
+  //   const currentUser = nextProps.currentUser;
+  //   if (!currentUser) {
+  //     hashHistory.push('/signup');
+  //   }
+  // }
+
 
   matches(){
     const matches = [];
@@ -78,24 +93,70 @@ class TodoForm extends React.Component {
     e.preventDefault();
     const todo = {
       'title': this.state.title,
-      'description': this.state.description,
-      'due_date': this.state.dueDate,
+      'description': this.state.text,
+      'due_date': this.state.dueDate.format("YYYY-MM-DD"),
       'todoer_id': this.state.todoerId,
       'done': this.state.done,
       'project_id': this.props.projectId,
       };
-    this.props.createTodo({todo});
+
+    if (this.props.action === "create")  {
+      this.props.createTodo(todo);
+    } else {
+      todo.id = this.props.todo.id;
+      this.props.updateTodo(todo);
+    }
     this.setState({title:"", description:"", todoerId:"", dueDate:""});
     this.props.hideForm();
   }
 
   handleCancel(e) {
     e.preventDefault();
-    // this.setState({title:"", description:"", todoerId:"", dueDate:""});
     this.props.hideForm();
   }
 
+  quillChange(){
+    return (value) => {
+      this.setState({text: value});
+    };
+  }
+
+
+
+  quill(){
+    return(
+      <ReactQuill
+        theme="snow"
+        value={this.state.text}
+        onChange={this.quillChange()}>
+        <ReactQuill.Toolbar key="toolbar"
+                    ref="toolbar"
+                    items={ReactQuill.Toolbar.defaultItems.slice(0, 3)} />
+        <div key="editor"
+             ref="editor"
+             className="quill-contents"
+             dangerouslySetInnerHTML={{__html:this.state.text}}/>
+      </ReactQuill>
+    );
+  }
+
+  datePicker(){
+    let selected = this.state.dueDate ? moment(this.state.dueDate) : null;
+    return(
+      <DatePicker
+        selected={selected}
+        onChange={this.setDate}
+        placeholderTest="due on" />
+    );
+  }
+
+  setDate(d) {
+    this.setState({['dueDate']: d});
+  }
+
+
   render(){
+
     let autocompleteResults;
     if (this.state.displayAutocomplete) {
       autocompleteResults = this.matches().map((result, i) => {
@@ -107,6 +168,10 @@ class TodoForm extends React.Component {
       autocompleteResults = '';
     }
 
+    const assignPlaceholder = this.state.todoer ? this.state.todoer : "Assign to...";
+    const submitLabel = (this.props.action === "create") ? "Add this to-do" : "Save changes";
+    const cancelLabel = (this.props.action === "create") ? "Cancel" : "Discard changes";
+
     if (this.props.hidden) {
       return (<div></div>);
     } else {
@@ -114,9 +179,14 @@ class TodoForm extends React.Component {
         <li className="todo-form">
           <div className="expandable-todo-form checkbox">
             <label className="checkbox-label">
-              <input type="checkbox" className="checkbox-input"/>
+              <input
+                type="checkbox"
+                checked={this.state.done}
+                className="checkbox-input"/>
             </label>
-              <form className="expandable-form" onSubmit={this.handleSubmit}>
+              <form
+                className="expandable-form"
+                onSubmit={this.handleSubmit}>
                 <input
                   className="input"
                   value={this.state.title}
@@ -127,7 +197,7 @@ class TodoForm extends React.Component {
                   onClick={this.handleDisplay}
                   onChange={this.handleAutocomplete}
                   value={this.state.autocompleteVal}
-                  placeholder='Assign to...'/>
+                  placeholder={assignPlaceholder}/>
                 <ul>
                   <div className="autocomplete">
                     {autocompleteResults}
@@ -138,6 +208,7 @@ class TodoForm extends React.Component {
                   value={this.state.description}
                   placeholder="Add extra details"
                   onChange={this.update('description')}/>
+                {this.quill()}
                 <label className="radio-label">
                   <input
                     type="radio"
@@ -157,15 +228,15 @@ class TodoForm extends React.Component {
                     value='true'/>
                   Due on
                 </label>
-                <DateField className="my-date-picker" dateFormat="YYYY-MM-DD" onChange={this.setDate()}/>
+                {this.datePicker()}
                 <div className="buttons-container group">
                   <button
                     className="small home-button"
-                    >Add this to-do
+                    >{submitLabel}
                   </button>
                   <button
                     className="small cancel home-button"
-                    onClick={this.handleCancel}>Cancel
+                    onClick={this.handleCancel}>{cancelLabel}
                   </button>
 
                 </div>

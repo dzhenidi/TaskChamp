@@ -12,7 +12,7 @@ class SignupForm extends React.Component {
           team_id: ""
       };
       this.handleSubmit = this.handleSubmit.bind(this);
-
+      this.demoLogin = this.demoLogin.bind(this);
   }
 
 
@@ -38,11 +38,21 @@ class SignupForm extends React.Component {
     });
   }
 
-
-  componentWillUpdate(){
+  componentDidUpdate(){
     if (this.props.loggedIn) {
       hashHistory.push("/");
     }
+  }
+
+  demoLogin(e){
+    e.preventDefault();
+    let user = {
+        username: "Kristen M.",
+        password: "starwars",
+        email: "kristen@rollingpress.com",
+        team_id: 1
+    };
+    this.props.demoLogin(user);
   }
 
   render() {
@@ -91,7 +101,7 @@ class SignupForm extends React.Component {
             </div>
             <form className="signup-form" onSubmit={this.handleSubmit}>
 
-              <label><p>Your full name</p>
+              <label><p>Your username</p>
                 <input
                   type="text"
                   value={this.state.username}
@@ -117,6 +127,7 @@ class SignupForm extends React.Component {
                   onChange={this.update('password')}/>
               </label>
               <input type="submit" value="Start my 60 day free trial" className="submit"/>
+              <input type="submit" value="Demo Login" className="submit demo" onClick={this.demoLogin}/>
             </form>
           </section>
         </div>

@@ -13,8 +13,18 @@
   font-size: 14px;
 }
 
-.top-nav-ribbon {
+.team-nav {
+  display: flex;
+  justify-content: center;
+  margin: 60px auto;
+}
 
+.team-nav a {
+  width: auto;
+  font-size: 18px;
+  font-weight: bold;
+  color: #1b6ac9;
+  text-decoration: underline;
 }
 
 .top-nav-list {
@@ -35,6 +45,9 @@
   display: inline-block;
 }
 
+.logout.button {
+  margin-right: 10px;
+}
 
 .top-nav li {
   float: left;

@@ -1,0 +1,135 @@
+.todo-show-container {
+  padding: 0 0 30px 10px;
+  width: 80%;
+  margin: 80px auto;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #bfbfbf;
+  border-bottom-width: 2px;
+  border-color: rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+.buttons-list-group {
+
+}
+.buttons-list li {
+  float: left;
+}
+
+.buttons-list button {
+
+}
+.buttons-list button.small.home-button {
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+  border-bottom-width: 2px;
+  border-color: rgba(0,0,0,0.15);
+  color: #000;
+  margin: 9px 0;
+}
+
+.nav-history {
+  padding: 10px;
+}
+
+.nav-history, .author-info {
+  font-size: 13px;
+  color: #aa9c84;
+  margin-top: 15px;
+
+}
+
+.todo-header {
+  font-size: 30px
+}
+
+.nav-history a {
+  text-decoration: underline;
+}
+
+.todo-title-container {
+
+}
+
+.todo-title-container li {
+  float: left;
+}
+
+.todo-details-container {
+
+}
+
+.todo-table {
+  padding: 10px;
+  border-collapse: collapse;
+}
+
+.todo-table td {
+}
+
+.todo-table td, th {
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.todo-title {
+  padding: 30px 0;
+}
+
+.todo-detail {
+  color: #7f7f7f;
+  font-size: 18px;
+}
+
+.todo-table th {
+  width: 200px;
+  text-align: right;
+  font-weight: bold;
+}
+.todo-table tr {
+  width: 600px;
+  text-align: left;
+}
+
+.todo-table td:first-child {
+  padding-bottom: 20px;
+}
+
+button.mark-done.button {
+  font-size:12px;
+  font-weight: normal;
+  padding: 10px 11px;
+  margin: 0 0 0 auto;
+  height: 40px;
+  width: 40px;
+  border-color: rgba(0,0,0,0.15);
+  border-width: 2px;
+  box-shadow: inset 3px 5px rgba(0,0,0,0.05);
+  border-radius: 15px;
+  color: #a6a6a6;
+  line-height: 1;
+  text-align: center;
+}
+
+button.mark-done.button.done {
+  background-color: #3cb371;
+  cursor: inherit;
+  color: #fff;
+}
+
+/*span.mark-done.button.done {
+  background-color: #3cb371;
+  font-size:37px;
+  font-weight: normal;
+  padding: 6px 18px;
+  margin: 0 0 0 auto;
+  height: 40px;
+  width: 40px;
+  border-color: rgba(0,0,0,0.15);
+  border-width: 2px;
+  box-shadow: inset 3px 5px rgba(0,0,0,0.05);
+  border-radius: 15px;
+  color: #fff;
+  line-height: 1;
+  text-align: center;
+}*/

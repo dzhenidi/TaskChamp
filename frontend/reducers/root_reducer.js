@@ -3,6 +3,7 @@ import SessionReducer from './session_reducer';
 import TeamsReducer from './teams_reducer';
 import TodoReducer from './todo_reducer';
 import ProjectsReducer from './project_reducer';
+import CommentsReducer from './comments_reducer';
 
 
 const RootReducer = combineReducers({
@@ -10,6 +11,7 @@ const RootReducer = combineReducers({
   teams: TeamsReducer,
   todo: TodoReducer,
   projects: ProjectsReducer,
+  comments: CommentsReducer,
 });
 
 export default RootReducer;

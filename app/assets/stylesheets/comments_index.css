@@ -1,0 +1,31 @@
+.comments-container {
+  display: block;
+  padding: 0 0 30px 10px;
+  width: 80%;
+  background: transparent;
+  margin: 0 auto;
+}
+
+.comments-list {
+
+}
+
+.comment-item-container {
+  padding: 20px;
+}
+
+article > h2 {
+  font-weight: bold;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.comment-body {
+  word-wrap: break-word;
+
+}
+
+.comment.nav-history {
+  margin-top: inherit;
+}

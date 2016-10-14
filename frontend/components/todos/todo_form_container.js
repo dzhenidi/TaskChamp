@@ -1,16 +1,24 @@
 import { connect } from 'react-redux';
 import TodoForm  from './todo_form';
-import { createTodo } from '../../actions/todo_actions';
+import { createTodo, updateTodo } from '../../actions/todo_actions';
 
 
 const mapStateToProps = ({session}) => {
-  return({
-    teammates: session.currentUser.teammates
-  })
+  if (session.currentUser) {
+    return({
+      teammates: session.currentUser.teammates
+    })
+  } else {
+    return {
+      teammates: {}
+    }
+  }
+
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  createTodo: todo => dispatch(createTodo(todo))
+  createTodo: todo => dispatch(createTodo(todo)),
+  updateTodo: todo => dispatch(updateTodo(todo))
 })
 
 export default connect(
