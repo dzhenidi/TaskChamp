@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import DueDate from '../todos/due_date';
+import BodyClassName from 'react-body-classname';
 
 const MONTHS = {
   0: "January",
@@ -68,8 +69,8 @@ class Schedule extends React.Component {
             <li>
               <DueDate dueDate={todo.dueDate}/>
             </li>
-            <li><Link to={`/todos/${todo.id}`} >{todo.title}</Link></li>
-            <li><span className="todoer">{todo.projectName}</span></li>
+            <li className="title-link"><Link to={`/todos/${todo.id}`} >{todo.title}</Link></li>
+            <li><span className="project-title">For: {todo.projectName}</span></li>
           </ul>
         </span>
       );
@@ -77,7 +78,7 @@ class Schedule extends React.Component {
     return orderedKeys.map ( month => {
       return (
         <div className="month-container">
-          <header>
+          <header className={"month " + MONTHS[month]}>
             {MONTHS[month]}
           </header>
             {todoGroup(todosByMonth[month])}
@@ -91,18 +92,22 @@ class Schedule extends React.Component {
     let todos = this.props.todos;
     if (Object.keys(todos).length === 0) {
       return(
-        <h1> hello from schedule</h1>
+        <div></div>
       );
     } else {
       return (
-        <div className="schedule-container">
-          <header className="section-header">
-            <h1 className="schedule-heading">Schedule</h1>
-          </header>
-          <header>
-            {this.monthTodos()}
-          </header>
-        </div>
+        <BodyClassName className='body-home'>
+
+          <div className="schedule-container">
+            <header className="section-header">
+              <h1 className="schedule-heading">Schedule</h1>
+            </header>
+            <header>
+              {this.monthTodos()}
+            </header>
+          </div>
+        </BodyClassName>
+
       );
     }
   }
