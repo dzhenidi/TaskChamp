@@ -89,6 +89,7 @@ class SessionForm extends React.Component {
               <input className="submit" type="submit" value={buttonHeader}/>
             </label>
           </form>
+          <div></div>
           <Link to={linkTo}>{linkHeader}</Link>
         </section>
 

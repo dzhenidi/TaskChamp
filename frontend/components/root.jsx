@@ -38,7 +38,8 @@ const Root = ({ store }) => {
     <Provider store={ store }>
       <Router history={ hashHistory }>
         <Route path="/" component={ AppContainer } onEnter={_redirectUnlessLoggedIn}>
-          <Route path="/projects" component={ ProjectsIndexContainer } />
+          <IndexRoute path="/projects" component={ ProjectsIndexContainer } />
+          // <Route path="/projects" component={ ProjectsIndexContainer } />
           <Route path="/schedule" component={ ScheduleContainer } />
           <Route path="/todos/:id" component={ TodoShowContainer } />
           <Route path="/projects/:id" component={ ProjectShowContainer } />
