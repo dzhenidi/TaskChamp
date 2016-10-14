@@ -7,7 +7,7 @@ class CommentsIndex extends React.Component {
     super(props);
 
     this.state = {
-      text: ''
+      text: 'Add a comment...'
     };
     this.showCreateComment = this.showCreateComment.bind(this);
     this.submitComment = this.submitComment.bind(this);
@@ -37,12 +37,15 @@ class CommentsIndex extends React.Component {
       <ReactQuill
         theme="snow"
         value={this.state.text}
+        defaultValue="Add a comment..."
         onChange={this.quillChange()}>
         <ReactQuill.Toolbar key="toolbar"
                     ref="toolbar"
-                    items={ReactQuill.Toolbar.defaultItems.slice(0, 3)} />
+                    items={ReactQuill.Toolbar.defaultItems.slice(0, 3)}
+                    />
         <div key="editor"
              ref="editor"
+             defaultValue="Add a comment..."
              className="quill-contents"
              dangerouslySetInnerHTML={{__html:this.state.text}}/>
       </ReactQuill>

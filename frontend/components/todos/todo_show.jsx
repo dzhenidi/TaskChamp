@@ -55,7 +55,7 @@ class TodoShow extends React.Component {
       );
     } else {
       return (
-        <span className="mark-done button">✓</span>
+        <button className="mark-done button done">✓</button>
       );
     }
   }
