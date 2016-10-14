@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
-import 'quill/dist/quill.snow.css';
+// import 'quill/dist/quill.snow.css';
 
 class CommentsIndex extends React.Component {
   constructor(props){
