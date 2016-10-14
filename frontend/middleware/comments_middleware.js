@@ -4,6 +4,8 @@ import { CREATE_COMMENT, commentError, receiveComment  } from '../actions/commen
 export default ({getState, dispatch}) => next => action => {
   const commentSuccess = data => dispatch(receiveComment(data));
   const commentErrored = data => dispatch(commentError(data.responseJSON));
+
+
   switch(action.type) {
     case CREATE_COMMENT:
       createComment(action.comment, commentSuccess, commentErrored)
@@ -12,3 +14,9 @@ export default ({getState, dispatch}) => next => action => {
       next(action);
   }
 }
+
+      // if (action.comment.commentable_type === 'Todo') {
+      //   commentSuccess = data => dispatch(receiveTodoComment(data))
+      // } else {
+      //   commentSuccess = data => dispatch(receiveProjectComment(data))
+      // }

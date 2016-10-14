@@ -2,6 +2,7 @@ import ProjectItem from './project_item';
 import React from 'react';
 import BodyClassName from 'react-body-classname';
 import { Link } from 'react-router';
+import CommentsIndexContainer from '../comments/comments_index_container';
 
 class ProjectShow extends React.Component {
   constructor(props){
@@ -18,10 +19,11 @@ class ProjectShow extends React.Component {
   render(){
     let project = this.props.project;
     let toggleTodo = this.props.toggleTodo;
-    debugger
-    if (!project) {
+
+    if (!project.commentIds) {
       return <div></div>
     } else {
+
       return(
         <BodyClassName className='body-home'>
           <div className="project-show">
@@ -47,6 +49,12 @@ class ProjectShow extends React.Component {
 
             </div>
 
+          </div>
+          <div className="comments-container">
+            <CommentsIndexContainer
+              commentIds={project.commentIds}
+              commentableId={project.id}
+              commentableType='Project'/>
           </div>
         </div>
       </BodyClassName>

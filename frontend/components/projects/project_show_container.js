@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import ProjectShow from './project_show';
 import { updateTodo } from '../../actions/todo_actions';
 import { requestProject } from '../../actions/project_actions';
+
 const mapStateToProps = ({projects}, ownProps) => {
   let id = parseInt(ownProps.params.id);
   return ({

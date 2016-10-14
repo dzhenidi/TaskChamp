@@ -32,6 +32,11 @@
   line-height: 1.5;
 }
 
+.checkbox-content .checkbox-content-list .project-title {
+  line-height: 1.9;
+  margin-left: 10px;
+}
+
 .checkbox-content-list .title-link {
   font-size: 18px;
   font-weight: bold;
@@ -54,7 +59,7 @@ ul.checkbox-content-list.schedule.group {
 }
 
 .checkbox-content-list span.date.short {
-  margin-top: 7px;
+
   margin-right: 7px;
 }
 .month.October {

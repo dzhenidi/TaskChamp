@@ -22,11 +22,17 @@ const TodosReducer = (state = {}, action) => {
       alert(action.error);
       break;
     case RECEIVE_COMMENT:
-      let todoId = action.comment.commentable_id;
-      newTodo = Object.assign({}, state[todoId]);
-      let newCommentIds = newTodo.commentIds.concat(action.comment.id);
-      newTodo.commentIds = newCommentIds;
-      return Object.assign({}, state, {[todoId]: newTodo});
+    debugger
+      if (action.comment.commentable_type === 'Todo') {
+
+        let todoId = action.comment.commentable_id;
+        newTodo = Object.assign({}, state[todoId]);
+        let newCommentIds = newTodo.commentIds.concat(action.comment.id);
+        newTodo.commentIds = newCommentIds;
+        return Object.assign({}, state, {[todoId]: newTodo});
+      } else {
+        return state;
+      }
     default:
       return state;
   }

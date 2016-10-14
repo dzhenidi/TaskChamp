@@ -5,6 +5,7 @@ import { RECEIVE_PROJECTS,
        } from '../actions/project_actions';
 
 import { RECEIVE_TODO } from '../actions/todo_actions';
+import { RECEIVE_COMMENT } from '../actions/comments_actions';
 
 const ProjectsReducer = (state = {}, action) => {
   switch(action.type){
@@ -30,6 +31,17 @@ const ProjectsReducer = (state = {}, action) => {
     case PROJECT_ERROR:
       alert(action.error);
       break;
+    case RECEIVE_COMMENT:
+      if (action.comment.commentable_type === 'Project') {
+
+        let projectId = action.comment.commentable_id;
+        newProject = Object.assign({}, state[projectId]);
+        let newCommentIds = newProject.commentIds.concat(action.comment.id);
+        newProject.commentIds = newCommentIds;
+        return Object.assign({}, state, {[projectId]: newProject});
+      } else {
+        return state;
+      }
     default:
       return state;
   }

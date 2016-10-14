@@ -4,6 +4,7 @@ import CommentsIndex from './comments_index';
 import { selectComments } from '../../reducers/selectors';
 
 const mapStateToProps = ({comments}, ownProps) => {
+
   return ({
     comments: selectComments(comments, ownProps.commentIds),
     commentableId: ownProps.commentableId,
