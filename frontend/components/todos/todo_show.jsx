@@ -16,6 +16,7 @@ class TodoShow extends React.Component {
     this.markDone = this.markDone.bind(this);
     this.toggleHidden = this.toggleHidden.bind(this);
     this.hideForm = this.hideForm.bind(this);
+    this.todoTable = this.todoTable.bind(this);
   }
 
   componentDidMount() {
@@ -60,6 +61,54 @@ class TodoShow extends React.Component {
     }
   }
 
+  todoTable(){
+    let todo = this.props.todo[this.props.id];
+    if (this.state.hidden) {
+      return (
+        <section className="todo-details-container">
+          <table className="todo-table">
+            <tbody>
+              <tr>
+                <th className="todo-title">
+                  {this.doneButton()}
+                </th>
+                <td className="todo-title">
+                  <div>
+                    <ul>
+                      <li className="todo-header">
+                        {todo.title}
+                      </li>
+                      <li className="author-info">
+                        user {todo.author} added this on {todo.createdAt}
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th>Due on</th>
+                <td><DueDate dueDate={todo.dueDate}/></td>
+              </tr>
+              <tr>
+                <th>Assigned to</th>
+                <td className="todo-detail">{todo.todoer}</td>
+              </tr>
+              <tr>
+                <th>Notes</th>
+                <td className="todo-detail">
+                  <div dangerouslySetInnerHTML={{__html:todo.description}}/>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      );
+    } else {
+      return (
+        <div></div>
+      );
+    }
+  }
 
 
   render() {
@@ -89,43 +138,7 @@ class TodoShow extends React.Component {
               From: <Link to='/projects'>Projects</Link>{todo.poject_id} > <a href="">{todo.projectName}</a>
             </div>
 
-            <section className="todo-details-container">
-              <table className="todo-table">
-                <tbody>
-                  <tr>
-                    <th className="todo-title">
-                      {this.doneButton()}
-                    </th>
-                    <td className="todo-title">
-                      <div>
-                        <ul>
-                          <li className="todo-header">
-                            {todo.title}
-                          </li>
-                          <li className="author-info">
-                            user {todo.author} added this on {todo.createdAt}
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th>Due on</th>
-                    <td><DueDate dueDate={todo.dueDate}/></td>
-                  </tr>
-                  <tr>
-                    <th>Assigned to</th>
-                    <td className="todo-detail">{todo.todoer}</td>
-                  </tr>
-                  <tr>
-                    <th>Notes</th>
-                    <td className="todo-detail">
-                      <div dangerouslySetInnerHTML={{__html:todo.description}}/>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </section>
+            {this.todoTable()}
             <TodoFormContainer
               todo={todo}
               action="update"

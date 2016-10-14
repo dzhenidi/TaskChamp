@@ -179,7 +179,10 @@ class TodoForm extends React.Component {
         <li className="todo-form">
           <div className="expandable-todo-form checkbox">
             <label className="checkbox-label">
-              <input type="checkbox" checked={this.state.done} className="checkbox-input"/>
+              <input
+                type="checkbox"
+                checked={this.state.done}
+                className="checkbox-input"/>
             </label>
               <form
                 className="expandable-form"
