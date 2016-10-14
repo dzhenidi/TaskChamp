@@ -45,6 +45,7 @@
 .todo-form {
   padding: 10px 15px 15px 37px;
   margin-left: -37px;
+  list-style: none;
 }
 
 .expandable-todo-form input {

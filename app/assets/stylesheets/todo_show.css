@@ -110,3 +110,26 @@ button.mark-done.button {
   line-height: 1;
   text-align: center;
 }
+
+button.mark-done.button.done {
+  background-color: #3cb371;
+  cursor: inherit;
+  color: #fff;
+}
+
+/*span.mark-done.button.done {
+  background-color: #3cb371;
+  font-size:37px;
+  font-weight: normal;
+  padding: 6px 18px;
+  margin: 0 0 0 auto;
+  height: 40px;
+  width: 40px;
+  border-color: rgba(0,0,0,0.15);
+  border-width: 2px;
+  box-shadow: inset 3px 5px rgba(0,0,0,0.05);
+  border-radius: 15px;
+  color: #fff;
+  line-height: 1;
+  text-align: center;
+}*/

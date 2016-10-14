@@ -87,6 +87,7 @@
  }
 
  button {
+   cursor: pointer;
    font-size: 16px;
    font-weight: bold;
    padding: 8px 16px;
@@ -100,6 +101,7 @@
  }
 
  .home-button {
+      cursor: pointer;
    background: #3cb371;
    border-color: #3cb371;
    border-bottom-color: rgba(0,0,0,0.15);
@@ -113,6 +115,7 @@
    border-shadow: 0 0 8px rgba(0,0,0,0.25);
    color: #fff;
    font-weight: 400;
+      cursor: pointer;
  }
 
  .small.home-button {
@@ -125,6 +128,10 @@
  .big.home-button {
    width: 165px;
    margin: 0 auto;
+ }
+
+ .button {
+    cursor: pointer;
  }
 
  .cancel.home-button {
