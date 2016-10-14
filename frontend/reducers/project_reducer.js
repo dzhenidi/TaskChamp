@@ -13,7 +13,7 @@ const ProjectsReducer = (state = {}, action) => {
       action.projects.forEach(project => newState[project.id] = project);
       return newState;
     case RECEIVE_PROJECT:
-      let newProject = {[action.project.id]: action.project};
+      let newProject = {[action.project.project.id]: action.project.project};
       return Object.assign({}, state, newProject);
     case REMOVE_PROJECT:
       newState = Object.assign({}, state);

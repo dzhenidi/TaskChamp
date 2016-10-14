@@ -50,7 +50,7 @@ class SignupForm extends React.Component {
         username: "Kristen M.",
         password: "starwars",
         email: "kristen@rollingpress.com",
-        team_id: 1
+        team_id: 2
     };
     this.props.demoLogin(user);
   }
