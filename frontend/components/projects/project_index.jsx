@@ -56,7 +56,7 @@ class ProjectsIndex extends React.Component {
     return (
       <BodyClassName className='body-home'>
         <section className="projects-index-container">
-          <header class="section-header">
+          <header className="section-header">
             <h1>To-dos:</h1>
             <button
               className="big home-button"
