@@ -23,7 +23,7 @@ class TodoForm extends React.Component {
       todoer: todo.todoer || null,
       autocompleteVal: '',
       done: this.props.done || false,
-      date: false,
+      date: todo.due_date ? true : false,
       displayAutocomplete: false,
     };
 
@@ -39,6 +39,7 @@ class TodoForm extends React.Component {
   }
 
   update(property) {
+    debugger
     return e => this.setState({[property]: e.target.value});
   }
 
@@ -94,7 +95,7 @@ class TodoForm extends React.Component {
     const todo = {
       'title': this.state.title,
       'description': this.state.text,
-      'due_date': this.state.dueDate.format("YYYY-MM-DD"),
+      'due_date': this.state.dueDate ? this.state.dueDate.format("YYYY-MM-DD") : null,
       'todoer_id': this.state.todoerId,
       'done': this.state.done,
       'project_id': this.props.projectId,
@@ -142,12 +143,16 @@ class TodoForm extends React.Component {
 
   datePicker(){
     let selected = this.state.dueDate ? moment(this.state.dueDate) : null;
-    return(
-      <DatePicker
-        selected={selected}
-        onChange={this.setDate}
-        placeholderTest="due on" />
-    );
+    if (this.state.date) {
+      return(
+        <DatePicker
+          selected={selected}
+          onChange={this.setDate}
+          placeholderText="Add a due date..." />
+      );
+    } else {
+      return (<div></div>);
+    }
   }
 
   setDate(d) {
@@ -214,9 +219,9 @@ class TodoForm extends React.Component {
                     type="radio"
                     className="radio-input"
                     name="date"
-                    defaultChecked
+                    checked={!this.state.date}
                     onChange={this.update('date')}
-                    value='false'/>
+                    value={false}/>
                   No due date
                 </label>
                 <label className="radio-label">
@@ -225,7 +230,8 @@ class TodoForm extends React.Component {
                     className="radio-input"
                     name="date"
                     onChange={this.update('date')}
-                    value='true'/>
+                    value={true}
+                    checked={this.state.date}/>
                   Due on
                 </label>
                 {this.datePicker()}
