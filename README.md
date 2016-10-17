@@ -26,7 +26,7 @@ to edit and comment.
 ##Schedule##
 The user can see their upcoming assignments on the Schedule page.
 
-![Schedule View Page](./docs/screenshots/schedule_page.png?raw=true "todo page")
+![Schedule View Page](./docs/screenshots/schedule_page.png?raw=true "schedule page")
 
 
 ##Future Additions##
