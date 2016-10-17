@@ -134,7 +134,7 @@ input.radio-input {
   left: 0;
   cursor: pointer;
   border-radius: 100%;
-  border: 1px solid #7f7f7f;
+  border: 1px solid rgba(0, 0, 0, 0.15);
   background-color: #fff;
 }
 
@@ -156,18 +156,28 @@ input.react-date-field__input {
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 
 }
-
-.quill-toolbar {
+.quill.custom-quill.container {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.quill-toolbar.custom-quill.toolbar.ql-toolbar.ql-snow {
   background: #fff;
   font-family: inherit;
-  border-top: 1px solid #7f7f7f;
-  border-left: 1px solid #7f7f7f;
-  border-right: 1px solid #7f7f7f;
+  padding: 2px 8px;
 }
 
-.ql-container {
-  border: 1px solid #7f7f7f;
-  border-top: none;
+.quill-contents.ql-container.ql-snow {
   font-family: inherit;
   background: #fff;
+  min-height: 100px;
+}
+
+.details-anchor {
+  position: relative;
+}
+
+.button.small.cancel.home-button {
+  margin-left: 3px;
 }

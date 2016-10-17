@@ -19,14 +19,14 @@ class TodoForm extends React.Component {
       description: todo.description || '',
       text: todo.description || '',
       todoerId: todo.todoer_id || '',
-      dueDate: todo.due_date || null,
+      dueDate: todo.due_date ? moment(todo.due_date, "YYYY-MM-DD") : null,
       todoer: todo.todoer || null,
       autocompleteVal: '',
       done: this.props.done || false,
       date: todo.due_date ? true : false,
       displayAutocomplete: false,
+      displayQuill: Boolean(todo.description),
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.selectName = this.selectName.bind(this);
     this.handleAutocomplete = this.handleAutocomplete.bind(this);
@@ -35,11 +35,15 @@ class TodoForm extends React.Component {
     this.setDate = this.setDate.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
     this.handleDisplay = this.handleDisplay.bind(this);
-    // debugger
+    this.toggleDate = this.toggleDate.bind(this);
+    this.todoDetails = this.todoDetails.bind(this);
+    this.quill = this.quill.bind(this);
+    this.openQuill = this.openQuill.bind(this);
   }
-
+  toggleDate() {
+    return this.setState({'date': !this.state.date})
+  }
   update(property) {
-    debugger
     return e => this.setState({[property]: e.target.value});
   }
 
@@ -95,7 +99,7 @@ class TodoForm extends React.Component {
     const todo = {
       'title': this.state.title,
       'description': this.state.text,
-      'due_date': this.state.dueDate ? this.state.dueDate.format("YYYY-MM-DD") : null,
+      'due_date': this.state.date ? moment(this.state.dueDate).format("YYYY-MM-DD") : null,
       'todoer_id': this.state.todoerId,
       'done': this.state.done,
       'project_id': this.props.projectId,
@@ -125,28 +129,42 @@ class TodoForm extends React.Component {
 
 
   quill(){
-    return(
-      <ReactQuill
-        theme="snow"
-        value={this.state.text}
-        onChange={this.quillChange()}>
-        <ReactQuill.Toolbar key="toolbar"
-                    ref="toolbar"
-                    items={ReactQuill.Toolbar.defaultItems.slice(0, 3)} />
-        <div key="editor"
-             ref="editor"
-             className="quill-contents"
-             dangerouslySetInnerHTML={{__html:this.state.text}}/>
-      </ReactQuill>
-    );
+    if (this.state.displayQuill) {
+
+      return(
+        <ReactQuill
+          theme="snow"
+          className="custom-quill container"
+          value={this.state.text}
+          onChange={this.quillChange()}>
+          <ReactQuill.Toolbar
+            key="toolbar"
+            ref="toolbar"
+            className="custom-quill toolbar"
+            items={ReactQuill.Toolbar.defaultItems.slice(0, 3)} />
+          <div key="editor"
+            ref="editor"
+            className="quill-contents"
+            dangerouslySetInnerHTML={{__html:this.state.text}}/>
+        </ReactQuill>
+      );
+    } else {
+      return (<div></div>)
+    }
+  }
+
+  openQuill(){
+    this.setState({
+      displayQuill: true
+    })
   }
 
   datePicker(){
-    let selected = this.state.dueDate ? moment(this.state.dueDate) : null;
+    // let selected = this.state.dueDate ? moment(this.state.dueDate) : null;
     if (this.state.date) {
       return(
         <DatePicker
-          selected={selected}
+          selected={this.state.dueDate}
           onChange={this.setDate}
           placeholderText="Add a due date..." />
       );
@@ -159,6 +177,28 @@ class TodoForm extends React.Component {
     this.setState({['dueDate']: d});
   }
 
+  todoDetails() {
+    if (!this.state.description) {
+      return (
+        <input
+          className="input"
+          placeholder="Add extra details..."
+          onClick={this.openQuill}
+          />
+      );
+    }
+    // return (
+    //   <div
+    //     className="input"
+    //     dangerouslySetInnerHTML={{__html: this.state.description}}/>
+    //   <input
+    //     className="input"
+    //     value={this.state.description}
+    //     placeholder="Add extra details"
+    //     onChange={this.update('description')}/>
+    //
+    // )
+  }
 
   render(){
 
@@ -208,20 +248,17 @@ class TodoForm extends React.Component {
                     {autocompleteResults}
                   </div>
                 </ul>
-                <input
-                  className="input"
-                  value={this.state.description}
-                  placeholder="Add extra details"
-                  onChange={this.update('description')}/>
-                {this.quill()}
+                <div className="details-anchor">
+                  {this.todoDetails()}
+                </div>
+                {this.state.displayQuill ? this.quill() : null}
                 <label className="radio-label">
                   <input
                     type="radio"
                     className="radio-input"
                     name="date"
                     checked={!this.state.date}
-                    onChange={this.update('date')}
-                    value={false}/>
+                    onChange={this.toggleDate}/>
                   No due date
                 </label>
                 <label className="radio-label">
@@ -229,8 +266,7 @@ class TodoForm extends React.Component {
                     type="radio"
                     className="radio-input"
                     name="date"
-                    onChange={this.update('date')}
-                    value={true}
+                    onChange={this.toggleDate}
                     checked={this.state.date}/>
                   Due on
                 </label>
