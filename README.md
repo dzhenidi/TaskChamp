@@ -17,9 +17,8 @@ Projects can be seen in detail and edited on the project view page.
 ##Todos##
 The Project Index Page also gives the user an overview of all todos, sorted
 by project, duedate, and completion, and tagged with the name of the
-"assignee" and the duedate. Users can create and check todos "DONE" right on the homepage,
-or, they can click on a todo for a move detailed view and an opportunity
-to edit and comment.
+"assignee" and the duedate. Users can create and check todos "DONE" right on the homepage, or, they can click on a todo for a move detailed view and an
+opportunity to edit and comment.
 
 ![Todo View Page](./docs/screenshots/todo_view_page.png?raw=true "todo page")
 
