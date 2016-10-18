@@ -15,7 +15,6 @@ const logger = ({ getState, dispatch }) => next => action => {
 };
 
 const RootMiddleware = applyMiddleware(
-  logger,
   SessionMiddleware,
   TeamsMiddleware,
   TodosMiddleware,

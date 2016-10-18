@@ -49,7 +49,7 @@
 }
 
 .expandable-todo-form input {
-
+  width: auto;
 }
 
 .expandable-todo-form .autocomplete {
@@ -131,7 +131,7 @@ li .todo-form {
 input.radio-input {
   position: absolute;
   top: 4px;
-  left: 0;
+  left: 4px;
   cursor: pointer;
   border-radius: 100%;
   border: 1px solid rgba(0, 0, 0, 0.15);

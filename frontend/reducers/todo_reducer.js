@@ -22,7 +22,6 @@ const TodosReducer = (state = {}, action) => {
       alert(action.error);
       break;
     case RECEIVE_COMMENT:
-    debugger
       if (action.comment.commentable_type === 'Todo') {
 
         let todoId = action.comment.commentable_id;

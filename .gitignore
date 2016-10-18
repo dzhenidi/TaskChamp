@@ -3,3 +3,5 @@ bundle.js
 bundle.js.map
 config/application.yml
 tmp/
+.DS_Store
+.byebug_history
