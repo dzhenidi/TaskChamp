@@ -1,5 +1,4 @@
 import React from 'react';
-import 'react-date-picker/index.css';
 import ReactQuill from 'react-quill';
 import DatePicker from 'react-datepicker';
 // import 'quill/dist/quill.snow.css';

@@ -16,7 +16,6 @@
     "moment": ">=2.8.0",
     "react": "^15.3.2",
     "react-body-classname": "^1.0.1",
-    "react-date-picker": "^5.3.28",
     "react-datepicker": "^0.30.0",
     "react-dom": "^15.3.2",
     "react-quill": "^0.4.1",
