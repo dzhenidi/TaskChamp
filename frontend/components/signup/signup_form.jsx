@@ -70,8 +70,10 @@ class SignupForm extends React.Component {
       linkHeader="Log in";
     }
 
-    const options = this.props.teams.map( team => (
-      <option value={team.id} className="option">{team.name}</option>
+    const options = this.props.teams.map( (team, idx) => (
+      <option key={idx} value={team.id} className="option">
+        {team.name}
+      </option>
     ));
 
     return (
@@ -126,8 +128,15 @@ class SignupForm extends React.Component {
                   placeholder="Easy to remember, hard to guess"
                   onChange={this.update('password')}/>
               </label>
-              <input type="submit" value="Start my 60 day free trial" className="submit"/>
-              <input type="submit" value="Demo Login" className="submit demo" onClick={this.demoLogin}/>
+              <input
+                type="submit"
+                value="Start my 60 day free trial"
+                className="submit"/>
+              <input
+                type="submit"
+                value="Demo Login"
+                className="submit demo"
+                onClick={this.demoLogin}/>
             </form>
           </section>
         </div>

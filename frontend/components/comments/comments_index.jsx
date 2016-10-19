@@ -24,6 +24,7 @@ class CommentsIndex extends React.Component {
       'commentable_type': this.props.commentableType
     };
     this.props.createComment(comment);
+    this.setState({text: 'Add a comment...'});
   }
 
   quillChange(){
