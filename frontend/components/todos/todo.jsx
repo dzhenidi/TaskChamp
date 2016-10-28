@@ -22,6 +22,16 @@ class Todo extends React.Component {
     const toggleTodo = this.props.toggleTodo;
 
     return (
+      <div>
+        <div className="checkboxTest">
+          <input
+            type="checkbox"
+            checked={done}/>
+          <label>
+            <h2>Test</h2>
+          </label>
+
+        </div>
       <li className="todo-item">
         <div className="checkbox">
           <label className="checkbox-label">
@@ -42,6 +52,7 @@ class Todo extends React.Component {
           </label>
         </div>
       </li>
+    </div>
     );
   }
 }

@@ -27,7 +27,9 @@ class Greeting extends React.Component {
                 <ul className='top-nav-list group'>
                   <li>
                     <div className="small-logo">
-                      <img src={window.taskChampAssets.taskChampLogo}></img>
+                      <Link to='/projects' id="logo-link">
+                        <img src={window.taskChampAssets.taskChampLogo}></img>
+                      </Link>
                     </div>
                   </li>
                   <li>

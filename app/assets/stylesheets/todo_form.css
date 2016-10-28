@@ -4,6 +4,60 @@
   position: relative;
 }*/
 
+input[type=checkbox] {
+  display: none;
+}
+.checkboxTest {
+  width: auto;
+  height: auto;
+  background: pink;
+  margin: 10px;
+  position: relative;
+}
+
+/*//the checkmark*/
+.checkboxTest:after {
+  opacity: 0.2;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 5px;
+	background: transparent;
+	top: 6px;
+	left: 7px;
+	border: 3px solid #333;
+	border-top: none;
+	border-right: none;
+
+	transform: rotate(-45deg);
+}
+
+/**
+ * Create the hover event of the tick
+ */
+.checkboxTest label:hover::after {
+	opacity: 0.5;
+}
+
+/**
+ * Create the checkbox state for the tick
+ */
+.checkboxTest input[type=checkbox]:checked + label:after {
+	opacity: 1;
+}
+
+.checkboxTest label {
+  cursor: pointer;
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	top: 0;
+  	left: 0;
+	background: #eee;
+	border:1px solid #ddd;
+}
+
+
 .checkbox {
   cursor: pointer;
   display: inline-block;
@@ -122,6 +176,10 @@ li .todo-form {
 
 .autocomplete li {
 
+}
+
+input[type=radio] {
+  /*display: none;*/
 }
 .radio-label {
   position: relative;
