@@ -46,14 +46,6 @@ class TodoForm extends React.Component {
     return e => this.setState({[property]: e.target.value});
   }
 
-  // componentWillUpdate(nextProps){
-  //   const currentUser = nextProps.currentUser;
-  //   if (!currentUser) {
-  //     hashHistory.push('/signup');
-  //   }
-  // }
-
-
   matches(){
     const matches = [];
     if (this.state.autocompleteVal.length === 0) {
@@ -68,6 +60,12 @@ class TodoForm extends React.Component {
     });
 
     return matches;
+  }
+
+  checkTodo() {
+    return e => {
+      this.setState({done: !this.state.done});
+    };
   }
 
   selectName(e) {
@@ -221,69 +219,76 @@ class TodoForm extends React.Component {
     } else {
       return(
         <li className="todo-form">
-          <div className="expandable-todo-form checkbox">
-            <label className="checkbox-label">
-              <input
-                type="checkbox"
-                checked={this.state.done}
-                className="checkbox-input"/>
-            </label>
-              <form
-                className="expandable-form"
-                onSubmit={this.handleSubmit}>
+          <div className="indent">
+            <div className="checkbox">
+              <label className="checkbox-label">
                 <input
-                  className="input"
-                  value={this.state.title}
-                  placeholder="Add a new to-do..."
-                  onChange={this.update('title')}
-                  required/>
-                <input
-                  onClick={this.handleDisplay}
-                  onChange={this.handleAutocomplete}
-                  value={this.state.autocompleteVal}
-                  placeholder={assignPlaceholder}/>
-                <ul>
-                  <div className="autocomplete">
-                    {autocompleteResults}
+                  type="checkbox"
+                  checked={this.state.done}
+                  className="checkbox-input"
+                  onChange={this.checkTodo()}/>
+                <span className="checkbox-button"></span>
+              </label>
+                <span className="checkbox-content">
+
+                <form
+                  className="expandable-form todo"
+                  onSubmit={this.handleSubmit}>
+                  <input
+                    className="input"
+                    value={this.state.title}
+                    placeholder="Add a new to-do..."
+                    onChange={this.update('title')}
+                    required/>
+                  <input
+                    onClick={this.handleDisplay}
+                    onChange={this.handleAutocomplete}
+                    value={this.state.autocompleteVal}
+                    placeholder={assignPlaceholder}/>
+                  <ul>
+                    <div className="autocomplete">
+                      {autocompleteResults}
+                    </div>
+                  </ul>
+                  <div className="details-anchor">
+                    {this.todoDetails()}
                   </div>
-                </ul>
-                <div className="details-anchor">
-                  {this.todoDetails()}
-                </div>
-                {this.state.displayQuill ? this.quill() : null}
-                <label className="radio-label">
-                  <input
-                    type="radio"
-                    className="radio-input"
-                    name="date"
-                    checked={!this.state.date}
-                    onChange={this.toggleDate}/>
-                  No due date
-                </label>
-                <label className="radio-label">
-                  <input
-                    type="radio"
-                    className="radio-input"
-                    name="date"
-                    onChange={this.toggleDate}
-                    checked={this.state.date}/>
-                  Due on
-                </label>
-                {this.datePicker()}
-                <div className="buttons-container group">
-                  <button
-                    className="small home-button"
-                    >{submitLabel}
-                  </button>
-                  <button
-                    className="small cancel home-button"
-                    onClick={this.handleCancel}>{cancelLabel}
-                  </button>
+                  {this.state.displayQuill ? this.quill() : null}
+                  <label className="radio-label">
+                    <input
+                      type="radio"
+                      className="radio-input"
+                      name="date"
+                      checked={!this.state.date}
+                      onChange={this.toggleDate}/>
+                    No due date
+                  </label>
+                  <label className="radio-label">
+                    <input
+                      type="radio"
+                      className="radio-input"
+                      name="date"
+                      onChange={this.toggleDate}
+                      checked={this.state.date}/>
+                    Due on
+                  </label>
+                  {this.datePicker()}
+                  <div className="buttons-container group">
+                    <button
+                      className="small home-button"
+                      >{submitLabel}
+                    </button>
+                    <button
+                      className="small cancel home-button"
+                      onClick={this.handleCancel}>{cancelLabel}
+                    </button>
 
-                </div>
+                  </div>
 
-              </form>
+                </form>
 
+              </span>
+            </div>
           </div>
         </li>
       );

@@ -6,130 +6,151 @@
 
 input[type=checkbox] {
   display: none;
+  box-sizing: border-box;
+  padding: 0;
 }
-.checkboxTest {
+.checkbox {
   width: auto;
   height: auto;
-  background: pink;
   margin: 10px;
   position: relative;
 }
+.checkbox.true {
+  font-size: 14px;
+}
 
-/*//the checkmark*/
-.checkboxTest:after {
-  opacity: 0.2;
+
+.checkbox label {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+}
+.checkbox-button {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 1px solid rgba(0,0,0,0.25);
+  background-color: #fff;
+  border-radius: 5px;
+  vertical-align: top;
+}
+.checkbox.true .checkbox-button{
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+}
+span.checkbox-content {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 30px;
+}
+
+.checkbox.true {
+  font-size: 14px;
+}
+.checkbox.true span.date.short {
+  font-size: 8px;
+  width: 22px;
+  height: 21px;
+
+}
+
+
+.checkbox-button:after {
+  opacity: 0;
 	content: '';
 	position: absolute;
 	width: 9px;
-	height: 5px;
+	height: 3px;
 	background: transparent;
-	top: 6px;
-	left: 7px;
-	border: 3px solid #333;
+	top: 4px;
+	left: 3px;
+	border: 2px solid #fff;
 	border-top: none;
 	border-right: none;
 
-	transform: rotate(-45deg);
-}
-
-/**
- * Create the hover event of the tick
- */
-.checkboxTest label:hover::after {
-	opacity: 0.5;
-}
-
-/**
- * Create the checkbox state for the tick
- */
-.checkboxTest input[type=checkbox]:checked + label:after {
-	opacity: 1;
-}
-
-.checkboxTest label {
-  cursor: pointer;
-	position: absolute;
-	width: 25px;
-	height: 25px;
-	top: 0;
-  	left: 0;
-	background: #eee;
-	border:1px solid #ddd;
+	transform: rotate(-60deg);
 }
 
 
-.checkbox {
-  cursor: pointer;
-  display: inline-block;
+.checkbox input[type=checkbox]:checked + span.checkbox-button {
+  background-color: #3cb371;
+}
+.checkbox input[type=checkbox]:checked + span.checkbox-button:after {
+  opacity: 1;
+}
+
+.todo-form .expandable-form {
+  padding-bottom: 10px;
+  border: none;
+  vertical-align: top;
+}
+
+.todo-form span.checkbox-content {
+  width: 90%;
+}
+
+.expandable-form.todo {
+  padding: 0;
+}
+
+.expandable-form.todo input {
   width: 100%;
-  background-color: #fff;
-  vertical-align: top;
-  position: relative;
+  padding: 0;
+  margin-bottom: 10px;
 }
 
-.checkbox:checked {
-  width: 16px;
-  height: 16px;
 
-}
 
-.checkbox-label {
-  background: transparent;
-  position: absolute;
-  left: 0;
-  top: 5px;
-  cursor: pointer;
-}
 
-.checkbox-input {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  /*border: 1px solid rgba(0, 0, 0, 0.25);*/
-  background-color: #fff;
-  /*border-radius: 2px;*/
-  vertical-align: top;
-  margin-top: 3px;
-}
-
-.todo-item.checkbox-input {
-
-}
-
-.todo-form {
-  padding: 10px 15px 15px 37px;
-  margin-left: -37px;
+li .todo-form {
+  background: #e8fff5;
+  padding: 10px 15px 15px 0px;
+  margin-left: -35px;
   list-style: none;
-}
-
-.expandable-todo-form input {
-  width: auto;
-}
-
-.expandable-todo-form .autocomplete {
-
+  border-radius: 4px;
+  border: 1px solid #e5e5e5;
+  width: 678px;
 }
 
 .todo-item {
-  padding: 9px 0;
+  padding: 0;
 }
 
-span.checkbox-content {
-  display: inline-block;
+.indent {
+  margin-left: 35px;
 }
+
 
 .checkbox-content-list li {
   float: left;
   padding-right: 5px;
 }
+.todo-form .buttons-container > .small.home-button {
+  color: #fff;
+}
+.todo-form .buttons-container > .small.home-button:first-child {
+  margin-right: 5px;
+  background: #3cb371;
+  border-color: #3cb371;
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+}
 
-.todo-form.buttons-container {
-
+.todo-form .buttons-container > .small.home-button:last-child {
+  background-color: #a6a6a6;
+  border-color: #a6a6a6;
+  border-bottom-color: rgba(0,0,0,0.15);
 }
 
 .todo-form button {
   display: inline-block;
 }
+
+/*.expandable-form.todo label.radio-label:last-child {
+  border-bottom: 1px solid #e5e5e5;
+}*/
 
 .todoer {
   color: #aa9c84;
@@ -159,8 +180,6 @@ span.date.short {
   color: #fff;
 }
 
-li .todo-form {
-}
 
 .autocomplete {
   position: relative;
@@ -181,11 +200,13 @@ li .todo-form {
 input[type=radio] {
   /*display: none;*/
 }
-.radio-label {
+label.radio-label {
   position: relative;
   display: block;
   padding-left: 30px;
+  /*border-bottom: 1px solid #e5e5e5;*/
 }
+
 input.radio-input {
   position: absolute;
   top: 4px;

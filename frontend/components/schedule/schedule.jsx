@@ -77,7 +77,7 @@ class Schedule extends React.Component {
     }
     return orderedKeys.map ( month => {
       return (
-        <div className="month-container">
+        <div className={"month-container " + MONTHS[month]}>
           <header className={"month " + MONTHS[month]}>
             {MONTHS[month]}
           </header>

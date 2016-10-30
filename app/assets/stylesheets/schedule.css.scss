@@ -1,0 +1,259 @@
+.schedule-container {
+  padding: 0 0 30px 10px;
+  width: 80%;
+  height: auto;
+  margin: 80px auto;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #bfbfbf;
+  border-bottom-width: 2px;
+  border-color: rgba(0,0,0,0.15);
+  overflow: hidden;
+}
+
+.schedule-container h1 {
+  margin: 30px;
+}
+
+.month-container .month {
+  width: 90%;
+
+  border-radius: 8px;
+  padding: 5px 10px;
+  margin: 1px auto;
+  overflow: hidden;
+  display: block;
+  box-sizing: border-box;
+  font-size: 28px;
+}
+
+.checkbox-content.schedule {
+  margin-left: 50px;
+  line-height: 1.5;
+}
+
+.checkbox-content .checkbox-content-list .project-title {
+  line-height: 1.9;
+  margin-left: 10px;
+}
+
+.checkbox-content-list .title-link {
+  font-size: 18px;
+  font-weight: bold;
+
+}
+ul.checkbox-content-list.schedule.group {
+  justify-content: center;
+}
+.checkbox-content-list .title-link, .checkbox-content-list .title-link {
+  display: inline-block;
+  vertical-align: baseline;
+  text-align: center;
+}
+
+.checkbox-content-list .project-title {
+  font-size: 16px;
+  font-weight: lighter;
+  color: #000;
+  display: block;
+}
+
+.checkbox-content-list span.date.short {
+
+  margin-right: 7px;
+}
+.month.October {
+  background: #f3dbd3;
+  color: #d16f50;
+}
+
+
+div.month-container.October {
+
+  .month.October  {
+    background: #f3dbd3;
+    color: #d16f50;
+  }
+
+  span.date.short {
+    border-color: #d16f50;
+  }
+
+  div.date-header {
+    background: #d16f50;
+  }
+}
+
+div.month-container.November {
+  .month.November {
+    background: #eae5e3;
+    color: #8d6e63;
+  }
+
+  span.date.short {
+    border-color: #8d6e63;
+  }
+
+  div.date-header {
+    background: #8d6e63;
+  }
+
+}
+
+div.month-container.December {
+  .month.December {
+    background: #dceefc;
+    color: #2196f3;
+  }
+
+  span.date.short {
+    border-color: #2196f3;
+  }
+
+  div.date-header {
+    background: #2196f3;
+  }
+}
+
+div.month-container.January {
+  .month.January {
+    background: #d8f1fd;
+    color: #03a9f4;
+  }
+
+  span.date.short {
+    border-color: #03a9f4;
+  }
+
+  div.date-header {
+    background: #03a9f4;
+  }
+}
+
+div.month-container.February {
+  .month.February {
+    background: #d8f4f8;
+    color: #00bcd4;
+  }
+
+  span.date.short {
+    border-color: #00bcd4;
+  }
+
+  div.date-header {
+    background: #00bcd4;
+  }
+}
+
+div.month-container.March {
+  .month.March {
+    background: #d8eeec;
+    color: #009688;
+  }
+
+  span.date.short {
+    border-color: #009688;
+  }
+
+  div.date-header {
+    background: #009688;
+  }
+}
+
+div.month-container.April {
+  .month.April {
+    background: #e3f2e3;
+    color: #4caf50;
+  }
+
+  span.date.short {
+    border-color: #4caf50;
+  }
+
+  div.date-header {
+    background: #4caf50;
+  }
+}
+
+div.month-container.May {
+  .month.May {
+    background: #e7f3db;
+    color: #8bc34a;
+  }
+  span.date.short {
+    border-color: #8bc34a;
+  }
+
+  div.date-header {
+    background: #8bc34a;
+  }
+}
+
+div.month-container.April {
+  .month.April {
+    background: #e3f2e3;
+    color: #4caf50;
+  }
+  span.date.short {
+    border-color: #4caf50;
+  }
+
+  div.date-header {
+    background: #4caf50;
+  }
+}
+
+div.month-container.June {
+  .month.June {
+    background: #f2f6cd;
+    color: #afb42b;
+  }
+  span.date.short {
+    border-color: #afb42b;
+  }
+
+  div.date-header {
+    background: #afb42b;
+  }
+}
+
+div.month-container.July {
+  .month.July {
+    background: #fef5d8;
+    color: #ffc107;
+  }
+  span.date.short {
+    border-color: #ffc107;
+  }
+
+  div.date-header {
+    background: #ffc107;
+  }
+}
+
+div.month-container.August {
+  .month.August {
+    background: #feefd8;
+    color: #ff9800;
+  }
+  span.date.short {
+    border-color: #ff9800;
+  }
+
+  div.date-header {
+    background: #ff9800;
+  }
+}
+
+div.month-container.September {
+  .month.September {
+    background: #fee5dd;
+    color: #ff7043;
+  }
+  span.date.short {
+    border-color: #ff7043;
+  }
+  div.date-header {
+    background: #ff7043;
+  }
+}
