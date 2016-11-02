@@ -39,11 +39,14 @@ class CommentsIndex extends React.Component {
         theme="snow"
         value={this.state.text}
         defaultValue="Add a comment..."
+        className="custom-quill container"
         onChange={this.quillChange()}>
-        <ReactQuill.Toolbar key="toolbar"
-                    ref="toolbar"
-                    items={ReactQuill.Toolbar.defaultItems.slice(0, 3)}
-                    />
+        <ReactQuill.Toolbar
+          key="toolbar"
+          ref="toolbar"
+          className="custom-quill toolbar"
+          items={ReactQuill.Toolbar.defaultItems.slice(0, 3)}
+          />
         <div key="editor"
              ref="editor"
              defaultValue="Add a comment..."

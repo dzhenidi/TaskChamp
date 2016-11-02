@@ -226,20 +226,17 @@ input.react-date-field__input {
   border: none;
 }
 
-.react-flex.react-date-field.my-date-picker.react-date-field--theme-default.react-date-field--picker-position-bottom.react-date-field--invalid.react-flex-v2--align-items-center.react-flex-v2--row.react-flex-v2--display-inline-flex {
-  position: absolute;
-  bottom: 67px;
-  left: 120px;
-  border: none;
-  background: transparent;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-
+.react-datepicker__input-container {
+  margin: 10px;
 }
+
+
 .quill.custom-quill.container {
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 5px;
   overflow: hidden;
   margin-bottom: 10px;
+  background: #fff;
 }
 .quill-toolbar.custom-quill.toolbar.ql-toolbar.ql-snow {
   background: #fff;
@@ -251,6 +248,7 @@ input.react-date-field__input {
   font-family: inherit;
   background: #fff;
   min-height: 100px;
+  font-size: inherit;
 }
 
 .details-anchor {

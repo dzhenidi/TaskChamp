@@ -146,7 +146,7 @@ class TodoForm extends React.Component {
         </ReactQuill>
       );
     } else {
-      return (<div></div>)
+      return (<div></div>);
     }
   }
 
@@ -157,7 +157,6 @@ class TodoForm extends React.Component {
   }
 
   datePicker(){
-    // let selected = this.state.dueDate ? moment(this.state.dueDate) : null;
     if (this.state.date) {
       return(
         <DatePicker

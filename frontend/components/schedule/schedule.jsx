@@ -66,7 +66,7 @@ class Schedule extends React.Component {
       return todos.map ( todo =>
         <span className="checkbox-content schedule">
           <ul className="checkbox-content-list schedule group">
-            <li>
+            <li key={todo.id}>
               <DueDate dueDate={todo.dueDate}/>
             </li>
             <li className="title-link"><Link to={`/todos/${todo.id}`} >{todo.title}</Link></li>

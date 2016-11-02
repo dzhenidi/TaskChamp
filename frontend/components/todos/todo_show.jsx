@@ -69,9 +69,9 @@ class TodoShow extends React.Component {
           <table className="todo-table">
             <tbody>
               <tr>
-                <th className="todo-title">
+                <td className="todo-title">
                   {this.doneButton()}
-                </th>
+                </td>
                 <td className="todo-title">
                   <div>
                     <ul>
@@ -95,7 +95,7 @@ class TodoShow extends React.Component {
               </tr>
               <tr>
                 <th>Notes</th>
-                <td className="todo-detail">
+                <td className="todo-detail last">
                   <div dangerouslySetInnerHTML={{__html:todo.description}}/>
                 </td>
               </tr>
@@ -114,8 +114,7 @@ class TodoShow extends React.Component {
   render() {
     let todo = this.props.todo[this.props.id];
 
-
-    if (!todo) {
+    if ((!todo) || (!todo.commentIds)){
       return(
         <div></div>
       );

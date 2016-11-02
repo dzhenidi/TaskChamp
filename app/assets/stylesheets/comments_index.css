@@ -1,7 +1,7 @@
 .comments-container {
   display: block;
-  padding: 0 0 30px 10px;
-  width: 80%;
+  padding: 0 30px 30px 30px;
+  width: 65%;
   background: transparent;
   margin: 0 auto;
 }
@@ -12,6 +12,7 @@
 
 .comment-item-container {
   padding: 20px;
+  padding-left: none;
 }
 
 article > h2 {

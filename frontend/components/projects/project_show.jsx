@@ -14,6 +14,18 @@ class ProjectShow extends React.Component {
   }
 
   toggleHidden(){
+    //render project edit form
+  }
+
+  editButton(){
+    return (
+      <li>
+        <button
+          className="small home-button"
+          onClick={this.toggleHidden}>Edit
+        </button>
+      </li>
+    );
   }
 
   render(){
@@ -29,12 +41,7 @@ class ProjectShow extends React.Component {
           <div className="project-show">
             <div className="project-show-container">
               <ul className="buttons-list group">
-                <li>
-                  <button
-                    className="small home-button"
-                    onClick={this.toggleHidden}>Edit
-                  </button>
-                </li>
+                {this.editButton}
               </ul>
 
               <div className="nav-history">
