@@ -24,7 +24,9 @@ article > h2 {
 
 .comment-body {
   word-wrap: break-word;
-
+}
+.comment-body a {
+  text-decoration: underline;
 }
 
 .comment.nav-history {
