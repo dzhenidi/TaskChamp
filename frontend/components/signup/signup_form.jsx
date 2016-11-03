@@ -49,8 +49,8 @@ class SignupForm extends React.Component {
     let user = {
         username: "Kristen M.",
         password: "starwars",
-        email: "kristen@rollingpress.com",
-        team_id: 2
+        // email: "kristen@rollingpress.com",
+        // team_id: this.props.teams[1].id
     };
     this.props.demoLogin(user);
   }
@@ -130,7 +130,7 @@ class SignupForm extends React.Component {
               </label>
               <input
                 type="submit"
-                value="Start my 60 day free trial"
+                value="Create Account"
                 className="submit"/>
               <input
                 type="submit"
