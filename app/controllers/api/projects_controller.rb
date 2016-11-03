@@ -18,7 +18,7 @@ class Api::ProjectsController < ApplicationController
   end
 
   def show
-    @project = current_user.projects.find(params[:id])
+    @project = current_user.team.projects.find(params[:id])
     if @project
       render 'api/projects/show'
     else
