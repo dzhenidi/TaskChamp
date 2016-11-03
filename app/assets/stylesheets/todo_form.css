@@ -184,7 +184,7 @@ span.date.short {
 .autocomplete {
   position: relative;
   cursor: text;
-  color: #303030;
+  color: grey;
 }
 
 .autocomplete::after {
@@ -194,7 +194,13 @@ span.date.short {
 }
 
 .autocomplete li {
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
 
+.autocomplete li:last-child {
+  padding-bottom: 20px;
 }
 
 input[type=radio] {
