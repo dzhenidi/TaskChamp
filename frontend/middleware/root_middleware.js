@@ -3,6 +3,7 @@ import TeamsMiddleware from './teams_middleware';
 import TodosMiddleware from './todo_middleware';
 import ProjectsMiddleware from './project_middleware';
 import CommentsMiddleware from './comments_middleware';
+import UserMiddleware from './user_middleware';
 import { applyMiddleware } from 'redux';
 
 const logger = ({ getState, dispatch }) => next => action => {
@@ -15,7 +16,9 @@ const RootMiddleware = applyMiddleware(
   TeamsMiddleware,
   TodosMiddleware,
   ProjectsMiddleware,
-  CommentsMiddleware
+  CommentsMiddleware,
+  logger,
+  UserMiddleware
 );
 
 export default RootMiddleware;

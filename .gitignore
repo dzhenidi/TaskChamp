@@ -5,3 +5,6 @@ config/application.yml
 tmp/
 .DS_Store
 .byebug_history
+
+# Ignore application configuration
+/config/application.yml

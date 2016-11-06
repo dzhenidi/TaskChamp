@@ -11,6 +11,8 @@ import TodoShowContainer from './todos/todo_show_container';
 import ProjectShowContainer from './projects/project_show_container';
 import ProjectItemContainer from './projects/project_item_container';
 import ScheduleContainer from './schedule/schedule_container';
+import UserProfileContainer from './user/user_profile_container';
+
 
 const Root = ({ store }) => {
 
@@ -40,6 +42,7 @@ const Root = ({ store }) => {
         <Route path="/" component={ AppContainer } onEnter={_redirectUnlessLoggedIn}>
           <IndexRoute component={ ProjectsIndexContainer } />
           <Route path="/projects" component={ ProjectsIndexContainer } />
+          <Route path="/profile" component={ UserProfileContainer } />
           <Route path="/schedule" component={ ScheduleContainer } />
           <Route path="/todos/:id" component={ TodoShowContainer } />
           <Route path="/projects/:id" component={ ProjectShowContainer } />

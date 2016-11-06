@@ -22,6 +22,9 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :password_digest, :session_token, :team_id, presence: true
 
+  has_attached_file :avatar, styles: { medium: "10x10>", thumb: "10x10>" }, default_url: "default_avatar.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
+
   after_initialize :ensure_session_token
 
   has_many :todos,
@@ -42,7 +45,7 @@ class User < ActiveRecord::Base
 
   has_many :teammates,
     through: :team,
-    source: :members  
+    source: :members
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)

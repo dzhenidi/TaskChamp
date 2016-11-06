@@ -1,5 +1,6 @@
 json.extract! user, :username
 json.teamName user.team.name
+json.avatar_url asset_path(user.avatar.url)
 
 if user.teammates
   json.set! :teammates do

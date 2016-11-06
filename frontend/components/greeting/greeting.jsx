@@ -34,6 +34,9 @@ class Greeting extends React.Component {
                   </li>
                   <li>
                     <a href="" className="user-thumbnail">{currentUser.username}</a>
+                    <Link to='/profile'>
+                      <img src={currentUser.avatar_url} className="user-thumbnail"/>
+                    </Link>
                   </li>
                   <li>
                     <Link to='/projects'>Projects Page</Link>

@@ -29,11 +29,3 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(ProjectsIndex);
-
-
-// toggleTodo: todo => () => {
-//   const toggledTodo = Object.assign({}, todo, {
-//     done: !todo.done
-//   });
-//   dispatch(updateTodo(toggledTodo));
-// }
