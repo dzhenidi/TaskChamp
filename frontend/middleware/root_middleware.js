@@ -17,8 +17,8 @@ const RootMiddleware = applyMiddleware(
   TodosMiddleware,
   ProjectsMiddleware,
   CommentsMiddleware,
-  logger,
-  UserMiddleware
+  UserMiddleware,
+  logger
 );
 
 export default RootMiddleware;

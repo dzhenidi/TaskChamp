@@ -31,7 +31,8 @@ class Todo < ActiveRecord::Base
   has_many :comments,
     as: :commentable
 
-  has_attached_file :file
+  has_attached_file :file, styles: { thumb: ["32x32#", :png] }
+  
   validates_attachment :file,
     content_type: {content_type: ["image/jpeg", "image/gif", "image/png", "application/pdf",
       "application/vnd.ms-excel",

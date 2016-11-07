@@ -11,8 +11,8 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    if currentUser
-      @user = currentUser;
+    if current_user
+      @user = current_user;
       if @user.update(user_params)
         render 'api/users/show'
       else
