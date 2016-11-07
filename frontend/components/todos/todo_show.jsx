@@ -17,12 +17,13 @@ class TodoShow extends React.Component {
     this.toggleHidden = this.toggleHidden.bind(this);
     this.hideForm = this.hideForm.bind(this);
     this.todoTable = this.todoTable.bind(this);
+    this.imageFile = null;
+    this.imageUrl = null;
   }
 
   componentDidMount() {
     this.props.requestTodo(this.props.id);
   }
-
 
   toggleHidden(e){
     this.setState({hidden: !this.state.hidden});
@@ -43,6 +44,21 @@ class TodoShow extends React.Component {
       this.setState({done: !this.props.todo.done});
       this.props.toggleTodo(this.props.todo);
     };
+  }
+
+  displayFiles() {
+    let todo = this.props.todo[this.props.id];
+    if (todo.fileUrl) {
+      return (
+        <div className="attachment"><a target="_blank" href={ todo.fileUrl || ''}>Download {todo.fileName}</a></div>
+        );
+    } else if (todo.imageUrl) {
+      return (
+        <div className="attachment"><img src={ todo.imageUrl || ''}></img></div>
+      );
+    } else {
+      return <div></div>
+    }
   }
 
   doneButton(){
@@ -97,6 +113,7 @@ class TodoShow extends React.Component {
                 <th>Notes</th>
                 <td className="todo-detail last">
                   <div dangerouslySetInnerHTML={{__html:todo.description}}/>
+                  {this.displayFiles()}
                 </td>
               </tr>
             </tbody>

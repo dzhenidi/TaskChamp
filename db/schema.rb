@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161106143755) do
+ActiveRecord::Schema.define(version: 20161106200641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,16 +50,20 @@ ActiveRecord::Schema.define(version: 20161106143755) do
   add_index "teams", ["name"], name: "index_teams_on_name", unique: true, using: :btree
 
   create_table "todos", force: :cascade do |t|
-    t.string   "title",                        null: false
+    t.string   "title",                             null: false
     t.text     "description"
-    t.boolean  "done",         default: false
+    t.boolean  "done",              default: false
     t.datetime "due_date"
-    t.integer  "author_id",                    null: false
-    t.integer  "todoer_id",                    null: false
-    t.integer  "project_id",                   null: false
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer  "author_id",                         null: false
+    t.integer  "todoer_id",                         null: false
+    t.integer  "project_id",                        null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.datetime "completed_at"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
   end
 
   add_index "todos", ["title", "author_id", "todoer_id", "project_id"], name: "index_todos_on_title_and_author_id_and_todoer_id_and_project_id", using: :btree

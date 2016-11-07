@@ -3,14 +3,16 @@ import UserProfile from './user_profile';
 import { updateUser } from '../../actions/user_actions';
 
 const mapStateToProps = ({session}) => {
-  debugger
   return (
   { currentUser: session.currentUser }
-);}
+);};
 
-const mapDispatchToProps = (dispatch) => ({
-  updateProfile: () => dispatch(updateUser())
-});
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    updateProfile: () => dispatch(updateUser())
+  });
+}
+
 
 export default connect(
   mapStateToProps,

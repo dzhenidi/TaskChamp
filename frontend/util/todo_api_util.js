@@ -15,11 +15,23 @@ export const fetchTodo = (id, success) => {
   });
 };
 
-export const createTodo = (todo, success, error) => {
+// export const createTodo = (todo, success, error) => {
+//   $.ajax({
+//     method: 'POST',
+//     url: 'api/todos',
+//     data: { todo },
+//     success,
+//     error
+//   });
+// };
+
+export const createTodo = (formData, success, error) => {
   $.ajax({
     method: 'POST',
     url: 'api/todos',
-    data: { todo },
+    contentType: false,
+    processData: false,
+    data: formData,
     success,
     error
   });

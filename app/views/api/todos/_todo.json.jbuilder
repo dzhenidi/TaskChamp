@@ -26,6 +26,16 @@ else
   json.set! :dueDate, []
 end
 
+if todo.file
+  if ["image/jpeg", "image/gif", "image/png"].include? todo.file_content_type
+    json.imageUrl asset_path(todo.file.url(:original))
+    json.imageName todo.file_file_name
+  else
+    json.fileUrl asset_path(todo.file.url(:original))
+    json.fileName todo.file_file_name
+  end
+end
+
 #dueDate string "Oct 5"
 # json.dueDate todo.due_date ? todo.due_date.strftime("%b %d") : ""
 

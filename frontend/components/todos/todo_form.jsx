@@ -25,6 +25,8 @@ class TodoForm extends React.Component {
       date: todo.due_date ? true : false,
       displayAutocomplete: false,
       displayQuill: Boolean(todo.description),
+      imageFile: null,
+      imageUrl: null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.selectName = this.selectName.bind(this);
@@ -38,12 +40,25 @@ class TodoForm extends React.Component {
     this.todoDetails = this.todoDetails.bind(this);
     this.quill = this.quill.bind(this);
     this.openQuill = this.openQuill.bind(this);
+    this.updateFile = this.updateFile.bind(this);
   }
   toggleDate() {
     return this.setState({'date': !this.state.date})
   }
   update(property) {
     return e => this.setState({[property]: e.target.value});
+  }
+
+  updateFile(e) {
+    let file = e.currentTarget.files[0];
+    let fileReader = new FileReader();
+    fileReader.onloadend = function() {
+      this.setState({ imageFile: file, imageUrl: fileReader.result })
+    }.bind(this);
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   matches(){
@@ -93,21 +108,40 @@ class TodoForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const todo = {
-      'title': this.state.title,
-      'description': this.state.text,
-      'due_date': this.state.date ? moment(this.state.dueDate).format("YYYY-MM-DD") : null,
-      'todoer_id': this.state.todoerId,
-      'done': this.state.done,
-      'project_id': this.props.projectId,
-      };
+    let formData = new FormData();
+    formData.append("todo[title]", this.state.title);
+    formData.append("todo[description]", this.state.text);
+    formData.append("todo[due_date]", this.state.date ? moment(this.state.dueDate).format("YYYY-MM-DD") : null);
+    formData.append("todo[todoer_id]", this.state.todoerId);
+    formData.append("todo[done]", this.state.done);
+    formData.append("todo[project_id]", this.props.projectId);
+    formData.append("todo[file]", this.state.imageFile);
 
-    if (this.props.action === "create")  {
-      this.props.createTodo(todo);
-    } else {
-      todo.id = this.props.todo.id;
-      this.props.updateTodo(todo);
+    switch (this.props.action) {
+      case "create":
+        this.props.createTodo(formData);
+        break;
+      case "update":
+        // formData.append("todo[id]", this.props.todo.id);
+        // this.props.updateTodo(formData, this.props.todo.id);
+        break;
     }
+
+    // const todo = {
+    //   'title': this.state.title,
+    //   'description': this.state.text,
+    //   'due_date': this.state.date ? moment(this.state.dueDate).format("YYYY-MM-DD") : null,
+    //   'todoer_id': this.state.todoerId,
+    //   'done': this.state.done,
+    //   'project_id': this.props.projectId,
+    //   };
+    //
+    // if (this.props.action === "create")  {
+    //   this.props.createTodo(todo);
+    // } else {
+    //   todo.id = this.props.todo.id;
+    //   this.props.updateTodo(todo);
+    // }
     this.setState({title:"", description:"", todoerId:"", dueDate:""});
     this.props.hideForm();
   }
@@ -183,17 +217,6 @@ class TodoForm extends React.Component {
           />
       );
     }
-    // return (
-    //   <div
-    //     className="input"
-    //     dangerouslySetInnerHTML={{__html: this.state.description}}/>
-    //   <input
-    //     className="input"
-    //     value={this.state.description}
-    //     placeholder="Add extra details"
-    //     onChange={this.update('description')}/>
-    //
-    // )
   }
 
   render(){
@@ -253,6 +276,8 @@ class TodoForm extends React.Component {
                     {this.todoDetails()}
                   </div>
                   {this.state.displayQuill ? this.quill() : null}
+                  <input type="file" onChange={this.updateFile}/>
+                  <img src={this.state.imageUrl}/>
                   <label className="radio-label">
                     <input
                       type="radio"

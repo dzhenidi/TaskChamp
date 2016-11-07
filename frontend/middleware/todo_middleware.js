@@ -36,7 +36,7 @@ export default ({ getState, dispatch }) => next => action => {
       createTodo(action.todo, todoSuccess, todoErrored);
       break;
     case UPDATE_TODO:
-      updateTodo(action.todo, todoSuccess)
+      updateTodo(action.todo, todoSuccess);
       break;
     case DESTROY_TODO:
       destroyTodo(action.todo, todoRemoved);
