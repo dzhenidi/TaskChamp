@@ -22,7 +22,7 @@ class Greeting extends React.Component {
 
           <div className='top-nav wrapper'>
             <nav className='top-nav'>
-              <div className='top-nav-ribbon'>
+              <div className='top-nav-ribbon group'>
 
                 <ul className='top-nav-list group'>
                   <li>
@@ -33,21 +33,24 @@ class Greeting extends React.Component {
                     </div>
                   </li>
                   <li>
-                    <a href="" className="user-thumbnail">{currentUser.username}</a>
-                    <Link to='/profile'>
-                      <img src={currentUser.avatarUrl} className="user-thumbnail"/>
-                    </Link>
-                  </li>
-                  <li>
                     <Link to='/projects'>Projects Page</Link>
                   </li>
                   <li>
                     <Link to='/schedule'>My Schedule</Link>
                   </li>
                 </ul>
-                <button onClick={this.props.logout} className="logout button">
-                  Logout
-                </button>
+                <ul className='top-nav-list-right'>
+                  <li>
+                    <Link to='/profile'>
+                      <img src={currentUser.avatarUrl} className="user-thumbnail"/>
+                    </Link>
+                  </li>
+                  <li>
+                    <button onClick={this.props.logout} className="logout button">
+                      Logout
+                    </button>
+                  </li>
+                </ul>
               </div>
             </nav>
           </div>

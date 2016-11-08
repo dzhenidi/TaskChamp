@@ -30,10 +30,22 @@
 .top-nav-list {
   float: left;
 }
+.top-nav-list-right {
+  float: right;
+}
+.top-nav-list-right a {
+  padding: 0;
+}
 
-.top-nav-list img.user-thumbnail {
-  width: 30px;
-  height: 30px;
+
+
+.top-nav-list-right img.user-thumbnail {
+  width: auto;
+  height: 35px;
+  padding: 0;
+  margin: auto 0;
+  margin-right: 10px;
+
 }
 
 .small-logo img {
@@ -48,7 +60,7 @@
   padding: 0;
 }
 
-.top-nav a, button {
+.top-nav-list a, button {
   padding: 10px;
   display: inline-block;
 }

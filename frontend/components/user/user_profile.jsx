@@ -5,27 +5,28 @@ class UserProfile extends React.Component {
     super(props);
     this.state = {
       imageUrl: this.props.imageUrl || null,
-      imageFile: null
+      imageFile: null,
+      fileReader: new FileReader()
     };
-
     this.updateFile = this.updateFile.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   updateFile(e) {
     let file = e.currentTarget.files[0];
-    let fileReader = new FileReader();
-    fileReader.onloadend = function() {
-      this.setState({ imageFile: file, imageUrl: fileReader.result });
+
+    this.state.fileReader.onloadend = function() {
+      this.setState({ imageFile: file, imageUrl: this.state.fileReader.result });
     }.bind(this);
 
     if (file) {
-      fileReader.readAsDataURL(file);
+      this.state.fileReader.readAsDataURL(file);
     }
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    this.state.fileReader.abort();
     let formData = new FormData();
     formData.append("user[avatar]", this.state.imageFile);
     this.props.updateProfile(this.props.currentUser.id, formData);

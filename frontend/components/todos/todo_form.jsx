@@ -55,8 +55,7 @@ class TodoForm extends React.Component {
     fileReader.onloadend = function() {
       this.setState({ imageFile: file, imageUrl: fileReader.result })
     }.bind(this);
-
-    if (file) {
+    if (file && ["image/jpeg", "image/gif", "image/png"].includes(file.type)) {
       fileReader.readAsDataURL(file);
     }
   }
@@ -119,6 +118,7 @@ class TodoForm extends React.Component {
     switch (this.props.action) {
       case "create":
         formData.append("todo[project_id]", this.props.projectId);
+        debugger
         this.props.createTodo(formData);
         break;
       case "update":
