@@ -37,14 +37,25 @@ export const createTodo = (formData, success, error) => {
   });
 };
 
-export const updateTodo = (todo, success) => {
+export const updateTodo = (id, formData, success) => {
   $.ajax({
     method: 'PATCH',
-    url: `api/todos/${todo.id}`,
-    data: { todo },
+    url: `api/todos/${id}`,
+    contentType: false,
+    processData: false,
+    data: formData,
     success
   });
 };
+
+// export const updateTodo = (todo, success) => {
+//   $.ajax({
+//     method: 'PATCH',
+//     url: `api/todos/${todo.id}`,
+//     data: { todo },
+//     success
+//   });
+// };
 
 export const destroyTodo = (todo, success) => {
   $.ajax({

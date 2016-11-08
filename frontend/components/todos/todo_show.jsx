@@ -54,7 +54,7 @@ class TodoShow extends React.Component {
         );
     } else if (todo.imageUrl) {
       return (
-        <div className="attachment"><img src={ todo.thumb || ''}></img></div>
+        <div className="attachment"><img src={ todo.imageUrl || ''}></img></div>
       );
     } else {
       return <div></div>

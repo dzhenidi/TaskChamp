@@ -38,9 +38,10 @@ export const createTodo = todo => ({
   todo
 });
 
-export const updateTodo = todo => ({
+export const updateTodo = (id, formData) => ({
   type: UPDATE_TODO,
-  todo
+  id,
+  formData
 });
 
 export const destroyTodo = todo => ({

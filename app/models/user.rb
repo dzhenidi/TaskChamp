@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   validates :password_digest, :session_token, :team_id, presence: true
 
   has_attached_file :avatar,
-    styles: { medium: "30x30>", thumb: "30x30>" }, 
+    styles: { medium: "30x30#", thumb: "50x50#" },
     default_url: "default_avatar.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 

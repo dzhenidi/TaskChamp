@@ -28,7 +28,6 @@ class UserProfile extends React.Component {
     e.preventDefault();
     let formData = new FormData();
     formData.append("user[avatar]", this.state.imageFile);
-    debugger
     this.props.updateProfile(this.props.currentUser.id, formData);
   }
 

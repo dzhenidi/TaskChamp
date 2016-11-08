@@ -26,7 +26,7 @@ class TodoForm extends React.Component {
       displayAutocomplete: false,
       displayQuill: Boolean(todo.description),
       imageFile: null,
-      imageUrl: null
+      imageUrl: this.props.imageUrl || null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.selectName = this.selectName.bind(this);
@@ -114,16 +114,15 @@ class TodoForm extends React.Component {
     formData.append("todo[due_date]", this.state.date ? moment(this.state.dueDate).format("YYYY-MM-DD") : null);
     formData.append("todo[todoer_id]", this.state.todoerId);
     formData.append("todo[done]", this.state.done);
-    formData.append("todo[project_id]", this.props.projectId);
     formData.append("todo[file]", this.state.imageFile);
 
     switch (this.props.action) {
       case "create":
+        formData.append("todo[project_id]", this.props.projectId);
         this.props.createTodo(formData);
         break;
       case "update":
-        // formData.append("todo[id]", this.props.todo.id);
-        // this.props.updateTodo(formData, this.props.todo.id);
+        this.props.updateTodo(this.props.todo.id, formData);
         break;
     }
 

@@ -18,8 +18,8 @@ const mapStateToProps = ({session}) => {
 
 const mapDispatchToProps = (dispatch) => ({
   createTodo: todo => dispatch(createTodo(todo)),
-  updateTodo: todo => dispatch(updateTodo(todo))
-})
+  updateTodo: (id, formData) => dispatch(updateTodo(id, formData))
+});
 
 export default connect(
   mapStateToProps,
