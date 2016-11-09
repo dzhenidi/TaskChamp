@@ -18,7 +18,7 @@ class TodoShow extends React.Component {
     this.hideForm = this.hideForm.bind(this);
     this.todoTable = this.todoTable.bind(this);
     this.imageFile = null;
-    this.imageUrl = null;
+    this.imageUrl = this.props.imageUrl || null;
   }
 
   componentDidMount() {

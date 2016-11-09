@@ -26,7 +26,7 @@ class TodoForm extends React.Component {
       displayAutocomplete: false,
       displayQuill: Boolean(todo.description),
       imageFile: null,
-      imageUrl: this.props.imageUrl || null
+      imageUrl: todo.imageUrl || null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.selectName = this.selectName.bind(this);
