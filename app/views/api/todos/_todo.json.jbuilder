@@ -27,20 +27,7 @@ else
 end
 
 if todo.file
-  if ["image/jpeg", "image/gif", "image/png"].include? todo.file_content_type
-    json.imageUrl asset_path(todo.file.url(:original))
-    json.imageName todo.file_file_name
-    json.thumb todo.file.url(:thumb)
-  else
-    json.fileUrl asset_path(todo.file.url(:original))
-    json.fileName todo.file_file_name
-  end
+  json.fileUrl asset_path(todo.file.url(:original))
+  json.fileName todo.file_file_name
+  json.fileType todo.file_content_type
 end
-
-#dueDate string "Oct 5"
-# json.dueDate todo.due_date ? todo.due_date.strftime("%b %d") : ""
-
-# dueDate array
-# json.dueDate (todo.due_date) do |date|
-#   [date.strftime("%b"), date.strftime("%d")]
-# end

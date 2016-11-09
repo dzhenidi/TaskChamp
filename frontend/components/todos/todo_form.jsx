@@ -1,10 +1,9 @@
 import React from 'react';
 import ReactQuill from 'react-quill';
 import DatePicker from 'react-datepicker';
-// import 'quill/dist/quill.snow.css';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
-
+import { DisplayFiles } from '../files/display_files';
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -25,8 +24,8 @@ class TodoForm extends React.Component {
       date: todo.due_date ? true : false,
       displayAutocomplete: false,
       displayQuill: Boolean(todo.description),
-      imageFile: null,
-      imageUrl: todo.imageUrl || null
+      file: null,
+      fileUrl: null,
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.selectName = this.selectName.bind(this);
@@ -53,10 +52,10 @@ class TodoForm extends React.Component {
     let file = e.currentTarget.files[0];
     let fileReader = new FileReader();
     fileReader.onloadend = function() {
-      this.setState({ imageFile: file, imageUrl: fileReader.result })
+      this.setState({ file: file, fileUrl: fileReader.result })
     }.bind(this);
 
-    if (file) {
+    if (file && file.type === "image/jpeg") {
       fileReader.readAsDataURL(file);
     }
   }
@@ -114,7 +113,7 @@ class TodoForm extends React.Component {
     formData.append("todo[due_date]", this.state.date ? moment(this.state.dueDate).format("YYYY-MM-DD") : null);
     formData.append("todo[todoer_id]", this.state.todoerId);
     formData.append("todo[done]", this.state.done);
-    formData.append("todo[file]", this.state.imageFile);
+    formData.append("todo[file]", this.state.file);
 
     switch (this.props.action) {
       case "create":
@@ -276,7 +275,11 @@ class TodoForm extends React.Component {
                   </div>
                   {this.state.displayQuill ? this.quill() : null}
                   <input type="file" onChange={this.updateFile}/>
-                  <img src={this.state.imageUrl}/>
+                  { this.props.todo.fileUrl ? <DisplayFiles
+                                    fileName={this.props.todo.fileName}
+                                    fileType={this.props.todo.fileType}
+                                    fileUrl={this.props.todo.fileUrl}/> : null }
+                  <img src={this.state.fileUrl}/>
                   <label className="radio-label">
                     <input
                       type="radio"

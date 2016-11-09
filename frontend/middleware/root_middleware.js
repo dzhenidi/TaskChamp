@@ -7,6 +7,7 @@ import UserMiddleware from './user_middleware';
 import { applyMiddleware } from 'redux';
 
 const logger = ({ getState, dispatch }) => next => action => {
+  console.log(action);
   const result = next(action);
   return result;
 };
@@ -17,8 +18,7 @@ const RootMiddleware = applyMiddleware(
   TodosMiddleware,
   ProjectsMiddleware,
   CommentsMiddleware,
-  UserMiddleware,
-  logger
+  UserMiddleware
 );
 
 export default RootMiddleware;

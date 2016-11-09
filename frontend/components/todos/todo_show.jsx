@@ -4,6 +4,7 @@ import DueDate from './due_date';
 import BodyClassName from 'react-body-classname';
 import TodoFormContainer from './todo_form_container';
 import CommentsIndexContainer from '../comments/comments_index_container';
+import { DisplayFiles } from '../files/display_files';
 
 
 class TodoShow extends React.Component {
@@ -17,8 +18,7 @@ class TodoShow extends React.Component {
     this.toggleHidden = this.toggleHidden.bind(this);
     this.hideForm = this.hideForm.bind(this);
     this.todoTable = this.todoTable.bind(this);
-    this.imageFile = null;
-    this.imageUrl = this.props.imageUrl || null;
+    this.fileUrl = this.props.fileUrl || null;
   }
 
   componentDidMount() {
@@ -46,20 +46,27 @@ class TodoShow extends React.Component {
     };
   }
 
-  displayFiles() {
-    let todo = this.props.todo[this.props.id];
-    if (todo.fileUrl) {
-      return (
-        <div className="attachment"><a target="_blank" href={ todo.fileUrl || ''}>Download {todo.fileName}</a></div>
-        );
-    } else if (todo.imageUrl) {
-      return (
-        <div className="attachment"><img src={ todo.imageUrl || ''}></img></div>
-      );
-    } else {
-      return <div></div>
-    }
-  }
+  // displayFiles(todo) {
+  //   if (todo.fileUrl) {
+  //     if (["image/jpeg", "image/gif", "image/png"].includes(todo.fileType)) {
+  //       return (
+  //         <div className="attachment">
+  //           <img src={ todo.fileUrl || ''}>
+  //           </img>
+  //         </div>
+  //       );
+  //     } else {
+  //       return (
+  //         <div className="attachment">
+  //           <a target="_blank" href={ todo.fileUrl || ''}>Download {todo.fileName}
+  //           </a>
+  //         </div>
+  //       );
+  //     }
+  //   } else {
+  //     return <div></div>;
+  //   }
+  // }
 
   doneButton(){
     let done = this.props.todo[this.props.id].done;
@@ -113,7 +120,10 @@ class TodoShow extends React.Component {
                 <th>Notes</th>
                 <td className="todo-detail last">
                   <div dangerouslySetInnerHTML={{__html:todo.description}}/>
-                  {this.displayFiles()}
+                  { todo.fileUrl ? <DisplayFiles
+                                    fileName={todo.fileName}
+                                    fileType={todo.fileType}
+                                    fileUrl={todo.fileUrl}/> : null }
                 </td>
               </tr>
             </tbody>

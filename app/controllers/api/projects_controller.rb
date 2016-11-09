@@ -1,7 +1,9 @@
 class Api::ProjectsController < ApplicationController
 
   def index
-    @projects = Project.where(team_id: current_user.team_id)
+    @projects = Project
+      .where(team_id: current_user.team_id)
+      .order(created_at: :desc)
     render 'api/projects/index'
   end
 
