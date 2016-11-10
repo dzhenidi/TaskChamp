@@ -42,6 +42,7 @@ class ProjectsIndex extends React.Component {
 
     if (projects) {
       const projectIds = Object.keys(projects);
+      projectIds.reverse();
       projectItems = projectIds.map(id => {
         return (
           <ProjectItem

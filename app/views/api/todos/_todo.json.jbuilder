@@ -25,9 +25,3 @@ if todo.due_date
 else
   json.set! :dueDate, []
 end
-
-if todo.file
-  json.fileUrl asset_path(todo.file.url(:original))
-  json.fileName todo.file_file_name
-  json.fileType todo.file_content_type
-end

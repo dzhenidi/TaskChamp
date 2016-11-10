@@ -1,6 +1,11 @@
 json.todo do
   json.partial! '/api/todos/todo', todo: @todo
   json.commentIds @todo.comment_ids
+  if @todo.file.exists?
+    json.fileUrl asset_path(@todo.file.url(:original))
+    json.fileName @todo.file_file_name
+    json.fileType @todo.file_content_type
+  end
 end
 
 if @todo.comments.first

@@ -25,7 +25,9 @@ class TodoForm extends React.Component {
       displayAutocomplete: false,
       displayQuill: Boolean(todo.description),
       file: null,
-      fileUrl: null,
+      fileUrl: todo.fileUrl || null,
+      fileName: todo.fileName || null,
+      fileType: todo.fileType || null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.selectName = this.selectName.bind(this);
@@ -55,9 +57,12 @@ class TodoForm extends React.Component {
       this.setState({ file: file, fileUrl: fileReader.result })
     }.bind(this);
 
-    if (file && file.type === "image/jpeg") {
+    if (file) {
       fileReader.readAsDataURL(file);
     }
+    // if (file && file.type === "image/jpeg") {
+    //   fileReader.readAsDataURL(file);
+    // }
   }
 
   matches(){
@@ -113,7 +118,7 @@ class TodoForm extends React.Component {
     formData.append("todo[due_date]", this.state.date ? moment(this.state.dueDate).format("YYYY-MM-DD") : null);
     formData.append("todo[todoer_id]", this.state.todoerId);
     formData.append("todo[done]", this.state.done);
-    formData.append("todo[file]", this.state.file);
+    if (this.state.file) { formData.append("todo[file]", this.state.file); }
 
     switch (this.props.action) {
       case "create":
@@ -275,11 +280,11 @@ class TodoForm extends React.Component {
                   </div>
                   {this.state.displayQuill ? this.quill() : null}
                   <input type="file" onChange={this.updateFile}/>
-                  { this.props.todo.fileUrl ? <DisplayFiles
-                                    fileName={this.props.todo.fileName}
-                                    fileType={this.props.todo.fileType}
-                                    fileUrl={this.props.todo.fileUrl}/> : null }
-                  <img src={this.state.fileUrl}/>
+                  { this.state.fileUrl ? <DisplayFiles
+                                    fileName={this.state.fileName}
+                                    fileType={this.state.fileType}
+                                    fileUrl={this.state.fileUrl}/> : null }
+                  { this.state.file && this.state.file.type === "image/jpeg" ? <img src={this.state.fileUrl}/> : null }
                   <label className="radio-label">
                     <input
                       type="radio"
