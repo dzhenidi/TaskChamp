@@ -16,12 +16,13 @@ const mapStateToProps = ({projects, session}) => {
 const mapDispatchToProps = (dispatch) => ({
   requestProjects: () => dispatch(requestProjects()),
   createProject: project => dispatch(createProject(project)),
-  toggleTodo: todo => {
-    const toggledTodo = Object.assign({}, todo, {
-      done: !todo.done
-    });
-    dispatch(updateTodo(toggledTodo));
-  }
+  // toggleTodo: todo => {
+  //   const toggledTodo = Object.assign({}, todo, {
+  //     done: !todo.done
+  //   });
+  //   dispatch(updateTodo(toggledTodo));
+  // }
+  toggleTodo: (id, formData) => dispatch(updateTodo(id, formData))
 });
 
 

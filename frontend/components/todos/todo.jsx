@@ -12,8 +12,10 @@ class Todo extends React.Component {
 
   checkTodo() {
     return e => {
+      let formData = new FormData();
+      formData.append("todo[done]", !this.state.done);
+      this.props.toggleTodo(this.props.todo.id, formData);
       this.setState({done: !this.props.todo.done});
-      this.props.toggleTodo(this.props.todo);
     };
   }
 

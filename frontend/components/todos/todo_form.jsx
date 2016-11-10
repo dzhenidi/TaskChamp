@@ -284,7 +284,6 @@ class TodoForm extends React.Component {
                                     fileName={this.state.fileName}
                                     fileType={this.state.fileType}
                                     fileUrl={this.state.fileUrl}/> : null }
-                  { this.state.file && this.state.file.type === "image/jpeg" ? <img src={this.state.fileUrl}/> : null }
                   <label className="radio-label">
                     <input
                       type="radio"

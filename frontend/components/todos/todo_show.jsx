@@ -34,9 +34,9 @@ class TodoShow extends React.Component {
   }
 
   markDone(){
-    let todo = this.props.todo[this.props.id];
-    todo.done = 'true';
-    this.props.updateTodo(todo);
+    let formData = new FormData();
+    formData.append("todo[done]", "true");
+    this.props.updateTodo(this.props.id, formData);
   }
 
   checkTodo() {

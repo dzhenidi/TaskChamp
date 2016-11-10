@@ -10,7 +10,7 @@ const mapStateToProps = ({todo}, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  updateTodo: todo => dispatch(updateTodo(todo)),
+  updateTodo: (id, formData) => dispatch(updateTodo(id, formData)),
   requestTodo: (id) => dispatch(requestTodo(id))
 });
 
