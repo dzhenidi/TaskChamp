@@ -54,7 +54,12 @@ class TodoForm extends React.Component {
     let file = e.currentTarget.files[0];
     let fileReader = new FileReader();
     fileReader.onloadend = function() {
-      this.setState({ file: file, fileUrl: fileReader.result })
+      this.setState({
+        file: file,
+        fileUrl: fileReader.result,
+        fileName: file.name,
+        fileType: file.type
+      })
     }.bind(this);
 
     if (file) {
