@@ -49,8 +49,6 @@ class SignupForm extends React.Component {
     let user = {
         username: "Kristen M.",
         password: "starwars",
-        // email: "kristen@rollingpress.com",
-        // team_id: this.props.teams[1].id
     };
     this.props.demoLogin(user);
   }
