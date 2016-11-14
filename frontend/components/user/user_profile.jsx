@@ -4,7 +4,7 @@ class UserProfile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      imageUrl: this.props.imageUrl || null,
+      imageUrl: this.props.currentUser.avatarUrl || null,
       imageFile: null
     };
 
@@ -34,7 +34,7 @@ class UserProfile extends React.Component {
   render() {
     return (
       <div>
-        <img src={this.props.currentUser.avatarUrl} className="user-thumbnail"/>
+        <img src={this.state.imageUrl} className="user-thumbnail"/>
         <div>Upload Profile Picture</div>
         <form
           className="profile-form"
@@ -43,7 +43,6 @@ class UserProfile extends React.Component {
             className="input"
             type="file"
             onChange={this.updateFile}/>
-          <img src={this.state.imageUrl}/>
           <button
             className="small home-button"
             >Save</button>
