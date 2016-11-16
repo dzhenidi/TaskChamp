@@ -22,6 +22,7 @@ class SignupForm extends React.Component {
     this.props.processForm(user);
   }
 
+  
 
   errors() {
     return (
@@ -130,6 +131,9 @@ class SignupForm extends React.Component {
                 type="submit"
                 value="Create Account"
                 className="submit"/>
+              <a href="/auth/google_oauth2/">
+                <p>Sign up with Google</p>
+              </a>
               <input
                 type="submit"
                 value="Demo Login"

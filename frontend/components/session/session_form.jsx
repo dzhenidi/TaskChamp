@@ -86,11 +86,18 @@ class SessionForm extends React.Component {
                 type="password"
                 placeholder="password"
                 onChange={this.update('password')}/>
-              <input className="submit" type="submit" value={buttonHeader}/>
+              <input
+                className="submit"
+                type="submit"
+                value={buttonHeader}/>
             </label>
           </form>
           <div></div>
           <Link to={linkTo}>{linkHeader}</Link>
+          <a href="/auth/google_oauth2/" className="google-link">
+            <div className="google-logo"></div>
+            <p>Sign in with Google</p>
+          </a>
         </section>
 
       </div>

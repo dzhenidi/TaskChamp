@@ -10,6 +10,13 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def omni_create
+    @user = User.from_omniauth(env["omniauth.auth"])
+    @user.team_id = Team.first.id
+    login!(@user)
+    redirect_to root_path
+  end
+
   def update
     if current_user
       @user = current_user;

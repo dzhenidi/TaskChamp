@@ -2,14 +2,20 @@
 #
 # Table name: users
 #
-#  id              :integer          not null, primary key
-#  username        :string           not null
-#  password_digest :string           not null
-#  session_token   :string           not null
-#  team_id         :integer          not null
-#  email           :string
-#  created_at      :datetime         not null
-#  updated_at      :datetime         not null
+#  id                  :integer          not null, primary key
+#  username            :string           not null
+#  password_digest     :string           not null
+#  session_token       :string           not null
+#  team_id             :integer          not null
+#  email               :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  avatar_file_name    :string
+#  avatar_content_type :string
+#  avatar_file_size    :integer
+#  avatar_updated_at   :datetime
+#  uid                 :string
+#  provider            :string
 #
 
 require 'bcrypt'
@@ -20,7 +26,7 @@ class User < ActiveRecord::Base
 
   validates :username, presence: true, uniqueness: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :password_digest, :session_token, :team_id, presence: true
+  # validates :password_digest, :session_token, :team_id, presence: true
 
   has_attached_file :avatar,
     styles: { medium: "30x30#", thumb: "50x50#" },
@@ -57,6 +63,19 @@ class User < ActiveRecord::Base
 
   def self.generate_session_token
     SecureRandom::urlsafe_base64(16)
+  end
+
+  def self.from_omniauth(auth)
+    where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
+      user.provider = auth.provider
+      user.uid = auth.uid
+      user.username = auth.info.name
+      user.avatar = auth.info.image
+      user.email = auth.info.email
+      # user.oauth_token = auth.credentials.token
+      # user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+      # user.save!
+    end
   end
 
   def reset_session_token!

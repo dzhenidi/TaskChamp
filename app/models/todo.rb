@@ -2,17 +2,21 @@
 #
 # Table name: todos
 #
-#  id           :integer          not null, primary key
-#  title        :string           not null
-#  description  :text
-#  done         :boolean          default(FALSE)
-#  due_date     :datetime
-#  author_id    :integer          not null
-#  todoer_id    :integer          not null
-#  project_id   :integer          not null
-#  created_at   :datetime         not null
-#  updated_at   :datetime         not null
-#  completed_at :datetime
+#  id                :integer          not null, primary key
+#  title             :string           not null
+#  description       :text
+#  done              :boolean          default(FALSE)
+#  due_date          :datetime
+#  author_id         :integer          not null
+#  todoer_id         :integer          not null
+#  project_id        :integer          not null
+#  created_at        :datetime         not null
+#  updated_at        :datetime         not null
+#  completed_at      :datetime
+#  file_file_name    :string
+#  file_content_type :string
+#  file_file_size    :integer
+#  file_updated_at   :datetime
 #
 
 class Todo < ActiveRecord::Base
