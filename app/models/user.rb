@@ -4,7 +4,7 @@
 #
 #  id                  :integer          not null, primary key
 #  username            :string           not null
-#  password_digest     :string           not null
+#  password_digest     :string
 #  session_token       :string           not null
 #  team_id             :integer          not null
 #  email               :string
@@ -54,6 +54,8 @@ class User < ActiveRecord::Base
   has_many :teammates,
     through: :team,
     source: :members
+
+  has_and_belongs_to_many :events  
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
