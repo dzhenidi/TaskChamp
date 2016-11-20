@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import DueDate from '../todos/due_date';
 import BodyClassName from 'react-body-classname';
-
+import EventForm from './event_form';
 const MONTHS = {
   0: "January",
   1: "February",
@@ -22,10 +22,14 @@ class Schedule extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      thisMonth: new Date().getMonth()
+      thisMonth: new Date().getMonth(),
+      hidden: true
     };
     this.month = this.month.bind(this);
     this.monthTodos = this.monthTodos.bind(this);
+    this.showEventForm = this.showEventForm.bind(this);
+    this.toggleHidden = this.toggleHidden.bind(this);
+    this.hideForm = this.hideForm.bind(this);
   }
 
   componentDidMount() {
@@ -87,6 +91,18 @@ class Schedule extends React.Component {
     });
   }
 
+  toggleHidden(e){
+    this.setState({hidden: !this.state.hidden});
+  }
+
+  showEventForm(){
+    this.toggleHidden();
+
+  }
+
+  hideForm(){
+    this.setState({hidden: true});
+  }
 
   render(){
     let todos = this.props.todos;
@@ -102,6 +118,15 @@ class Schedule extends React.Component {
             <header className="section-header">
               <h1 className="schedule-heading">Schedule</h1>
             </header>
+            <button
+              className= "big home-button"
+              onClick={this.showEventForm}>Add event
+            </button>
+            <div className="expandable-project-form">
+              <EventForm
+                hidden={this.state.hidden}
+                hideForm={this.hideForm} />
+            </div>
             <header>
               {this.monthTodos()}
             </header>

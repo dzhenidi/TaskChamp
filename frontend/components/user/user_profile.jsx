@@ -1,5 +1,5 @@
 import React from 'react';
-
+const queryString = require('query-string');
 
 class UserProfile extends React.Component {
   constructor(props) {
@@ -40,15 +40,15 @@ class UserProfile extends React.Component {
 
   connectGoogle() {
     const hasgapi = () => {
-            if (typeof (gapi) !== "undefined") {
-              this.checkAuth();
-            }
-            else {
-                window.setTimeout(function () {
-                    hasgapi();
-                }, 50);
-            }
-        }
+      if (typeof (gapi) !== "undefined") {
+        this.checkAuth();
+      }
+      else {
+          window.setTimeout(function () {
+              hasgapi();
+          }, 50);
+      }
+    }
 
     return hasgapi();
   }
@@ -109,6 +109,8 @@ class UserProfile extends React.Component {
     ));
   }
 
+
+
   render() {
     return (
       <div>
@@ -128,9 +130,6 @@ class UserProfile extends React.Component {
         <button
           onClick={this.connectGoogle}>Google Calendar
         </button>
-        <ul>
-          { this.state.events.length > 0 ? this.calendarEvents() : "no events" }
-        </ul>
       </div>
     );
   }
