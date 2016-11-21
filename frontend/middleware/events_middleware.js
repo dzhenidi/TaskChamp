@@ -3,11 +3,10 @@ import { DELETE_EVENT, CREATE_EVENT, receiveEvent } from '../actions/events_acti
 
 
 export default({getState, dispatch}) => next => action => {
-
+  const success = (data) => dispatch(receiveEvent(data));
   switch(action.type){
     case CREATE_EVENT:
-    debugger
-      createEvent(action.event, (data) => dispatch(receiveEvent(data)));
+      createEvent(action.event, success);
       break;
     case DELETE_EVENT:
       deleteEvent(action.id, () => next(action))

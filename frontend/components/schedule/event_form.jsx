@@ -24,8 +24,8 @@ class EventForm extends React.Component {
     this.props.createEvent({
       title: this.state.title,
       description: this.state.description,
-      start_date: this.state.starts,
-      end_date: this.state.ends
+      start_date: moment(this.state.starts).format("YYYY-MM-DD, h:mm:ss a"),
+      end_date: moment(this.state.ends).format("YYYY-MM-DD, h:mm:ss a")
     });
   };
 

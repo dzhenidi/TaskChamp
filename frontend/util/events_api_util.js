@@ -1,9 +1,8 @@
-export const createEvent = (event, success) => {
-  debugger
+export const createEvent = (schedule_event, success) => {
   $.ajax({
     method: 'POST',
     url: 'api/events',
-    event: { event },
+    data: { schedule_event },
     success
   });
 };

@@ -7,7 +7,7 @@ class Api::EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
-    if @comment
+    if @event
       render 'api/events/show'
     else
       render json: ["event doesn't exist"], status: 404
@@ -15,20 +15,19 @@ class Api::EventsController < ApplicationController
   end
 
   def create
-    debugger
     @event = Event.new(event_params)
-    @event.users << current_user.id
-    @event.users.concat(params[:event[:comments]])
+    @event.users << current_user
+    # @event.users.concat(params[:schedule_event[:users]])
 
     if @event.save
       render 'api/events/show'
     else
-      render json: @events.errors.full_messages, status: 422
+      render json: @event.errors.full_messages, status: 422
     end
   end
 
   private
   def event_params
-    params.require(:event).permit(:title, :description, :start_date, :end_date)
+    params.require(:schedule_event).permit(:title, :description, :start_date, :end_date, :users)
   end
 end
