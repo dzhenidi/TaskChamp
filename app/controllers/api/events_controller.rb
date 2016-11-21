@@ -4,7 +4,7 @@ class Api::EventsController < ApplicationController
     @events = current_user.events
     render 'api/events/index'
   end
-  
+
   def show
     @event = Event.find(params[:id])
     if @comment
@@ -15,6 +15,7 @@ class Api::EventsController < ApplicationController
   end
 
   def create
+    debugger
     @event = Event.new(event_params)
     @event.users << current_user.id
     @event.users.concat(params[:event[:comments]])
@@ -29,4 +30,5 @@ class Api::EventsController < ApplicationController
   private
   def event_params
     params.require(:event).permit(:title, :description, :start_date, :end_date)
+  end
 end

@@ -4,6 +4,7 @@ import TeamsReducer from './teams_reducer';
 import TodoReducer from './todo_reducer';
 import ProjectsReducer from './project_reducer';
 import CommentsReducer from './comments_reducer';
+import EventsReducer from './events_reducer';
 
 
 const RootReducer = combineReducers({
@@ -12,6 +13,7 @@ const RootReducer = combineReducers({
   todo: TodoReducer,
   projects: ProjectsReducer,
   comments: CommentsReducer,
+  events: EventsReducer
 });
 
 export default RootReducer;

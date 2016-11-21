@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
     through: :team,
     source: :members
 
-  has_and_belongs_to_many :events  
+  has_and_belongs_to_many :events
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
@@ -68,7 +68,6 @@ class User < ActiveRecord::Base
   end
 
   def self.from_omniauth(auth)
-    debugger
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
       user.uid = auth.uid

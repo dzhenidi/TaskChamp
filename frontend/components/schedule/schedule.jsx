@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import DueDate from '../todos/due_date';
 import BodyClassName from 'react-body-classname';
-import EventForm from './event_form';
+import EventFormContainer from './event_form_container';
 const MONTHS = {
   0: "January",
   1: "February",
@@ -123,7 +123,7 @@ class Schedule extends React.Component {
               onClick={this.showEventForm}>Add event
             </button>
             <div className="expandable-project-form">
-              <EventForm
+              <EventFormContainer
                 hidden={this.state.hidden}
                 hideForm={this.hideForm} />
             </div>

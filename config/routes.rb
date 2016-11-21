@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     resources :todos, only: [:index, :show, :create, :destroy, :update]
     resources :projects, only: [:index, :show, :create, :destroy, :update]
     resources :comments, only: [:index, :show, :create]
-    resources :events, only: [:index, :show, :create]
+    resources :events, only: [:index, :show, :create, :destroy]
   end
 end

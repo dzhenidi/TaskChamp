@@ -4,6 +4,7 @@ import TodosMiddleware from './todo_middleware';
 import ProjectsMiddleware from './project_middleware';
 import CommentsMiddleware from './comments_middleware';
 import UserMiddleware from './user_middleware';
+import EventMiddleware from './events_middleware';
 import { applyMiddleware } from 'redux';
 
 const logger = store => next => action => {
@@ -23,6 +24,7 @@ const RootMiddleware = applyMiddleware(
   ProjectsMiddleware,
   CommentsMiddleware,
   UserMiddleware,
+  EventMiddleware,
   logger
 );
 

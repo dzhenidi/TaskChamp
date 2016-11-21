@@ -10,6 +10,7 @@ class EventForm extends React.Component {
 
     this.state= {
       title: '',
+      description: '',
       starts: moment(),
       ends: moment()
     }
@@ -20,7 +21,13 @@ class EventForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-  }
+    this.props.createEvent({
+      title: this.state.title,
+      description: this.state.description,
+      start_date: this.state.starts,
+      end_date: this.state.ends
+    });
+  };
 
   update(property) {
     return e => this.setState({[property]: e.target.value});
