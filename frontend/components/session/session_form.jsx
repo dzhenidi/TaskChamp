@@ -43,7 +43,6 @@ class SessionForm extends React.Component {
     this.redirectIfLoggedIn();
   }
 
-  //ComponentW
 
   render() {
     let buttonHeader;

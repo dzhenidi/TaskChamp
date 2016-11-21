@@ -12,6 +12,7 @@ import ProjectShowContainer from './projects/project_show_container';
 import ProjectItemContainer from './projects/project_item_container';
 import ScheduleContainer from './schedule/schedule_container';
 import UserProfileContainer from './user/user_profile_container';
+import EventShowContainer from './schedule/event_show_container';
 
 
 const Root = ({ store }) => {
@@ -46,6 +47,7 @@ const Root = ({ store }) => {
           <Route path="/schedule" component={ ScheduleContainer } />
           <Route path="/todos/:id" component={ TodoShowContainer } />
           <Route path="/projects/:id" component={ ProjectShowContainer } />
+          <Route path="/events/:id" component={ EventShowContainer } />
         </Route>
         <Route path="/login" component={ SessionFormContainer } onEnter = { _redirectIfLoggedIn }/>
         <Route path="/signup" component={ SignupFormContainer } onEnter= { _requestTeamNamesOnEnter }/>

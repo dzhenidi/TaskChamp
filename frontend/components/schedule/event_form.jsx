@@ -2,7 +2,7 @@ import React from 'react';
 const queryString = require('query-string');
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import {Link} from 'react-router';
+import {Link, hashHistory } from 'react-router';
 
 class EventForm extends React.Component {
   constructor(props) {
@@ -36,7 +36,7 @@ class EventForm extends React.Component {
   // eventPostUrl(){
   //   let qS = queryString.stringify({
   //     action: "TEMPLATE",
-  //     text: this.state.title,
+  //er   text: this.state.title,
   //     dates: moment(this.state.starts).format() + '/' + moment(this.state.ends).format()
   //   })
   //   let href = "http://www.google.com/calendar/event?"
