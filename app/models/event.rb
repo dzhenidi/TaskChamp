@@ -7,6 +7,9 @@
 #  start_date  :datetime         not null
 #  end_date    :datetime
 #  description :text
+#  author_id   :integer
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 
 class Event < ActiveRecord::Base

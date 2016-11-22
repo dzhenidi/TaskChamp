@@ -58,12 +58,6 @@ class EventForm extends React.Component {
   }
 
   render(){
-    let qS = queryString.stringify({
-      action: "TEMPLATE",
-      text: this.state.title,
-      dates: moment(this.state.starts).format('YYYYMMDD') + '/' + moment(this.state.ends).format('YYYYMMDD')
-    })
-    let href = "http://www.google.com/calendar/event?"
 
 
     if (this.props.hidden) {
@@ -97,7 +91,6 @@ class EventForm extends React.Component {
               </button>
             </div>
           </form>
-          <a href={href + qS} target="_blank">Add to Your Google Calendar</a>
         </div>
       )
     }

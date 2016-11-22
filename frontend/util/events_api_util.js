@@ -14,3 +14,11 @@ export const deleteEvent = id => {
     success
   });
 };
+
+export const fetchEvent = (id, success) => {
+  $.ajax({
+    method: 'GET',
+    url: `api/events/${id}`,
+    success
+  });
+};

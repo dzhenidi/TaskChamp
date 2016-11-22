@@ -17,6 +17,7 @@ class Api::EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.users << current_user
+    @event.author_id = current_user.id
     # @event.users.concat(params[:schedule_event[:users]])
 
     if @event.save
