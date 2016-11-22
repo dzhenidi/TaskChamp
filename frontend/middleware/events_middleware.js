@@ -19,10 +19,8 @@ export default({getState, dispatch}) => next => action => {
     case DELETE_EVENT:
       deleteEvent(action.id, () => next(action));
     case RECEIVE_EVENT_ID:
-      debugger
-      hashHistory.push(`/events/${action.id.id}`);
+      hashHistory.push(`/events/${action.id}`);
     case FETCH_EVENT:
-    debugger
       fetchEvent(action.id, successFetch);
       break;
     default:

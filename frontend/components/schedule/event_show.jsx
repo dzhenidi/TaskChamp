@@ -9,13 +9,11 @@ class EventShow extends React.Component {
   }
 
   componentDidMount(){
-    debugger
     this.props.requestEvent(this.props.id);
   }
 
   render() {
     const event = this.props.scheduleEvent;
-    debugger
     if (event) {
       let qS = queryString.stringify({
         action: "TEMPLATE",

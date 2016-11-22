@@ -7,7 +7,7 @@ export const createEvent = (schedule_event, success) => {
   });
 };
 
-export const deleteEvent = id => {
+export const deleteEvent = (id, success) => {
   $.ajax({
     method: 'DELETE',
     url: `api/events/${id}`,
@@ -16,7 +16,6 @@ export const deleteEvent = id => {
 };
 
 export const fetchEvent = (id, success) => {
-  debugger
   $.ajax({
     method: 'GET',
     url: `api/events/${id}`,

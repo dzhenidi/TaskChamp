@@ -21,7 +21,7 @@ class Api::EventsController < ApplicationController
     # @event.users.concat(params[:schedule_event[:users]])
 
     if @event.save
-      render 'api/events/show'
+      render json: @event.id.to_s
     else
       render json: @event.errors.full_messages, status: 422
     end

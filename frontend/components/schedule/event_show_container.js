@@ -4,7 +4,6 @@ import EventShow from './event_show';
 import { fetchEvent } from '../../actions/events_actions';
 
 const mapStateToProps = ({events}, ownProps) => {
-  debugger
 return ({
   scheduleEvent: events[parseInt(ownProps.params.id)],
   id: ownProps.params.id
