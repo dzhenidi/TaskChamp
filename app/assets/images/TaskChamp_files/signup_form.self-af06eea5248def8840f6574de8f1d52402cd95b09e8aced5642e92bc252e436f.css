@@ -1,0 +1,140 @@
+/* line 1, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.welcome-nav {
+  width: 900px;
+  margin: 0 auto;
+  display: block;
+  padding: 10px;
+  height: 40px;
+}
+
+/* line 9, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.welcome-nav img {
+  float: left;
+  height: 40px;
+  width: auto;
+}
+
+/* line 15, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.welcome-nav .logo {
+  float: left;
+  font-size: 28px;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+/* line 22, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.welcome-nav .button {
+  float: right;
+  padding: 8px 16px;
+  background: #1b6ac9;
+  color: #fff;
+  font-size: 14px;
+  border-bottom-width: 3px;
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+/* line 33, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.welcome-nav .button:visited {
+  color: #fff;
+}
+
+/* line 37, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.intro-container {
+  margin-bottom: 30px;
+  display: block;
+  padding: 20px 0;
+}
+
+/* line 43, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.intro-container h1, .intro-container p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+/* line 50, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.intro-container p {
+  width: 840px;
+  line-height: 1.3;
+}
+
+/* line 58, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.signup-container {
+  width: 900px;
+  margin: 0 auto;
+  display: box;
+}
+
+/* line 64, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.signup-illustration img {
+  float: left;
+  width: 475px;
+  height: 500px;
+}
+
+/* line 70, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.signup-form {
+  margin-left: 15px;
+  margin-top: 40px;
+  float: left;
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: left;
+}
+
+/* line 79, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.signup-form input, select {
+  width: 264px;
+  margin-bottom: 10px;
+}
+
+/* line 84, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.signup-form label, [type="submit"] {
+  cursor: inherit;
+  margin-bottom: 10px;
+}
+
+/* line 89, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.signup-form label > p {
+  display: block;
+  font-size: 13px;
+  line-height: 1.3;
+}
+
+/* line 95, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.signup-form input {
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #bfbfbf;
+  display: block;
+  font-size: 15px;
+  padding: 8px 10px;
+}
+
+/* line 105, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.signup-form [type="submit"] {
+  padding: 10px 30px;
+  display: inline-block;
+  font-weight: 600;
+  background: #5c9425;
+  background: -webkit-gradient(linear, left top, left bottom, from(#8fc857), to(#5c9425));
+}
+
+/* line 113, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.signup-form select {
+  background: transparent;
+  border: 1px solid #bfbfbf;
+  font-size: 13px;
+  height: 38px;
+  padding: 8px 10px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+/* line 124, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/signup_form.css.scss */
+.submit.demo {
+  display: block;
+}

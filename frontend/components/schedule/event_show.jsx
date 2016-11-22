@@ -1,6 +1,9 @@
 import React from 'react';
 import queryString from 'query-string';
 import moment from 'moment';
+import BodyClassName from 'react-body-classname';
+import DueDate from '../todos/due_date';
+
 
 
 class EventShow extends React.Component {
@@ -15,20 +18,35 @@ class EventShow extends React.Component {
   render() {
     const event = this.props.scheduleEvent;
     if (event) {
-      let qS = queryString.stringify({
+      const qS = queryString.stringify({
         action: "TEMPLATE",
         text: event.title,
         dates: moment(event.startDate).format('YYYYMMDD') + '/' + moment(event.endDate).format('YYYYMMDD')
       });
-      let href = "http://www.google.com/calendar/event?";
+      const href = "http://www.google.com/calendar/event?";
+      const dueDate = [moment(event.startDate).format('MMMM'), moment(event.startDate).format('D'), moment(event.startDate).format('dddd')]
       return (
-        <div>
-          <h2>
-            {this.props.scheduleEvent.title}
-          </h2>
-          <a href={href + qS} target="_blank">Add to Your Google Calendar</a>
+        <BodyClassName className='body-home'>
+          <div className= "project-show-container">
+            <header className="scheduled-event">
+              <DueDate dueDate={dueDate} format="long"/>
+              <h3>
+                {moment(event.startDate).format('dddd, MMMM Do')}
+              </h3>
+              <h2>
+                {event.title}
+              </h2>
 
-        </div>
+              <a href={href + qS} target="_blank">
+                Add to <img src={window.taskChampAssets.googleCalendarLogo}></img>
+              </a>
+            </header>
+            <footer className="footer">
+              <div>{event.author} posted this {moment(event.createdAt).calendar()}</div>
+
+            </footer>
+          </div>
+        </BodyClassName>
 
       )
     } else {

@@ -110,7 +110,7 @@ class TodoShow extends React.Component {
               </tr>
               <tr>
                 <th>Due on</th>
-                <td><DueDate dueDate={todo.dueDate}/></td>
+                <td><DueDate dueDate={todo.dueDate} format="short"/></td>
               </tr>
               <tr>
                 <th>Assigned to</th>

@@ -1,0 +1,97 @@
+/* line 2, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+.projects-index-container {
+  display: block;
+  box-sizing: border-box;
+  padding: 50px 60px;
+  width: 768px;
+  margin: 0 auto;
+  height: auto;
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px 0 #bfbfbf;
+}
+
+/* line 14, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+.projects-index-container a {
+  text-align: center;
+  display: block;
+}
+
+/* line 19, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+.projects-index-container h1 {
+  margin: 30px auto;
+}
+
+/* line 24, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+.projects-index-container .big.home-button {
+  margin: 0 auto;
+}
+
+/* line 28, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+.project-item {
+  display: block;
+}
+
+/* line 32, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+ul.todos {
+  padding-left: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* line 38, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+ul.todos.remaining {
+  min-height: 30px;
+  margin-top: 10px;
+}
+
+/* line 42, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+ul.todos.completed {
+  margin-top: 10px;
+}
+
+/* line 45, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+.project-item-header {
+  display: block;
+  position: relative;
+  padding: 6px 0;
+  overflow-wrap: normal;
+}
+
+/* line 52, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+.project-item-description {
+  overflow-wrap: normal;
+  margin-bottom: 9px;
+}
+
+/* line 57, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+.projects-list {
+  padding: 20px;
+}
+
+/* line 61, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+.project-item {
+  padding: 10px 0;
+}
+
+/* line 65, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+.project-item-header button.small.home-button {
+  background-color: #fff;
+  border: 1px solid #bfbfbf;
+  border-bottom-width: 2px;
+  border-color: rgba(0, 0, 0, 0.15);
+  color: #000;
+  margin: 9px 0;
+}
+
+/* line 74, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+.project-item-header h3 {
+  text-decoration: underline;
+  color: #1b6ac9;
+  margin-bottom: 20px;
+}
+
+/* line 80, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/projects_index.css.scss */
+.project-item-header h3 a {
+  text-align: left;
+}

@@ -1,0 +1,188 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+
+ */
+/* line 20, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+* {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  font: inherit;
+  background: inherit;
+  color: inherit;
+  vertical-align: inherit;
+  text-align: inherit;
+  box-sizing: inherit;
+  text-decoration: inherit;
+}
+
+/* line 35, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+.group {
+  content: "";
+  display: block;
+  clear: both;
+  overflow: auto;
+}
+
+/* line 42, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+body {
+  background-color: #f5f8fa;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* line 47, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+.body-home {
+  background-color: #f5efe6;
+  font-family: 'Raleway', sans-serif;
+  font-size: 20px;
+}
+
+/* line 53, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+.landing-home {
+  background-color: #fff;
+  font-family: 'Raleway', sans-serif;
+}
+
+/* line 58, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+div {
+  display: block;
+}
+
+/* line 62, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+ul {
+  list-style: none;
+  display: block;
+}
+
+/* line 67, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+a {
+  text-decoration: none;
+  vertical-align: baseline;
+}
+
+/* line 72, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+h1 {
+  font-size: 29px;
+  text-align: center;
+  display: block;
+  font-weight: bold;
+}
+
+/* line 79, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+h2 {
+  text-align: center;
+  display: block;
+}
+
+/* line 84, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+h3 {
+  line-height: 1.2;
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* line 91, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+button {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 16px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: normal;
+  display: block;
+  border: solid;
+  border-bottom-width: 2px;
+  border-radius: 4px;
+}
+
+/* line 105, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+.home-button {
+  cursor: pointer;
+  background: #3cb371;
+  border-color: #3cb371;
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+  color: #fff;
+  font-weight: 400;
+}
+
+/* line 114, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+.home-button:active {
+  background: #2f8d59;
+  border-color: #2f8d59;
+  border-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/* line 123, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+.small.home-button {
+  padding: 6px 10px;
+  width: auto;
+  height: auto;
+  margin-top: 17px;
+}
+
+/* line 130, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+.big.home-button {
+  width: 166px;
+  margin: 0 auto;
+}
+
+/* line 135, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+.button {
+  cursor: pointer;
+}
+
+/* line 139, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+.cancel.home-button {
+  display: inline-block;
+  margin-left: 5px;
+  background-color: #a6a6a6;
+  border-color: #a6a6a6;
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+}
+
+/* line 147, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+input {
+  vertical-align: middle;
+  display: block;
+}
+
+/* line 152, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+input, select {
+  vertical-align: middle;
+}
+
+/* line 156, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+input[type="submit"] {
+  text-align: center;
+  cursor: pointer;
+}
+
+/* line 161, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/application.css.scss */
+.submit {
+  border-radius: 8px;
+  border: 1px solid #5c9425;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px 30px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}

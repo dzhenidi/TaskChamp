@@ -1,0 +1,37 @@
+.expandable-form {
+  box-sizing: border-box;
+  padding: 10px 15px 15px 14px;
+  display: block;
+  border-radius: 4px;
+  /*border: 1px solid #bfbfbf;*/
+  border: 1px solid #e5e5e5;
+  text-align: left;
+  background: #e8fff5;
+
+}
+
+.expandable-form input {
+  display: block;
+  width: 100%;
+  padding: 8px 10px;
+  border-bottom: 1px solid #e5e5e5;
+
+}
+
+.expandable-form .title {
+  font-weight: 600;
+}
+
+.expandable-form .detail {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.expandable-project-form {
+  margin: 11px -10px;
+
+}
+
+.expandable-project-form button {
+  display: inline-block;
+}

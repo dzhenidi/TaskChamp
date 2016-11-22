@@ -1,0 +1,103 @@
+/* line 1, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+.top-nav.wrapper {
+  position: relative;
+}
+
+/* line 5, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+.top-nav {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: rgba(251, 248, 245, 0.98);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 6;
+  padding: 3px 0;
+  font-size: 14px;
+}
+
+/* line 16, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+.team-nav {
+  display: flex;
+  justify-content: center;
+  margin: 60px auto;
+}
+
+/* line 22, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+.team-nav a {
+  width: auto;
+  font-size: 18px;
+  font-weight: bold;
+  color: #1b6ac9;
+  text-decoration: underline;
+}
+
+/* line 30, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+.top-nav-list {
+  float: left;
+}
+
+/* line 33, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+.top-nav-list-right {
+  float: right;
+}
+
+/* line 36, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+.top-nav-list-right a {
+  padding: 0;
+}
+
+/* line 42, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+.top-nav-list-right img.user-thumbnail {
+  width: auto;
+  height: 35px;
+  padding: 0;
+  margin: auto 0;
+  margin-right: 10px;
+}
+
+/* line 51, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+.small-logo img {
+  height: 35px;
+  width: auto;
+  border-right: none;
+  padding: 0 10px;
+  padding-right: 50px;
+}
+
+/* line 59, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+#logo-link {
+  padding: 0;
+}
+
+/* line 63, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+.top-nav-list a, button {
+  padding: 10px;
+  display: inline-block;
+}
+
+/* line 68, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+.logout.button {
+  margin-right: 10px;
+}
+
+/* line 72, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+.top-nav li {
+  float: left;
+  padding: 0 3px;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* line 78, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+.top-nav li:first-child {
+  border: none;
+}
+
+/* line 88, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/top_nav.css.scss */
+.top-nav .logout {
+  padding: 9px;
+  font-size: inherit;
+  font-weight: 400;
+  float: right;
+  border: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}

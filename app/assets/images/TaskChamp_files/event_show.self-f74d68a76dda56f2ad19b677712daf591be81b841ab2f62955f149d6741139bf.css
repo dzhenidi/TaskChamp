@@ -1,0 +1,49 @@
+/* line 1, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/event_show.css.scss */
+header.scheduled-event {
+  padding-top: 20px;
+}
+/* line 5, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/event_show.css.scss */
+header.scheduled-event span.date.long {
+  width: 72px;
+  height: auto;
+  padding: 0 6px 9px 6px;
+  border-width: 3px;
+  border-radius: 5px;
+  line-height: 1;
+  border-color: #ff7043;
+  display: table;
+  margin: 0 auto;
+}
+/* line 16, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/event_show.css.scss */
+header.scheduled-event span.date.long .date-header {
+  display: block;
+  padding: 10px 0;
+  font-size: 16px;
+  margin: 0 -6px;
+}
+/* line 23, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/event_show.css.scss */
+header.scheduled-event span.date.long .date-day {
+  font-size: 36px;
+}
+/* line 28, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/event_show.css.scss */
+header.scheduled-event h3 {
+  margin-top: 20px;
+  text-align: center;
+}
+/* line 32, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/event_show.css.scss */
+header.scheduled-event h2 {
+  margin-top: 20px;
+  font-size: 40px;
+}
+/* line 37, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/event_show.css.scss */
+header.scheduled-event a {
+  display: block;
+  text-align: center;
+}
+
+/* line 46, /Users/dzhenidilcheva/Documents/Git/TaskChamp/app/assets/stylesheets/event_show.css.scss */
+.footer {
+  font-size: 14px;
+  color: #aa9c84;
+  text-align: center;
+}

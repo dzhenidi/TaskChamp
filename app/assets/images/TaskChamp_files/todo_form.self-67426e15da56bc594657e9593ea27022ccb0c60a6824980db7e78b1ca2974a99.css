@@ -1,0 +1,267 @@
+/*.checkbox {
+  display: block;
+  padding: 4px 0 4px 32px;
+  position: relative;
+}*/
+
+
+input[type=checkbox] {
+  display: none;
+  box-sizing: border-box;
+  padding: 0;
+}
+.checkbox {
+  width: auto;
+  height: auto;
+  margin: 10px;
+  position: relative;
+}
+.checkbox.true {
+  font-size: 14px;
+}
+
+
+.checkbox label {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+}
+.checkbox-button {
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  border: 1px solid rgba(0,0,0,0.25);
+  background-color: #fff;
+  border-radius: 5px;
+  vertical-align: top;
+}
+.checkbox.true .checkbox-button{
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+}
+span.checkbox-content {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 30px;
+}
+
+.checkbox.true {
+  font-size: 14px;
+}
+.checkbox.true span.date.short {
+  font-size: 8px;
+  width: 22px;
+  height: 21px;
+
+}
+
+
+.checkbox-button:after {
+  opacity: 0;
+	content: '';
+	position: absolute;
+	width: 9px;
+	height: 3px;
+	background: transparent;
+	top: 4px;
+	left: 3px;
+	border: 2px solid #fff;
+	border-top: none;
+	border-right: none;
+
+	transform: rotate(-60deg);
+}
+
+
+.checkbox input[type=checkbox]:checked + span.checkbox-button {
+  background-color: #3cb371;
+}
+.checkbox input[type=checkbox]:checked + span.checkbox-button:after {
+  opacity: 1;
+}
+
+.todo-form .expandable-form {
+  padding-bottom: 10px;
+  border: none;
+  vertical-align: top;
+}
+
+.todo-form span.checkbox-content {
+  width: 90%;
+}
+
+.expandable-form.todo {
+  padding: 0;
+}
+
+.expandable-form.todo input {
+  width: 100%;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+
+
+
+li.todo-form {
+  background: #e8fff5;
+  padding: 10px 15px 15px 0px;
+  margin-left: -35px;
+  list-style: none;
+  border-radius: 4px;
+  border: 1px solid #e5e5e5;
+  width: 678px;
+}
+
+.todo-item {
+  padding: 0;
+}
+
+.indent {
+  margin-left: 35px;
+}
+
+
+.checkbox-content-list li {
+  float: left;
+  padding-right: 5px;
+}
+.todo-form .buttons-container > .small.home-button {
+  color: #fff;
+}
+.todo-form .buttons-container > .small.home-button:first-child {
+  margin-right: 5px;
+  background: #3cb371;
+  border-color: #3cb371;
+  border-bottom-color: rgba(0, 0, 0, 0.15);
+}
+
+.todo-form .buttons-container > .small.home-button:last-child {
+  background-color: #a6a6a6;
+  border-color: #a6a6a6;
+  border-bottom-color: rgba(0,0,0,0.15);
+}
+
+.todo-form button {
+  display: inline-block;
+}
+
+/*.expandable-form.todo label.radio-label:last-child {
+  border-bottom: 1px solid #e5e5e5;
+}*/
+
+.todoer {
+  color: #aa9c84;
+  white-space: nowrap;
+}
+
+span.date.short {
+  border-color: #ff7043;
+}
+
+.date {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  background-color: #fff;
+  border: 1px solid #f2f2f2;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.2;
+  overflow: hidden;
+}
+
+.date-header {
+  background: #ff7043;
+  color: #fff;
+}
+
+
+.autocomplete {
+  position: relative;
+  cursor: text;
+  color: grey;
+}
+
+.autocomplete::after {
+  content: '';
+  display: block;
+  clear: left;
+}
+
+.autocomplete li {
+  color: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.autocomplete li:last-child {
+  padding-bottom: 20px;
+}
+
+input[type=radio] {
+  /*display: none;*/
+}
+label.radio-label {
+  position: relative;
+  display: block;
+  padding-left: 30px;
+  /*border-bottom: 1px solid #e5e5e5;*/
+}
+
+input.radio-input {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  cursor: pointer;
+  border-radius: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+
+
+input.radio-input:checked {
+  border: 2px solid #3cb371;
+}
+
+input.react-date-field__input {
+  border: none;
+}
+
+.react-datepicker__input-container {
+  margin: 10px;
+}
+
+
+.quill.custom-quill.container {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 10px;
+  background: #fff;
+}
+.quill-toolbar.custom-quill.toolbar.ql-toolbar.ql-snow {
+  background: #fff;
+  font-family: inherit;
+  padding: 2px 8px;
+}
+
+.quill-contents.ql-container.ql-snow {
+  font-family: inherit;
+  background: #fff;
+  min-height: 100px;
+  font-size: inherit;
+}
+
+.details-anchor {
+  position: relative;
+}
+
+.button.small.cancel.home-button {
+  margin-left: 3px;
+}

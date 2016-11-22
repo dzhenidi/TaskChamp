@@ -1,0 +1,55 @@
+header.scheduled-event {
+
+    padding-top: 20px;
+
+    span.date.long {
+      width: 72px;
+      height: auto;
+      padding: 0 6px 9px 6px;
+      border-width: 3px;
+      border-radius: 5px;
+      line-height: 1;
+      border-color: #ff7043;
+      display: table;
+      margin: 0 auto;
+
+      .date-header {
+        display: block;
+        padding: 10px 0;
+        font-size: 16px;
+        margin: 0 -6px;
+      }
+
+      .date-day {
+        font-size: 36px;
+      }
+    }
+
+    h3 {
+      margin-top: 20px;
+      text-align: center;
+    }
+    h2 {
+      margin-top: 20px;
+      font-size: 40px;
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      padding: 20px 0;
+
+      img {
+        height: 25px;
+      }
+    }
+
+
+
+}
+
+.footer {
+  font-size: 14px;
+  color: #aa9c84;
+  text-align: center;
+}
