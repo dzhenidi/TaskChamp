@@ -1,7 +1,9 @@
 export const CREATE_EVENT = "CREATE_EVENT";
 export const RECEIVE_EVENT = "RECEIVE_EVENT";
+export const RECEIVE_EVENT_ID = "RECEIVE_EVENT_ID";
 export const DELETE_EVENT = "DELETE_EVENT";
 export const FETCH_EVENT = "FETCH_EVENT";
+
 
 export const createEvent = data => ({
   type: CREATE_EVENT,
@@ -13,8 +15,14 @@ export const receiveEvent = event => ({
   event
 });
 
+export const receiveEventId = id => ({
+  type: RECEIVE_EVENT_ID,
+  id
+});
+
 export const deleteEvent = id => ({
-  type: DELETE_EVENT
+  type: DELETE_EVENT,
+  id
 });
 
 export const fetchEvent = id => ({

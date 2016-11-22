@@ -16,6 +16,7 @@ export const deleteEvent = id => {
 };
 
 export const fetchEvent = (id, success) => {
+  debugger
   $.ajax({
     method: 'GET',
     url: `api/events/${id}`,

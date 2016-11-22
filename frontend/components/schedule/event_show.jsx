@@ -8,9 +8,10 @@ class EventShow extends React.Component {
     super(props);
   }
 
-  // componentDidMount(){
-  //   this.props.requestEvent(this.props.id);
-  // }
+  componentDidMount(){
+    debugger
+    this.props.requestEvent(this.props.id);
+  }
 
   render() {
     const event = this.props.scheduleEvent;
