@@ -1,8 +1,8 @@
 import React from 'react';
-const queryString = require('query-string');
+import queryString from 'query-string';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
-import {Link, hashHistory } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 
 class EventForm extends React.Component {
   constructor(props) {
@@ -13,7 +13,7 @@ class EventForm extends React.Component {
       description: '',
       starts: moment(),
       ends: moment()
-    }
+    };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.eventPostUrl = this.eventPostUrl.bind(this);

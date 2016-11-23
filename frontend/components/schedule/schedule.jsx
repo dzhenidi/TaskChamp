@@ -71,7 +71,7 @@ class Schedule extends React.Component {
         <span className="checkbox-content schedule">
           <ul className="checkbox-content-list schedule group">
             <li key={todo.id}>
-              <DueDate dueDate={todo.dueDate}/>
+              <DueDate dueDate={todo.dueDate} format="short"/>
             </li>
             <li className="title-link"><Link to={`/todos/${todo.id}`} >{todo.title}</Link></li>
             <li><span className="project-title">For: {todo.projectName}</span></li>

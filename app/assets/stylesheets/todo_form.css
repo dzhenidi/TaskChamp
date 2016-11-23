@@ -158,6 +158,7 @@ li.todo-form {
 }
 
 span.date.short {
+  border: 1px solid;
   border-color: #ff7043;
 }
 
@@ -167,7 +168,7 @@ span.date.short {
   height: 28px;
   vertical-align: middle;
   background-color: #fff;
-  border: 1px solid #f2f2f2;
+  /*border: 1px solid #ff7043;*/
   border-radius: 5px;
   text-align: center;
   font-size: 11px;

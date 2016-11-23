@@ -39,7 +39,7 @@ class Todo extends React.Component {
                 <li><Link to={`/todos/${id}`} >{title}</Link></li>
                 <li><span className="todoer">{todoer}</span></li>
                 <li>
-                  <DueDate dueDate={dueDate}/>
+                  <DueDate dueDate={dueDate} format="short"/>
                 </li>
               </ul>
             </span>
