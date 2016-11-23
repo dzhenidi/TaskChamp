@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import { DisplayFiles } from '../files/display_files';
+import Autocomplete from '../autocomplete';
 
 class TodoForm extends React.Component {
   constructor(props) {
@@ -30,18 +31,19 @@ class TodoForm extends React.Component {
       fileType: todo.fileType || null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.selectName = this.selectName.bind(this);
-    this.handleAutocomplete = this.handleAutocomplete.bind(this);
+    // this.selectName = this.selectName.bind(this);
+    // this.handleAutocomplete = this.handleAutocomplete.bind(this);
     this.matches = this.matches.bind(this);
     this.teammatesNames = Object.keys(this.props.teammates);
     this.setDate = this.setDate.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
-    this.handleDisplay = this.handleDisplay.bind(this);
+    // this.handleDisplay = this.handleDisplay.bind(this);
     this.toggleDate = this.toggleDate.bind(this);
     this.todoDetails = this.todoDetails.bind(this);
     this.quill = this.quill.bind(this);
     this.openQuill = this.openQuill.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    this.receiveTodoerId = this.receiveTodoerId.bind(this);
   }
   toggleDate() {
     return this.setState({'date': !this.state.date})
@@ -92,28 +94,32 @@ class TodoForm extends React.Component {
     };
   }
 
-  selectName(e) {
-    let name = e.currentTarget.innerText;
-    let id = this.props.teammates[name];
-    this.setState({
-      autocompleteVal: name,
-      todoerId: id,
-      displayAutocomplete: false
-    });
-  }
+  // selectName(e) {
+  //   let name = e.currentTarget.innerText;
+  //   let id = this.props.teammates[name];
+  //   this.setState({
+  //     autocompleteVal: name,
+  //     todoerId: id,
+  //     displayAutocomplete: false
+  //   });
+  // }
 
-  handleAutocomplete(e) {
+  receiveTodoerId(id) {
     this.setState({
-      autocompleteVal: e.currentTarget.value,
-      // displayAutocomplete: true
+      todoerId: id
     });
   }
+  // handleAutocomplete(e) {
+  //   this.setState({
+  //     autocompleteVal: e.currentTarget.value,
+  //   });
+  // }
 
-  handleDisplay() {
-    this.setState({
-      displayAutocomplete: true
-    });
-  }
+  // handleDisplay() {
+  //   this.setState({
+  //     displayAutocomplete: true
+  //   });
+  // }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -229,18 +235,18 @@ class TodoForm extends React.Component {
 
   render(){
 
-    let autocompleteResults;
-    if (this.state.displayAutocomplete) {
-      autocompleteResults = this.matches().map((result, i) => {
-        return (
-          <li key={i} onClick={this.selectName}>{result}</li>
-        );
-      });
-    } else {
-      autocompleteResults = '';
-    }
+    // let autocompleteResults;
+    // if (this.state.displayAutocomplete) {
+    //   autocompleteResults = this.matches().map((result, i) => {
+    //     return (
+    //       <li key={i} onClick={this.selectName}>{result}</li>
+    //     );
+    //   });
+    // } else {
+    //   autocompleteResults = '';
+    // }
 
-    const assignPlaceholder = this.state.todoer ? this.state.todoer : "Assign to...";
+    // const assignPlaceholder = this.state.todoer ? this.state.todoer : "Assign to...";
     const submitLabel = (this.props.action === "create") ? "Add this to-do" : "Save changes";
     const cancelLabel = (this.props.action === "create") ? "Cancel" : "Discard changes";
 
@@ -270,16 +276,9 @@ class TodoForm extends React.Component {
                     placeholder="Add a new to-do..."
                     onChange={this.update('title')}
                     required/>
-                  <input
-                    onClick={this.handleDisplay}
-                    onChange={this.handleAutocomplete}
-                    value={this.state.autocompleteVal}
-                    placeholder={assignPlaceholder}/>
-                  <ul>
-                    <div className="autocomplete">
-                      {autocompleteResults}
-                    </div>
-                  </ul>
+                  <Autocomplete
+                    teammates= {this.props.teammates}
+                    receiveTodoerId= {this.receiveTodoerId}/>
                   <div className="details-anchor">
                     {this.todoDetails()}
                   </div>
@@ -332,3 +331,15 @@ class TodoForm extends React.Component {
 }
 
 export default TodoForm;
+
+
+// <input
+//   onClick={this.handleDisplay}
+//   onChange={this.handleAutocomplete}
+//   value={this.state.autocompleteVal}
+//   placeholder={assignPlaceholder}/>
+// <ul>
+//   <div className="autocomplete">
+//     {autocompleteResults}
+//   </div>
+// </ul>
