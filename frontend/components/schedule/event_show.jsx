@@ -17,6 +17,7 @@ class EventShow extends React.Component {
 
   render() {
     const event = this.props.scheduleEvent;
+    const participants = this.props.particpantsAvatars;
     if (event) {
       const qS = queryString.stringify({
         action: "TEMPLATE",
@@ -25,6 +26,7 @@ class EventShow extends React.Component {
       });
       const href = "http://www.google.com/calendar/event?";
       const dueDate = [moment(event.startDate).format('MMMM'), moment(event.startDate).format('D'), moment(event.startDate).format('dddd')]
+
       return (
         <BodyClassName className='body-home'>
           <div className= "project-show-container">
@@ -40,6 +42,9 @@ class EventShow extends React.Component {
               <a href={href + qS} target="_blank">
                 Add to <img src={window.taskChampAssets.googleCalendarLogo}></img>
               </a>
+              <div className="avatar-group">
+                {participants}
+              </div>
             </header>
             <footer className="footer">
               <div>{event.author} posted this {moment(event.createdAt).calendar()}</div>

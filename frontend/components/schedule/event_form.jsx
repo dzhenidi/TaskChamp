@@ -3,6 +3,7 @@ import queryString from 'query-string';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import { Link, hashHistory } from 'react-router';
+import Select from 'react-select';
 
 class EventForm extends React.Component {
   constructor(props) {
@@ -12,20 +13,24 @@ class EventForm extends React.Component {
       title: '',
       description: '',
       starts: moment(),
-      ends: moment()
+      ends: moment(),
+      selectedTeammates: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateUsersList = this.updateUsersList.bind(this);
     // this.eventPostUrl = this.eventPostUrl.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    const usersIds = this.state.selectedTeammates.map( user => user.value);
     this.props.createEvent({
       title: this.state.title,
       description: this.state.description,
       start_date: moment(this.state.starts).format("YYYY-MM-DD, h:mm:ss a"),
-      end_date: moment(this.state.ends).format("YYYY-MM-DD, h:mm:ss a")
+      end_date: moment(this.state.ends).format("YYYY-MM-DD, h:mm:ss a"),
+      users: usersIds,
     });
   };
 
@@ -49,20 +54,37 @@ class EventForm extends React.Component {
   setStartDate(d) {
     this.setState({
       "starts": d
-    })
+    });
   }
   setEndDate(d) {
     this.setState({
       "ends": d
-    })
+    });
+  }
+
+  updateUsersList(val) {
+    this.setState({
+      'selectedTeammates': val
+    });
   }
 
   render(){
+    let selectOptions = [];
+    let teammates = this.props.teammates;
+    for (let key in teammates) {
+      if (teammates.hasOwnProperty(key)) {
+        selectOptions.push({
+          value: this.props.teammates[key],
+          label: key
+        });
+      }
+    }
 
 
     if (this.props.hidden) {
       return (<div></div>);
     } else {
+
       return (
         <div className="event-form">
           <form
@@ -80,6 +102,13 @@ class EventForm extends React.Component {
                 selected={this.state.ends}
                 onChange={this.setEndDate}
                 placeholderText="Ends..." />
+              <Select
+                name="teammates"
+                value={this.state.selectedTeammates}
+                options={selectOptions}
+                onChange={this.updateUsersList}
+                multi={true}
+              />
             <div className="buttons-container group">
               <button
                 className="small home-button"
@@ -92,7 +121,7 @@ class EventForm extends React.Component {
             </div>
           </form>
         </div>
-      )
+      );
     }
   }
 

@@ -33,7 +33,7 @@ class TodoForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.selectName = this.selectName.bind(this);
     // this.handleAutocomplete = this.handleAutocomplete.bind(this);
-    this.matches = this.matches.bind(this);
+    // this.matches = this.matches.bind(this);
     this.teammatesNames = Object.keys(this.props.teammates);
     this.setDate = this.setDate.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
@@ -61,7 +61,7 @@ class TodoForm extends React.Component {
         fileUrl: fileReader.result,
         fileName: file.name,
         fileType: file.type
-      })
+      });
     }.bind(this);
 
     if (file) {
@@ -72,21 +72,21 @@ class TodoForm extends React.Component {
     // }
   }
 
-  matches(){
-    const matches = [];
-    if (this.state.autocompleteVal.length === 0) {
-      return this.teammatesNames;
-    }
-
-    this.teammatesNames.forEach(name => {
-      let sub = name.slice(0, this.state.autocompleteVal.length);
-      if (sub.toLowerCase() === this.state.autocompleteVal.toLowerCase()){
-        matches.push(name);
-      }
-    });
-
-    return matches;
-  }
+  // matches(){
+  //   const matches = [];
+  //   if (this.state.autocompleteVal.length === 0) {
+  //     return this.teammatesNames;
+  //   }
+  //
+  //   this.teammatesNames.forEach(name => {
+  //     let sub = name.slice(0, this.state.autocompleteVal.length);
+  //     if (sub.toLowerCase() === this.state.autocompleteVal.toLowerCase()){
+  //       matches.push(name);
+  //     }
+  //   });
+  //
+  //   return matches;
+  // }
 
   checkTodo() {
     return e => {
