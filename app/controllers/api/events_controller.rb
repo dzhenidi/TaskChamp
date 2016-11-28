@@ -18,8 +18,11 @@ class Api::EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.users << current_user
     @event.author_id = current_user.id
-    @event.user_ids=(params[:schedule_event]["users"] + [current_user.id])
-    debugger
+    if params[:schedule_event]["users"]
+      @event.user_ids = (params[:schedule_event]["users"] + [current_user.id])
+    else
+      @event.user_ids = [current_user.id]
+    end
     if @event.save
       render json: @event.id.to_s
     else

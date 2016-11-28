@@ -4,28 +4,54 @@ import moment from 'moment';
 import BodyClassName from 'react-body-classname';
 import DueDate from '../todos/due_date';
 
-
+// https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20161127T131632/20161128T161932&text=aaaaaaa&sf=true&output=xml#main_7
 
 class EventShow extends React.Component {
   constructor(props) {
     super(props);
+    this.renderDateTime = this.renderDateTime.bind(this);
   }
 
   componentDidMount(){
     this.props.requestEvent(this.props.id);
   }
 
+  renderDateTime(){
+    const startDate = moment(this.props.scheduleEvent.startDate);
+    const endDate = moment(this.props.scheduleEvent.endDate);
+    let dateRange;
+    if (startDate.isSame(endDate, 'day')) {
+      dateRange = startDate.format('dddd, MMMM Do, h:mma')
+      + " - "
+      + endDate.format('h:mma');
+    } else {
+      dateRange = startDate.format('dddd, MMMM Do, h:mma')
+      + " - "
+      + endDate.format('dddd, MMMM Do, h:mma');
+    }
+
+    return (dateRange);
+  }
+
   render() {
     const event = this.props.scheduleEvent;
-    const participants = this.props.particpantsAvatars;
     if (event) {
       const qS = queryString.stringify({
         action: "TEMPLATE",
         text: event.title,
-        dates: moment(event.startDate).format('YYYYMMDD') + '/' + moment(event.endDate).format('YYYYMMDD')
+        dates: `${moment(event.startDate).format('YYYYMMDD[T]HHmmss')}/${moment(event.endDate).format('YYYYMMDD[T]HHmmss')}`
       });
       const href = "http://www.google.com/calendar/event?";
       const dueDate = [moment(event.startDate).format('MMMM'), moment(event.startDate).format('D'), moment(event.startDate).format('dddd')]
+      const participants = event.participants.map( user => {
+        return (
+          <img
+            src={user.avatar}
+            className="user-thumbnail"
+            title={user.username}
+            alt={user.username} />
+        );
+      });
 
       return (
         <BodyClassName className='body-home'>
@@ -33,7 +59,7 @@ class EventShow extends React.Component {
             <header className="scheduled-event">
               <DueDate dueDate={dueDate} format="long"/>
               <h3>
-                {moment(event.startDate).format('dddd, MMMM Do')}
+                {this.renderDateTime()}
               </h3>
               <h2>
                 {event.title}
@@ -42,8 +68,10 @@ class EventShow extends React.Component {
               <a href={href + qS} target="_blank">
                 Add to <img src={window.taskChampAssets.googleCalendarLogo}></img>
               </a>
-              <div className="avatar-group">
-                {participants}
+              <div className="separator">
+                <div className="avatar-group">
+                  {participants}
+                </div>
               </div>
             </header>
             <footer className="footer">

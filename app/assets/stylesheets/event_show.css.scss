@@ -5,7 +5,8 @@ header.scheduled-event {
     span.date.long {
       width: 72px;
       height: auto;
-      padding: 0 6px 9px 6px;
+      padding: 0 6px 6px 6px;
+      border: solid;
       border-width: 3px;
       border-radius: 5px;
       line-height: 1;
@@ -22,6 +23,9 @@ header.scheduled-event {
 
       .date-day {
         font-size: 36px;
+      }
+      .date-weekday {
+        margin-top: 5px;
       }
     }
 
@@ -41,9 +45,17 @@ header.scheduled-event {
 
       img {
         height: 25px;
+        margin-bottom: -5px;
       }
     }
 
+    div.separator {
+      text-align: center;
+
+      .avatar-group {
+        display: inline-block;
+      }
+    }
 
 
 }
@@ -52,4 +64,5 @@ header.scheduled-event {
   font-size: 14px;
   color: #aa9c84;
   text-align: center;
+  margin-top: 20px;
 }
