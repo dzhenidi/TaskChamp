@@ -11,15 +11,18 @@ div.event-form {
     padding: 10px;
     padding-right: 0;
     height: 30px;
+    margin-bottom: 10px;
   }
   div.event-form-item {
-    label, div {
+    label.event-form-label, div.date-time-detail, div.teammates-select-detail {
       float: left;
     }
 
     label {
-      width: 65px;
+      width: 70px;
+      height: 35px;
       margin-left: 20px;
+      padding-top: 5px;
     }
 
     .date-time-detail {
@@ -28,22 +31,62 @@ div.event-form {
         border: 1px solid #bfbfbf;
         border-radius: 5px;
         overflow: hidden;
+        height: 35px;
+        font-size: inherit;
+        color: inherit;
+        padding: 0;
+        padding-left: 5px;
+        box-sizing: border-box;
       }
       .react-datepicker__input-container {
         margin: 0;
+        margin-right: 5px;
         height: 35px
       }
       .time-picker {
         height: 35px;
-        input {
-          height: 27px;
+
+        span.rc-time-picker-icon {
+          position: relative;
+          background: pink;
         }
       }
     }
 
     .Select.Select--multi.is-searchable {
         display: block;
-        width: 210px;
+        width: 437px;
+
+        .Select-control {
+          border-color: #bfbfbf;
+          border-radius: 5px;
+          overflow: hidden;
+        }
+
+        .Select-menu-outer {
+          z-index: 100;
+        }
     }
   }
+
+  div.event-form-item.autocomplete {
+    color: inherit
+  }
+}
+
+div.date-time-detail > textarea {
+    width: 426px;
+}
+.rc-time-picker-icon:before {
+content: "\f017";
+font-family: FontAwesome;
+font-style: normal;
+font-weight: normal;
+text-decoration: inherit;
+color: #bfbfbf;
+font-size: 18px;
+padding-right: 0.25em;
+position: absolute;
+top: 5px;
+right: 0;
 }

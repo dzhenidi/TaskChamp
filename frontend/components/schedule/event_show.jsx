@@ -19,6 +19,7 @@ class EventShow extends React.Component {
   renderDateTime(){
     const startDate = moment(this.props.scheduleEvent.startDate);
     const endDate = moment(this.props.scheduleEvent.endDate);
+    
     let dateRange;
     if (startDate.isSame(endDate, 'day')) {
       dateRange = startDate.format('dddd, MMMM Do, h:mma')

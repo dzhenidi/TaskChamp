@@ -37,6 +37,7 @@ class EventForm extends React.Component {
     this.props.createEvent({
       title: this.state.title,
       description: this.state.description,
+
       // start_date: moment(this.state.starts).format("YYYY-MM-DD, h:mm:ss a"),
       start_date: `${startDate} ${startTime}`,
       end_date: `${endDate} ${endTime}`,
@@ -90,6 +91,10 @@ class EventForm extends React.Component {
     });
   }
 
+  handleCancel() {
+
+  }
+
   render(){
     let selectOptions = [];
     let teammates = this.props.teammates;
@@ -133,7 +138,7 @@ class EventForm extends React.Component {
             </div>
 
             <div className="event-form-item group">
-              <label class="event-form-label">Ends:</label>
+              <label className="event-form-label">Ends:</label>
               <div className="date-time-detail">
                 <DatePicker
                   selected={this.state.ends}
@@ -148,8 +153,8 @@ class EventForm extends React.Component {
               </div>
             </div>
 
-            <div className="event-form-item group">
-              <label class="event-form-label">With:</label>
+            <div className="event-form-item autocomplete group">
+              <label className="event-form-label">With:</label>
               <div className="teammates-select-detail">
                 <Select
                   name="teammates"
@@ -157,6 +162,15 @@ class EventForm extends React.Component {
                   options={selectOptions}
                   onChange={this.updateUsersList}
                   multi={true}/>
+              </div>
+            </div>
+
+            <div className="event-form-item group">
+              <label className="event-form-label">Details:</label>
+              <div className="date-time-detail">
+                <textarea
+                  value={this.state.description}
+                  onChange={this.update("description")}/>
               </div>
             </div>
 
