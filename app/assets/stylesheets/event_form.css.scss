@@ -1,0 +1,49 @@
+div.event-form {
+  width: 80%;
+  margin: 0 auto;
+
+
+  textarea {
+    display: block;
+    border: 1px solid #bfbfbf;
+    border-radius: 5px;
+    width: 98%;
+    padding: 10px;
+    padding-right: 0;
+    height: 30px;
+  }
+  div.event-form-item {
+    label, div {
+      float: left;
+    }
+
+    label {
+      width: 65px;
+      margin-left: 20px;
+    }
+
+    .date-time-detail {
+      margin-bottom: 3px;
+      input {
+        border: 1px solid #bfbfbf;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .react-datepicker__input-container {
+        margin: 0;
+        height: 35px
+      }
+      .time-picker {
+        height: 35px;
+        input {
+          height: 27px;
+        }
+      }
+    }
+
+    .Select.Select--multi.is-searchable {
+        display: block;
+        width: 210px;
+    }
+  }
+}

@@ -108,42 +108,62 @@ class EventForm extends React.Component {
     } else {
 
       return (
-        <div className="event-form">
+        <div className="event-form group">
           <form
             onSubmit={this.handleSubmit}>
-            <input
+            <textarea
               className="input"
               value={this.state.title}
               onChange={this.update("title")}
-              placeholder="What is your event?"/>
-            <DatePicker
-              selected={this.state.starts}
-              onChange={this.setStartDate}
-              placeholderText="Starts..." />
-              <DatePicker
-                selected={this.state.ends}
-                onChange={this.setEndDate}
-                placeholderText="Ends..." />
-              <h3>Starts At</h3>
-              <TimePicker
-                format="h:mm A"
-                showSecond={false}
-                onChange={this.handleTimeStart}/>
-              <h3>Ends At</h3>
-              <TimePicker
-                format="h:mm A"
-                showSecond={false}
-                onChange={this.handleTimeEnd}/>
-              <Select
-                name="teammates"
-                value={this.state.selectedTeammates}
-                options={selectOptions}
-                onChange={this.updateUsersList}
-                multi={true}/>
+              placeholder="What's the event?"/>
+            <div className="event-form-item group">
+              <label className="event-form-label">Starts:</label>
+              <div className="date-time-detail">
+                <DatePicker
+                  selected={this.state.starts}
+                  onChange={this.setStartDate}
+                  placeholderText="Starts..."
+                  className="datepicker"/>
+                <TimePicker
+                  format="h:mm A"
+                  showSecond={false}
+                  onChange={this.handleTimeStart}
+                  className="time-picker"/>
+              </div>
+            </div>
+
+            <div className="event-form-item group">
+              <label class="event-form-label">Ends:</label>
+              <div className="date-time-detail">
+                <DatePicker
+                  selected={this.state.ends}
+                  onChange={this.setEndDate}
+                  placeholderText="Ends..."
+                  className="datepicker"/>
+                <TimePicker
+                  format="h:mm A"
+                  showSecond={false}
+                  onChange={this.handleTimeEnd}
+                  className="time-picker"/>
+              </div>
+            </div>
+
+            <div className="event-form-item group">
+              <label class="event-form-label">With:</label>
+              <div className="teammates-select-detail">
+                <Select
+                  name="teammates"
+                  value={this.state.selectedTeammates}
+                  options={selectOptions}
+                  onChange={this.updateUsersList}
+                  multi={true}/>
+              </div>
+            </div>
+
             <div className="buttons-container group">
               <button
                 className="small home-button"
-                >Submit
+                >Post this event
               </button>
               <button
                 className="small cancel home-button"
