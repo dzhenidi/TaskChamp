@@ -34,6 +34,7 @@ class EventForm extends React.Component {
     const startDate = moment(this.state.starts).format("YYYY-MM-DD");
     const endDate = moment(this.state.ends).format("YYYY-MM-DD");
     const usersIds = this.state.selectedTeammates.map( user => user.value);
+
     this.props.createEvent({
       title: this.state.title,
       description: this.state.description,

@@ -10,6 +10,7 @@ class EventShow extends React.Component {
   constructor(props) {
     super(props);
     this.renderDateTime = this.renderDateTime.bind(this);
+    this.renderGCalLink = this.renderGCalLink.bind(this);
   }
 
   componentDidMount(){
@@ -17,9 +18,15 @@ class EventShow extends React.Component {
   }
 
   renderDateTime(){
-    const startDate = moment(this.props.scheduleEvent.startDate);
-    const endDate = moment(this.props.scheduleEvent.endDate);
-    
+    // const startDate = moment(this.props.scheduleEvent.startDate);
+    // const endDate = moment(this.props.scheduleEvent.endDate);
+    const endDate = moment(this.props.scheduleEvent.endDate).utcOffset(this.props.scheduleEvent.endDate);
+    const startDate = moment(this.props.scheduleEvent.startDate).utcOffset(this.props.scheduleEvent.startDate);
+    // const offset = moment(this.props.scheduleEvent.startDate).format('Z')
+    // const startDateOffset = startDate.utcOffset(this.props.scheduleEvent.startDate)
+    // const testOffsetString = startDateOffset.format('dddd, MMMM Do, h:mma')
+    // const dateString = `${startDate.format('YYYYMMDD[T]HHmmss')}/${endDate.format('YYYYMMDD[T]HHmmss')}`;
+
     let dateRange;
     if (startDate.isSame(endDate, 'day')) {
       dateRange = startDate.format('dddd, MMMM Do, h:mma')
@@ -34,16 +41,35 @@ class EventShow extends React.Component {
     return (dateRange);
   }
 
+  renderGCalLink() {
+    const endDate = moment(this.props.scheduleEvent.endDate).utcOffset(this.props.scheduleEvent.endDate);
+    const startDate = moment(this.props.scheduleEvent.startDate).utcOffset(this.props.scheduleEvent.startDate);
+    const dateString = `${startDate.format('YYYYMMDD[T]HHmmss')}/${endDate.format('YYYYMMDD[T]HHmmss')}`;
+    const event = this.props.scheduleEvent;
+    const qS = queryString.stringify({
+      action: "TEMPLATE",
+      text: event.title,
+      dates: dateString
+    });
+    const href = "http://www.google.com/calendar/event?";
+
+    return (
+      <a href={href + qS} target="_blank">
+        Add to <img src={window.taskChampAssets.googleCalendarLogo}></img>
+      </a>
+    );
+  }
+
   render() {
     const event = this.props.scheduleEvent;
     if (event) {
-      const qS = queryString.stringify({
-        action: "TEMPLATE",
-        text: event.title,
-        dates: `${moment(event.startDate).format('YYYYMMDD[T]HHmmss')}/${moment(event.endDate).format('YYYYMMDD[T]HHmmss')}`
-      });
-      const href = "http://www.google.com/calendar/event?";
-      const dueDate = [moment(event.startDate).format('MMMM'), moment(event.startDate).format('D'), moment(event.startDate).format('dddd')]
+    //   const qS = queryString.stringify({
+    //     action: "TEMPLATE",
+    //     text: event.title,
+    //     dates: `${moment(event.startDate).format('YYYYMMDD[T]HHmmss')}/${moment(event.endDate).format('YYYYMMDD[T]HHmmss')}`
+    //   });
+    //   const href = "http://www.google.com/calendar/event?";
+      const dueDate = [moment(event.startDate).format('MMMM'), moment(event.startDate).format('D'), moment(event.startDate).format('dddd')];
       const participants = event.participants.map( user => {
         return (
           <img
@@ -65,10 +91,11 @@ class EventShow extends React.Component {
               <h2>
                 {event.title}
               </h2>
+              <p>{event.description}</p>
+              <div>
+                {this.renderGCalLink()}
+              </div>
 
-              <a href={href + qS} target="_blank">
-                Add to <img src={window.taskChampAssets.googleCalendarLogo}></img>
-              </a>
               <div className="separator">
                 <div className="avatar-group">
                   {participants}
