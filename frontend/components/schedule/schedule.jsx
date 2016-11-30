@@ -34,6 +34,7 @@ class Schedule extends React.Component {
 
   componentDidMount() {
     this.props.requestTodos();
+    this.props.requestEvents();
   }
 
   month() {

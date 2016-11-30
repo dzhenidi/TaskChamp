@@ -1,7 +1,7 @@
 class Api::EventsController < ApplicationController
 
   def index
-    @events = current_user.events
+    @events = current_user.events.order(start_date: :asc)
     render 'api/events/index'
   end
 

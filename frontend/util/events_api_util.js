@@ -22,3 +22,11 @@ export const fetchEvent = (id, success) => {
     success
   });
 };
+
+export const fetchEvents = success => {
+  $.ajax({
+    method: 'GET',
+    url: `api/events`,
+    success
+  });
+};
