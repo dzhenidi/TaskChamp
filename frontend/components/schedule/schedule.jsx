@@ -82,16 +82,20 @@ class Schedule extends React.Component {
     function todoGroup(todos) {
       let dueDate;
       let showItemLink;
+      let eventDetails;
 
       return todos.map ( todo => {
         if (todo.dueDate){
           dueDate = todo.dueDate;
           showItemLink = `/todos/${todo.id}`;
+          eventDetails = `For: ${todo.projectName}`;
         } else {
           const mon = moment(todo.startDate).format("MMM");
           const day = moment(todo.startDate).format("DD");
           dueDate = [mon, day];
           showItemLink = `/events/${todo.id}`;
+          const participants = todo.participants.map( user => <li>{user.username}</li> );
+          eventDetails = <ul><li>With:</li>{participants}</ul>;
         }
         return (
           <span className="checkbox-content schedule">
@@ -106,7 +110,9 @@ class Schedule extends React.Component {
               </li>
               <li>
                 <span className="project-title">
-                  {todo.projectName ? ("For: " + todo.projectName) : null }
+                  <div className="event-details">
+                    {eventDetails}
+                  </div>
                 </span>
               </li>
             </ul>
@@ -134,7 +140,6 @@ class Schedule extends React.Component {
 
   showEventForm(){
     this.toggleHidden();
-
   }
 
   hideForm(){

@@ -20,6 +20,7 @@ class EventForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
     this.updateUsersList = this.updateUsersList.bind(this);
     this.setStartDate = this.setStartDate.bind(this);
     this.setEndDate = this.setEndDate.bind(this);
@@ -45,7 +46,7 @@ class EventForm extends React.Component {
       // end_date: moment(this.state.ends).format("YYYY-MM-DD, h:mm:ss a"),
       users: usersIds,
     });
-  };
+  }
 
   update(property) {
     return e => this.setState({[property]: e.target.value});
@@ -93,7 +94,7 @@ class EventForm extends React.Component {
   }
 
   handleCancel() {
-
+    this.props.hideForm();
   }
 
   render(){
