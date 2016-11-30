@@ -114,7 +114,7 @@ class EventForm extends React.Component {
     } else {
 
       return (
-        <div className="event-form group">
+        <div className="event-form">
           <form
             onSubmit={this.handleSubmit}>
             <textarea
@@ -154,7 +154,7 @@ class EventForm extends React.Component {
               </div>
             </div>
 
-            <div className="event-form-item autocomplete group">
+            <div className="event-form-item autocomplete">
               <label className="event-form-label">With:</label>
               <div className="teammates-select-detail">
                 <Select
@@ -170,6 +170,7 @@ class EventForm extends React.Component {
               <label className="event-form-label">Details:</label>
               <div className="date-time-detail">
                 <textarea
+                  className="description"
                   value={this.state.description}
                   onChange={this.update("description")}/>
               </div>

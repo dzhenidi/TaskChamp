@@ -3,6 +3,8 @@ import queryString from 'query-string';
 import moment from 'moment';
 import BodyClassName from 'react-body-classname';
 import DueDate from '../todos/due_date';
+import { Link } from 'react-router';
+
 
 // https://calendar.google.com/calendar/render?action=TEMPLATE&dates=20161127T131632/20161128T161932&text=aaaaaaa&sf=true&output=xml#main_7
 
@@ -83,6 +85,11 @@ class EventShow extends React.Component {
       return (
         <BodyClassName className='body-home'>
           <div className= "project-show-container">
+
+            <div className="nav-history">
+              From: <Link to='/schedule'>Schedule</Link>
+            </div>
+
             <header className="scheduled-event">
               <DueDate dueDate={dueDate} format="long"/>
               <h3>

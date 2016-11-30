@@ -1,3 +1,14 @@
+ul.buttons-list {
+  a {
+    background-color: #fff;
+    border: 1px solid #bfbfbf;
+    border-bottom-width: 2px;
+    border-color: rgba(0,0,0,0.15);
+    color: #000;
+    margin: 9px 0;
+  }
+}
+
 header.scheduled-event {
 
     padding-top: 20px;
@@ -36,6 +47,10 @@ header.scheduled-event {
     h2 {
       margin-top: 20px;
       font-size: 40px;
+    }
+
+    p {
+      text-align: center;
     }
 
     a {

@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 import DueDate from '../todos/due_date';
 import BodyClassName from 'react-body-classname';
 import EventFormContainer from './event_form_container';
+import moment from 'moment';
 const MONTHS = {
   0: "January",
   1: "February",
@@ -56,30 +57,65 @@ class Schedule extends React.Component {
     10: [],
     11: []};
 
-    let todos = this.props.todos;
+    let todos = this.props.todos.concat(this.props.eventsSorted);
+    // todos.forEach ( todo => {
+    //     if (todo.dueMonth) {
+    //       let todoMonth = (parseInt(todo.dueMonth) - 1);
+    //       todosByMonth[todoMonth].push(todo);
+    //     }
+    // });
     todos.forEach ( todo => {
-        if (todo.dueMonth) {
-          let todoMonth = (parseInt(todo.dueMonth) - 1);
-          todosByMonth[todoMonth].push(todo);
-        }
+      let month;
+      if (todo.due_date) {
+
+        month = moment(todo.due_date).utcOffset(todo.due_date).format("M");
+      } else if (todo.startDate) {
+        month = moment(todo.startDate).utcOffset(todo.startDate).format("M");
+      }
+      let todoMonth = (parseInt(month) - 1);
+      todosByMonth[todoMonth].push(todo);
     });
     let current = this.state.thisMonth;
     let monthKeys = Object.keys(todosByMonth);
     let orderedKeys = monthKeys.slice(current).concat(monthKeys.slice(0, current));
-
+    //renders todos with title and link
     function todoGroup(todos) {
-      return todos.map ( todo =>
-        <span className="checkbox-content schedule">
-          <ul className="checkbox-content-list schedule group">
-            <li key={todo.id}>
-              <DueDate dueDate={todo.dueDate} format="short"/>
-            </li>
-            <li className="title-link"><Link to={`/todos/${todo.id}`} >{todo.title}</Link></li>
-            <li><span className="project-title">For: {todo.projectName}</span></li>
-          </ul>
-        </span>
+      let dueDate;
+      let showItemLink;
+
+      return todos.map ( todo => {
+        if (todo.dueDate){
+          dueDate = todo.dueDate;
+          showItemLink = `/todos/${todo.id}`;
+        } else {
+          const mon = moment(todo.startDate).format("MMM");
+          const day = moment(todo.startDate).format("DD");
+          dueDate = [mon, day];
+          showItemLink = `/events/${todo.id}`;
+        }
+        return (
+          <span className="checkbox-content schedule">
+            <ul className="checkbox-content-list schedule group">
+              <li key={todo.id}>
+                <DueDate dueDate={dueDate} format="short"/>
+              </li>
+              <li className="title-link">
+                <Link to={showItemLink}>
+                  {todo.title}
+                </Link>
+              </li>
+              <li>
+                <span className="project-title">
+                  {todo.projectName ? ("For: " + todo.projectName) : null }
+                </span>
+              </li>
+            </ul>
+          </span>
+        );}
       );
     }
+
+    //renders months and corresponding todos
     return orderedKeys.map ( month => {
       return (
         <div className={"month-container " + MONTHS[month]}>
