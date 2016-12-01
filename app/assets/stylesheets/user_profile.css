@@ -1,0 +1,17 @@
+.profile-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.profile-container > h2, .profile-container >  h1 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.profile-container > form {
+
+}
+
+.profile-container > h1 {
+
+}

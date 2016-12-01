@@ -7,7 +7,8 @@ class UserProfile extends React.Component {
     this.state = {
       imageUrl: this.props.currentUser.avatarUrl || null,
       imageFile: null,
-      events: []
+      events: [],
+      name: this.props.currentUser.username
     };
 
     this.updateFile = this.updateFile.bind(this);
@@ -113,9 +114,10 @@ class UserProfile extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="profile-container">
+        <h1>{this.state.name + "'s Profile"}</h1>
         <img src={this.state.imageUrl} className="user-thumbnail"/>
-        <div>Upload Profile Picture</div>
+        <h2>Upload Profile Picture</h2>
         <form
           className="profile-form"
           onSubmit={this.handleSubmit}>
@@ -127,12 +129,13 @@ class UserProfile extends React.Component {
             className="small home-button"
             >Save</button>
         </form>
-        <button
-          onClick={this.connectGoogle}>Google Calendar
-        </button>
       </div>
     );
   }
 }
+
+// <button
+//   onClick={this.connectGoogle}>Google Calendar
+// </button>
 
 export default UserProfile;
