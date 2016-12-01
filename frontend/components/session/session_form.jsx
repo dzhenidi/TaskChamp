@@ -91,12 +91,11 @@ class SessionForm extends React.Component {
                 value={buttonHeader}/>
             </label>
           </form>
-          <div></div>
-          <Link to={linkTo}>{linkHeader}</Link>
-          <a href="/auth/google_oauth2/" className="google-link">
-            <div className="google-logo"></div>
-            <p>Sign in with Google</p>
-          </a>
+          <div className="google-signin">
+            <a href="/auth/google_oauth2/" className="google-link">
+              <img src={window.taskChampAssets.googleSigninButton}/>
+            </a>
+          </div>
         </section>
 
       </div>

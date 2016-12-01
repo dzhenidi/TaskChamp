@@ -110,6 +110,19 @@
   background: -webkit-gradient(linear, left top, left bottom, from(#8fc857), to(#5c9425));
 }
 
+span.submit.google {
+    border-radius: 4px;
+    border: 1px solid #bfbfbf;
+    display: block;
+    font-size: 15px;
+    padding: 10px 30px;
+    font-weight: 600;
+    background: #5c9425;
+    background: -webkit-gradient(linear, left top, left bottom, from(#8fc857), to(#5c9425));
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 .signup-form select {
   background: transparent;
   border: 1px solid #bfbfbf;
