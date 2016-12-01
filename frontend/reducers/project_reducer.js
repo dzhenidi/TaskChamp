@@ -29,7 +29,7 @@ const ProjectsReducer = (state = {}, action) => {
         return state;
       }
     case PROJECT_ERROR:
-      alert(action.error);
+      // alert(action.error);
       break;
     case RECEIVE_COMMENT:
       if (action.comment.commentable_type === 'Project') {

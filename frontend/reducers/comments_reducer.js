@@ -12,7 +12,7 @@ const CommentsReducer = (state = {}, action) => {
       let newComment = {[action.comment.id]: action.comment};
       return Object.assign({}, state, newComment);
     case COMMENT_ERROR:
-      alert(action.error);
+      // alert(action.error);
       break;
     default:
       return state;

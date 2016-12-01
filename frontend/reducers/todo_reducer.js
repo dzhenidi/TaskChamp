@@ -19,7 +19,7 @@ const TodosReducer = (state = {}, action) => {
       delete newState[action.todo.id];
       return newState;
     case TODO_ERROR:
-      alert(action.error);
+      // alert(action.error);
       break;
     case RECEIVE_COMMENT:
       if (action.comment.commentable_type === 'Todo') {
