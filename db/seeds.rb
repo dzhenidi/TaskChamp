@@ -1,71 +1,80 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+
 Team.destroy_all
 
 team_rolling = Team.create(name: "Rolling Press, Inc")
 team_distance = Team.create(name: "The Distance Podcast")
-team_gowanus = Team.create(name: "Gowanus Nursery")
-team_coworkrs = Team.create(name: "Coworkrs on Forth")
-team_reuse = Team.create(name: "Big Reuse Brooklyn")
+
 
 User.destroy_all
-users = User.create([
-  #TEAM 1: 1-3
-  { username: "Eugene M", password: "starwars", email: "eugene@rollingpress.com", team_id: team_rolling.id},
-  { username: "Jon B.", password: "starwars", email: "jonb@rollingpress.com", team_id: team_rolling.id},
-  { username: "J. Roberts", password: "starwars", email: "jroberts@rollingpress.com", team_id: team_rolling.id}
 
-  ])
+  #Rolling Users
+  eugene = User.create(
+    { username: "Eugene M", password: "starwars", email: "eugene@rollingpress.com", team_id: team_rolling.id}
+  )
+  jonb = User.create(
+    { username: "Jon B.", password: "starwars", email: "jonb@rollingpress.com", team_id: team_rolling.id}
+  )
+  jroberts = User.create(
+    { username: "J. Roberts", password: "starwars", email: "jroberts@rollingpress.com", team_id: team_rolling.id}
+  )
 
+#Distance Users
 kristen = User.create(
-{ username: "Kristen M.", password: "starwars", email: "kristen@rollingpress.com", team_id: team_distance.id}
+  { username: "Kristen M.", password: "starwars", email: "kristen@distance.com", team_id: team_distance.id}
 )
 cheryl = User.create(
-{ username: "Cheryl Walters", password: "starwars", email: "cwalters@honchodesign.com", team_id: team_distance.id}
+{ username: "Cheryl Walters", password: "starwars", email: "cwalters@distance.com", team_id: team_distance.id}
 )
 victor = User.create(
-{ username: "Victor Cooper", password: "starwars", email: "vcoopers@honchodesign.com", team_id: team_distance.id}
+{ username: "Victor Cooper", password: "starwars", email: "vcoopers@distance.com", team_id: team_distance.id}
 )
 jennifer = User.create(
-{ username: "Jennifer Young", password: "starwars", email: "jyoung@honchodesign.com", team_id: team_distance.id}
+{ username: "Jennifer Young", password: "starwars", email: "jyoung@distance.com", team_id: team_distance.id}
 )
 josh = User.create(
-{ username: "Josh Fiske", password: "starwars", email: "jfiske@honchodesign.com", team_id: team_distance.id}
+{ username: "Josh Fiske", password: "starwars", email: "jfiske@distance.com", team_id: team_distance.id}
 )
 andrew = User.create(
-{ username: "Andrew Wong", password: "starwars", email: "awong@honchodesign.com", team_id: team_distance.id}
+{ username: "Andrew Wong", password: "starwars", email: "awong@distance.com", team_id: team_distance.id}
 )
 
 Project.destroy_all
-projects = Project.create([
 
-  #TEAM 1
-  { title: "Spring curriculum professional development session",
-    description: "Tentatively scheduled for mid-November. Expected number of participants: 30-50.",
-    team_id: 1,
-    author_id: 1},
-  { title: "Alumni outreach week",
-    description: "top priority last week of October",
-    team_id: 1,
-    author_id: 1},
-  { title: "Curriculum First Draft",
-    team_id: 1,
-    author_id: 3},
-  { title: "New Student orientation booklet",
-    team_id: 1,
-    author_id: 3},
-  { title: "New Product launch",
-    description: "super secret product will be launched new years eve",
-    team_id: 1,
-    author_id: 2}
+#Rolling
+rolling_project1 = Project.create(
+{ title: "Spring curriculum professional development session",
+  description: "Tentatively scheduled for mid-November. Expected number of participants: 30-50.",
+  team_id: team_rolling.id,
+  author_id: eugene.id}
+)
 
-  ])
+rolling_project2 = Project.create(
+{ title: "Alumni outreach week",
+  description: "top priority last week of October",
+  team_id: team_rolling.id,
+  author_id: eugene.id}
+)
 
+rolling_project3 = Project.create(
+{ title: "Curriculum First Draft",
+  team_id: team_rolling.id,
+  author_id: victor.id}
+)
+
+rolling_project4 = Project.create(
+{ title: "New Student orientation booklet",
+  team_id: team_rolling.id,
+  author_id: victor.id}
+)
+
+rolling_project5 = Project.create(
+{ title: "New Product launch",
+  description: "super secret product will be launched new years eve",
+  team_id: team_rolling.id,
+  author_id: victor.id}
+)
+
+#CARMA
 carma_ten = Project.create(
 { title: "Episode 10: Carma Labs I",
   description: "Alfred Woelbing made the first batch of Carmex in 1937. He was looking for a cold sore treatment but came up with a hit lip balm instead. Nearly 80 years later, Carma Labs is still private, independent and under family ownership. And the formula hasn't changed very much — it's just made in 100 gallon drums instead of a 12-quart pot.",
@@ -82,47 +91,60 @@ carma_eleven = Project.create(
 
 
 Todo.destroy_all
-todos = Todo.create([
-  #TEAM 1 - 6
-  { title: "book space",
-    description: "seating over 40 people",
-    due_date: "10-08-16",
-    author_id: 1,
-    todoer_id: 2,
-    project_id: 1
-  },
-  { title: "order food",
-    description: "to arrive before 9am",
-    due_date: "10-09-16",
-    author_id: 1,
-    todoer_id: 2,
-    project_id: 1
-  },
-  { title: "format powerpoint presentation",
-    due_date: "10-10-16",
-    author_id: 1,
-    todoer_id: 2,
-    project_id: 1
-  },
-  { title: "update contact info",
-    due_date: "11-10-16",
-    author_id: 1,
-    todoer_id: 3,
-    project_id: 2
-  },
-  { title: "draft newsletter",
-    due_date: "10-20-16",
-    author_id: 1,
-    todoer_id: 3,
-    project_id: 2
-  },
-  { title: "book photo session",
-    due_date: "10-23-16",
-    author_id: 1,
-    todoer_id: 1,
-    project_id: 2
-  },
-  ])
+  #Rolling
+  rolling_todo1 = Todo.create(
+    { title: "book space",
+      description: "seating over 40 people",
+      due_date: "10-08-16",
+      author_id: eugene.id,
+      todoer_id: jroberts.id,
+      project_id: rolling_project1
+    }
+
+  )
+  rolling_todo2 = Todo.create(
+
+    { title: "order food",
+      description: "to arrive before 9am",
+      due_date: "12-09-16",
+      author_id: eugene.id,
+      todoer_id: jroberts.id,
+      project_id: rolling_project1
+    }
+  )
+  rolling_todo3 = Todo.create(
+      { title: "format powerpoint presentation",
+        due_date: "12-10-16",
+        author_id: eugene.id,
+        todoer_id: jroberts.id,
+        project_id: rolling_project1
+      }
+  )
+  rolling_todo4 = Todo.create(
+    { title: "update contact info",
+      due_date: "01-10-17",
+      author_id: jonb.id,
+      todoer_id: eugene.id,
+      project_id: rolling_project2
+    }
+  )
+  rolling_todo5 = Todo.create(
+
+    { title: "draft newsletter",
+      due_date: "02-20-17",
+      author_id: jonb.id,
+      todoer_id: eugene.id,
+      project_id: rolling_project2
+    }
+  )
+  rolling_todo6 = Todo.create(
+    { title: "book photo session",
+      due_date: "03-23-17",
+      author_id: jonb.id,
+      todoer_id: eugene.id,
+      project_id: rolling_project3
+    }
+  )
   # TEAM 2: 7-21   kristen cheryl victor jennifer josh andrew carma_te carma_eleven
 t1 = Todo.create(
 { title: "copy editing",
