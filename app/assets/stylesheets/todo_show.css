@@ -97,6 +97,11 @@
   vertical-align: bottom;
 }
 
+.attachment img {
+  max-width: 300px;
+  height: auto;
+}
+
 button.mark-done.button {
   font-size:12px;
   font-weight: normal;
