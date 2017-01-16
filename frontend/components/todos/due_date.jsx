@@ -1,10 +1,12 @@
 import React from 'react';
 
 const DueDate = ({dueDate, format}) => {
-
-  if (dueDate.length === 0) {
+  if (dueDate.length === 0 || dueDate[0] === "Invalid date") {
     return (<div></div>);
   } else {
+    // const mon = moment(dueDate).format("MMM");
+    // const day = moment(dueDate).format("DD");
+    // dueDate = [mon, day];
     const month = dueDate[0];
     const day = dueDate[1];
 

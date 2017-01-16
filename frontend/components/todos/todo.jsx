@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import DueDate from './due_date';
+import moment from 'moment';
 
 class Todo extends React.Component {
   constructor(props) {
@@ -20,8 +21,11 @@ class Todo extends React.Component {
   }
 
   render() {
-    const { title, author, done, id, todoer, description, dueDate } = this.props.todo;
+    const { title, author, done, id, todoer, description, due_date } = this.props.todo;
     const toggleTodo = this.props.toggleTodo;
+    const mon = moment(due_date).format("MMM");
+    const day = moment(due_date).format("DD");
+    let dueDate = [mon, day];
 
     return (
       <li className="todo-item">

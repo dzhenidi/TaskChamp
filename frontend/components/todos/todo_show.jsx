@@ -5,7 +5,7 @@ import BodyClassName from 'react-body-classname';
 import TodoFormContainer from './todo_form_container';
 import CommentsIndexContainer from '../comments/comments_index_container';
 import { DisplayFiles } from '../files/display_files';
-
+import moment from 'moment';
 
 class TodoShow extends React.Component {
   constructor(props){
@@ -86,6 +86,9 @@ class TodoShow extends React.Component {
 
   todoTable(){
     let todo = this.props.todo[this.props.id];
+    const mon = moment(todo.due_date).format("MMM");
+    const day = moment(todo.due_date).format("DD");
+    let dueDate = [mon, day];
     if (this.state.hidden) {
       return (
         <section className="todo-details-container">
@@ -110,7 +113,7 @@ class TodoShow extends React.Component {
               </tr>
               <tr>
                 <th>Due on</th>
-                <td><DueDate dueDate={todo.dueDate} format="short"/></td>
+                <td><DueDate dueDate={dueDate} format="short"/></td>
               </tr>
               <tr>
                 <th>Assigned to</th>

@@ -56,14 +56,8 @@ class Schedule extends React.Component {
     9: [],
     10: [],
     11: []};
+    let todos = this.props.todosSorted.concat(this.props.eventsSorted);
 
-    let todos = this.props.todos.concat(this.props.eventsSorted);
-    // todos.forEach ( todo => {
-    //     if (todo.dueMonth) {
-    //       let todoMonth = (parseInt(todo.dueMonth) - 1);
-    //       todosByMonth[todoMonth].push(todo);
-    //     }
-    // });
     todos.forEach ( todo => {
       let month;
       if (todo.due_date) {
@@ -84,21 +78,24 @@ class Schedule extends React.Component {
       let showItemLink;
       let eventDetails;
 
-      return todos.map ( todo => {
-        if (todo.dueDate){
-          dueDate = todo.dueDate;
+      return todos.map ( (todo, idx) => {
+        if (todo.due_date){
+          dueDate = todo.due_date;
           showItemLink = `/todos/${todo.id}`;
           eventDetails = `For: ${todo.projectName}`;
         } else {
-          const mon = moment(todo.startDate).format("MMM");
-          const day = moment(todo.startDate).format("DD");
-          dueDate = [mon, day];
+          dueDate = todo.startDate;
           showItemLink = `/events/${todo.id}`;
-          const participants = todo.participants.map( user => <li>{user.username}</li> );
+          const participants = todo.participants.map( (user, i) => (
+            <li key={i}>{user.username}</li>
+          ));
           eventDetails = <ul><li>With:</li>{participants}</ul>;
         }
+        const mon = moment(dueDate).format("MMM");
+        const day = moment(dueDate).format("DD");
+        dueDate = [mon, day];
         return (
-          <span className="checkbox-content schedule">
+          <span className="checkbox-content schedule" key={idx}>
             <ul className="checkbox-content-list schedule group">
               <li key={todo.id}>
                 <DueDate dueDate={dueDate} format="short"/>
@@ -122,9 +119,9 @@ class Schedule extends React.Component {
     }
 
     //renders months and corresponding todos
-    return orderedKeys.map ( month => {
+    return orderedKeys.map ( (month, idx) => {
       return (
-        <div className={"month-container " + MONTHS[month]}>
+        <div className={"month-container " + MONTHS[month]} key={idx}>
           <header className={"month " + MONTHS[month]}>
             {MONTHS[month]}
           </header>
@@ -147,12 +144,7 @@ class Schedule extends React.Component {
   }
 
   render(){
-    let todos = this.props.todos;
-    if (Object.keys(todos).length === 0) {
-      return(
-        <div></div>
-      );
-    } else {
+
       return (
         <BodyClassName className='body-home'>
 
@@ -176,7 +168,6 @@ class Schedule extends React.Component {
         </BodyClassName>
 
       );
-    }
   }
 }
 

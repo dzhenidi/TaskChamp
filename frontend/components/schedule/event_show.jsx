@@ -72,9 +72,10 @@ class EventShow extends React.Component {
     //   });
     //   const href = "http://www.google.com/calendar/event?";
       const dueDate = [moment(event.startDate).format('MMMM'), moment(event.startDate).format('D'), moment(event.startDate).format('dddd')];
-      const participants = event.participants.map( user => {
+      const participants = event.participants.map( (user, idx) => {
         return (
           <img
+            key={idx}
             src={user.avatar}
             className="user-thumbnail"
             title={user.username}
